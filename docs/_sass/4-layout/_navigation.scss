@@ -15,17 +15,15 @@ $text-invert: #{map-get($swatches, 'light')};
     padding: 0;
   }
   > .nav__link {
-    &:first-of-type {
-      background-color: #{map-get($swatches, 'primary')};
-      &:active,
-      &:link,
-      &:hover,
-      &:visited {
-        color: $text-invert;
-      }
-    }
+    background-color: #{map-get($swatches, 'primary')};
     position: relative;
     padding: 1em 0 1em $nav-link-indent-base;
+    &:active,
+    &:link,
+    &:hover,
+    &:visited {
+      color: $text-invert;
+    }
     &:hover {
       background-color: #{map-get($swatches, 'secondary')};
     }

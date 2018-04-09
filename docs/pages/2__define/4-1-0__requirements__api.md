@@ -6,6 +6,8 @@ permalink: define/requirements/api/
 title: API
 ---
 
+Zullen gelijkaardig zijn aan de requirements van de frontoffice
+
 Functional Requirements
 -----------------------
 

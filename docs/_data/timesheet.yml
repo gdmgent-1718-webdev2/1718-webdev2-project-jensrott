@@ -2,26 +2,114 @@
 # ║ Student ║
 # ╚═════════╝
 -
-  time: 0.25
-  task: Lorem ipsum sit dolor amet.
+  time: 2.00
+  task: Leren van Laravel (26/02/2018)
+-
+  time: 3.00
+  task: Gewerkt aan Analyse (Concurrentie Analyse) . (27/02/2018)
+-
+  time: 2.00
+  task: Opmaak wat properder maken en werken aan scenarios. (28/02/2018)
+-
+  time: 2.50
+  task: Scenarios backoffice afgewerkt en aan wireframes gewerkt (1/03/2018)
+-
+  time: 2.50
+  task: Scenarios frontoffice, wireframes backoffice (2/03/2018).
+-
+  time: 4.00
+  task: Wireframes van backoffice afgewerkt, en laravel tutorial gedaan (3/03/2018).
+-
+  time: 3.00
+  task: Wireframes frontoffice, laravel geleerd. (4/03/2018)
+-
+  time: 2.00
+  task: Wireframes frontoffice, scenarios. (5/03/2018)
+-
+  time: 2.50
+  task: Wireframes frontoffice, al visual design in illustrator van frontoffice begonnen (6/03/2018)
+-
+  time: 1.00
+  task: Wireflow al wat begonnen, laravel geleerd (7/03/2018)
+-
+  time: 2.00 
+  task: Wireframes frontoffice , visual designs(8/03/2018)
+-
+  time: 2.00
+  task: Laravel coderen aan backoffice (9/03/2018)
+-
+  time: 4.00
+  task: Wireframes frontoffice bijna afgewerkt en sitemap backoffice gemaakt en Laravel geleerd(11/03/2018)
 -
   time: 5.00
-  task: Lorem ipsum sit dolor amet.
+  task: Style-tiles volledig gemaakt, ook nog wat gecodeerd. (12/03/2018)
 -
-  time: 3.75
-  task: Lorem ipsum sit dolor amet.
+  time: 2.50
+  task: Laravel programmeren aan de back-end, login/register opstellen, layout (13/03/2018)
 -
-  time: 1.25
-  task: Lorem ipsum sit dolor amet.
+  time: 2.00
+  task: Coderen met Laravel (14/03/2018)
 -
-  time: 2.5
-  task: Lorem ipsum sit dolor amet.
+  time: 2.00
+  task: Coderen met Laravel (15/03/2018)
 -
-  time: 16
-  task: Lorem ipsum sit dolor amet.
+  time: 3.50
+  task: Wireflow van de frontoffice gemaakt in Experience Design. (16/03/2018)
 -
-  time: 200.25
-  task: Lorem ipsum sit dolor amet.
+  time: 1.00
+  task: Wireflow afgewerkt van frontoffice in mobiel (17/03/2018)
 -
-  time: .25
-  task: Lorem ipsum sit dolor amet.
+  time: 1.50
+  task: Wireflow frontoffice gemaakt voor desktop (19/03/2018)
+-
+  time: 5.00
+  task: Coderen van de backoffice, datamodel gemaakt en integreren in laravel (20/03/2018)
+-
+  time: 1.00
+  task: Niet veel gedaan , een beetje aan de backoffice gecodeerd (21/03/2018)
+-
+  time: 3.00
+  task: Database model volledig gemaakt op papier en digitaal in Laravel (22/03/2018)
+-
+  time: 1.00
+  task: Feedback op database model toegepast (23/03/2018)
+-
+  time: 1.50
+  task: Gewerkt aan de wireflow van frontoffice (25/03/2018)
+-
+  time: 4.00
+  task: Gewerkt aan de wireflow van frontoffice en aan authenticatie gewerkt in laravel. (26/03/2018)
+-
+  time: 2.00
+  task: Gewerkt aan de designs van frontoffice en aan authenticatie gewerkt in laravel. (28/03/2018)
+-
+  time: 3.00
+  task: Gecodeerd in laravel , authenticatie. (26/03/2018)
+-
+  time: 2.50
+  task: Designs van frontoffice gemaakt (30/03/2018)
+-
+  time: 5.00
+  task: Gecodeerd aan de frontoffice (31/03/2018)
+-
+  time: 6.00
+  task: Gecodeerd aan de frontoffice (01/04/2018)
+-
+ time: 2.00
+ task: Gecodeerd aan de frontoffice (02/04/2018)
+-  
+  time: 4.00
+  task: Gecodeerd aan de frontoffice (03/04/2018)
+-
+  time: 4.00
+  task: Gecodeerd aan de frontoffice, structuur wat aangepast (04/04/2018)
+-
+  time: 6.00
+  task: Gecodeerd aan de backoffice (05/04/2018)
+-
+  time: 4.00
+  task: Gecodeerd aan de backoffice (06/04/2018)
+-
+  time: 6.00
+  task: Gecodeerd aan de backoffice (08/04/2018)
+-

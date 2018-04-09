@@ -13,6 +13,29 @@ $swatches: (
   secondary-dark : #BA000D,
   light          : #FFFFFF,
   dark           : #F5F5F5,
+  vintagegreen   : #76c9b3,
+  backgroundgreen: #414947, 
+);
+
+/* The swatches I might use */
+$myswatch : (
+  color1 : #676660,
+  color2 : #eaea95,
+  color3 : #e6e6d8,
+  color4 : #666643,
+  color5 : #b3b3a8,
+  color6 : #00a99d, // Really liked this one, not from Adobe Kuler ^_^
+);
+
+/* The swatches I will use */
+$mainswatch : (
+  bg: #e6e6d8,
+  headinghover : #00a99d,
+  betterheading: #697170,
+  subtitle: #005C56,
+  othersubtitle: #A93800,
+  txt : #000000,
+  dangertext : #A93800,
 );
 
 // Fonts
@@ -177,8 +200,9 @@ $ms00: 1 !default;
 $base-margin: 16px;
 $base-padding: 1.5rem;
 
-$base-font-family: 'Source Sans Pro', sans-serif;
-$primary-font-family: 'Roboto', sans-serif;
+//$base-font-family: 'Source Sans Pro', sans-serif;
+$primary-font-family: 'Open Sans', sans-serif; // Title
+$base-font-family: 'Roboto', sans-serif; // Text 
 $secondary-font-family: $base-font-family;
 $code-font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $sans-serif-font-family: sans-serif;

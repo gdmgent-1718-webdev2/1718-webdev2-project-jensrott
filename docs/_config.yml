@@ -11,12 +11,7 @@ baseurl: /1718-webdev2-project # the subpath of your site, e.g. /blog
 
 # Custom Site variables
 # ─────────────────────
-title      : Web Development II
-year       : 2017-2018
-project    : «PROJECTNAAM»
-given_name : «VOORNAAM»
-family_name: «FAMILIENAAM»
-
+title: Web Development II
 
 # Build settings
 # ──────────────

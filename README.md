@@ -1,7 +1,7 @@
 Web Development II 2017-2018
 ============================
 
-Student: «VOORNAAM» «FAMILIENAAM»
+Student: Jens Rottiers
 
 > Artevelde University College Ghent
 

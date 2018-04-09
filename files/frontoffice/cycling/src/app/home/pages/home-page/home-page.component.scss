@@ -1,0 +1,84 @@
+@import 'app.scss';
+@import 'abstracts/helpers';
+
+.center-text {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .main-text {
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 17px;
+    }
+    
+    
+    .main-title {
+        display: inline-block;
+        margin: 0;
+    
+    }
+}
+
+.middle {
+    margin-bottom: 70px;
+
+    /* TODO: rescaling the images */
+    img {
+        width: 300px;
+        height: auto;
+    }
+}
+
+
+
+.bottom-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    
+
+    &__custom-icon {
+        color: map-get($mainswatch , betterheading);
+        font-size: 100px;
+        &:hover {
+            color: map-get($mainswatch , headinghover);
+        }
+
+        /*
+        &:focus {
+            background-color: map-get($mainswatch , betterheading );
+        }
+        */
+    }
+    
+}
+
+/* After Icon Eventueel kan ik dit als helper gebruiken*/
+.popular {
+    display: flex;
+
+    a {
+        display: flex;
+        margin-left: auto;
+        text-decoration: none;
+        color: #707070;
+        font-size: 1.5em;
+        font-family: $primary-font-family;
+        font-weight: bold;
+        margin-top: 28px;
+
+        &:hover {
+            text-decoration: none;
+            color: map-get($mainswatch , headinghover);
+        }
+    }
+
+    &__custom-icon2 {
+        font-size: 50px;
+        margin-left: 11px;
+        margin-top: 13px;
+        color: #707070;
+    }
+}

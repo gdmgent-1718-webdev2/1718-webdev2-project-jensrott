@@ -11,3 +11,8 @@ Functional Requirements
 
 Non-Functional Requirements
 ---------------------------
+
+Hieronder vind u de requirements voor de 
+api  
+backoffice 
+frontoffice

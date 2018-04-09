@@ -1,0 +1,20 @@
+/* The swatches I will use */
+$mainswatch : (
+        bg: #e6e6d8,
+        headinghover : #00a99d,
+        heading : #697170,
+        subtitle: #005C56,
+        othersubtitle: #A93800,
+        txt : #000000,
+        dangertext : #A93800,
+);
+
+// Body
+$body-bg: map-get($mainswatch, bg);
+$body-color: map_get($mainswatch, txt);
+
+// Typography
+$base-margin: 16px;
+$primary-font-family: 'Open Sans', sans-serif; // Title
+$base-font-family: 'Roboto', sans-serif; // Text
+$line-height-base: 1.5;

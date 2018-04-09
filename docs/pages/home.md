@@ -6,19 +6,7 @@ permalink: home
 title: Opdracht WEBDEV-II
 ---
 
-{{ site.title }}
+Wie ben ik?
+-----------
 
-Academiejaar 2017-2018
-
----
-
-### {{ site.project }}
-#### {{ site.given_name }} {{ site.family_name }}
-
----
-
-New Media Development
-
-Ba. in de grafische en digitale media: multimediaproductie
-
-Arteveldehogeschool
+Jens Rottiers, 2MMP NMD
