@@ -22,7 +22,8 @@ class ProductsTableSeeder extends Seeder
                 'picture' => $faker->linuxProcessor,
                 'start_of_bid_period' => $faker->dateTime,
                 'end_of_bid_period' => $faker->dateTime,
-                'offered_by' => $faker->name,
+                'user_id' => rand(1,10),
+                'category_id' => rand(1,10),
             ]);
         }
     }

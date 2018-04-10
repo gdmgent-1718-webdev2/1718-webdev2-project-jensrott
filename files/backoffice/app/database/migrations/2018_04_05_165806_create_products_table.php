@@ -24,9 +24,10 @@ class CreateProductsTable extends Migration
             $table->string('picture'); // Later anders, geen string natuurlij
             $table->date('start_of_bid_period');
             $table->date('end_of_bid_period');
-            $table->string('offered_by'); // many to one , verbonden met user en admins
+            $table->integer('user_id'); // many to one , verbonden met users, offered_by
             $table->timestamps(); // Datum dat product is gemaakt
-            // $table->integer('category_id');
+            $table->integer('category_id'); // Verbonden met category one to many
+            // 1 category kan meerdere producten bevatten.
         });
     }
 

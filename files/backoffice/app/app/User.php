@@ -29,4 +29,13 @@ class User extends Authenticatable
     ];
 
     protected $table = 'users';
+
+    // One User has many Products
+
+    /*** Relationship Products ***/
+
+    public function product()
+    {
+        return $this->hasMany('App\Product');
+    }
 }

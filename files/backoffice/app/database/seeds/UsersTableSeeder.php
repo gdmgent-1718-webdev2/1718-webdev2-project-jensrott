@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
 
     public function run(Faker $faker)
     {
-        for($i = 0; $i <= 99; $i++) {
+        for($i = 0; $i <= 9; $i++) {
             DB::table(self::TABLE)->insert([
                 'user_name' => $faker->userName,
                 'first_name' => $faker->firstName,
@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
                 'address_location' => $faker->city, // Later afleiden van u postcode.
                 'address_country' => $faker->country,
 
-                'password' => $faker->password,
+                'password' => password_hash($faker->password, PASSWORD_DEFAULT),
             ]);
         }
     }

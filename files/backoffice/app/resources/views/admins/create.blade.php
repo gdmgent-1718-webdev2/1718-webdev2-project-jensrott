@@ -93,13 +93,15 @@
                                 <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="role" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" value="{{ old('role') }}" required>
+                                    <select id="role" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" required>
 
-                                    @if ($errors->has('role'))
-                                        <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('role') }}</strong>
-                                    </span>
-                                    @endif
+                                            <option>
+                                                Admin
+                                            </option>
+                                            <option>
+                                                Super-Admin
+                                            </option>
+                                    </select>
                                 </div>
                             </div>
 

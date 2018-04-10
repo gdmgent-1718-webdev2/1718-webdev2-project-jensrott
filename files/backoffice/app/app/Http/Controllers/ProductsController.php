@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Product;
+use App\Category;
+use App\User;
 
 class ProductsController extends Controller
 {
@@ -20,7 +22,10 @@ class ProductsController extends Controller
     {
         $title = $this->title;
         $products = DB::table('products')->orderBy('id', 'desc')->get();
-        return view('products.index', compact('title', 'products'));
+        $usersIds = DB::select('select id from users where id = id'); // Query nog aanpassen
+        //var_dump($usersIds);
+        //$users = Product::find($usersIds)->user;
+        return view('products.index', compact('title', 'products', 'usersIds'));
     }
 
     /**
@@ -30,8 +35,10 @@ class ProductsController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
+        $users = User::all();
         $title = $this->title;
-        return view('products.create', compact('title'));
+        return view('products.create', compact('title', 'categories', 'users'));
     }
 
     /**

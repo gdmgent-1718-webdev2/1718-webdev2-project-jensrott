@@ -14,7 +14,7 @@ of minder recente wielrennen. De items komen van mensen die deze hebben aangebod
 
 Volgende items zullen mogen worden verkocht of op geboden worden. De beheerder heeft ook de mogelijkheid om categorieën toe te voegen en te wijzigen.
   Categorieën:
-1. Foto's/kaartjes oud renners
+1. Foto's oud renners
 1. Wielerschoenen
 1. Wielertruitjes
 1. Sokken

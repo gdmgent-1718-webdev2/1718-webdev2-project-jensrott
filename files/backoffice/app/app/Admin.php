@@ -30,4 +30,11 @@ class Admin extends Authenticatable
 
     protected $table = 'admins';
 
+    /*** Relationship Products ***/
+    /* One Admin can have many Products
+    public function product()
+    {
+        return $this->hasMany('App\Product');
+    }
+    */
 }

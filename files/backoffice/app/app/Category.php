@@ -13,4 +13,15 @@ class Category extends Model
         'description',
     ];
 
+    /**
+     * Get the product that belong to a category.
+     * One category has many products
+     */
+
+    /*** Relationship Products ***/
+    public function products() {
+
+        return $this->hasMany('App\Product');
+    }
+
 }

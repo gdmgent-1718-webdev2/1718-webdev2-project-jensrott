@@ -22,8 +22,8 @@ class CreateBidsTable extends Migration
             $table->increments(self::PK);
             $table->timestamps();
             $table->date('date'); // Updates every time someone makes a new bid
-           // $table->integer('user_id'); // We see which user made a bid
-           // $table->integer('product_id'); // We see for everyone product
+            $table->integer('user_id'); // We see which user made a bid
+            $table->integer('product_id'); // We see for everyone product
             $table->integer('value'); // Value of the item, updated every time
             $table->string('status'); // Accepted, Pending, Declined
         });

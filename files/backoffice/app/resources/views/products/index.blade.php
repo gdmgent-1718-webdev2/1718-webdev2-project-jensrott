@@ -103,7 +103,9 @@
                             <tbody>
                             <tr>
                                 <td>{{$product->name}}</td>
-                                <td>{{$product->offered_by}}</td>
+
+                                <td></td>
+
 
                                 <td>
                                     <form action={{route('products.show', $product->id)}}>

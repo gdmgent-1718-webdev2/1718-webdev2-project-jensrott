@@ -12,7 +12,7 @@ class CreateCategoriesTable extends Migration
      * @return void
      */
     const TABLE = 'categories';
-    const PK = 'id';
+    const PK = 'id'; // Verbonden met product , one to many
     const FK = 'category_id';
 
     public function up()
@@ -23,6 +23,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('picture');
+            // 1 category kan meerdere producten bevatten.
         });
     }
 

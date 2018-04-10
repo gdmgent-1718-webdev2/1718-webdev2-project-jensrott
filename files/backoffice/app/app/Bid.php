@@ -13,4 +13,11 @@ class Bid extends Model
         'value',
         'status',
     ];
+
+    // Many to one, many bids belong to one product
+    /*** Relationship Products ***/
+    public function product() {
+
+        return $this->belongsTo('App\Product');
+    }
 }
