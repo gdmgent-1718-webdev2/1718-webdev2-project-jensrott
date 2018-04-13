@@ -1,21 +1,28 @@
 @extends('layouts.app')
     @section('content')
-        <title>Document</title>
+        <title>Detailpage {{$title}}</title>
         <!-- Detailpagina van een user -->
+        <div class="card">
+            <div class="card-header">
+                <h1>Detailpage {{$title}}</h1>
+                <p>ID: {{$user->id}}</p>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item">{{$user->user_name}}</li>
+                    <li class="list-group-item">{{$user->first_name}}</li>
+                    <li class="list-group-item">{{$user->last_name}}</li>
+                    <li class="list-group-item">{{$user->email}}</li>
+                    <li class="list-group-item">Date created:{{$user->created_at}}</li>
 
-        <h1>Detailpage {{$title}}</h1>
-        <p>{{$user->id}}</p>
-        <p>{{$user->user_name}}</p>
-        <p>{{$user->first_name}}</p>
-        <p>{{$user->last_name}}</p>
-        <p>{{$user->email}}</p>
-        <p>Date created:{{$user->created_at}}</p>
 
-        <h1>Address</h1>
-        <p>{{$user->address_street}}</p>
-        <p>{{$user->address_number}}</p>
-        <p>{{$user->address_postcode}}</p>
-        <p>{{$user->address_location}}</p>
-        <p>{{$user->address_number}}</p>
-        <a href="/users"><span data-feather="arrow-left" class="back-arrow"></span>Back</a>
+                    <li class="list-group-item">{{$user->address_street}}</li>
+                    <li class="list-group-item">{{$user->address_number}}</li>
+                    <li class="list-group-item">{{$user->address_postcode}}</li>
+                    <li class="list-group-item">{{$user->address_location}}</li>
+                    <li class="list-group-item">{{$user->address_number}}</li>
+                </ul>
+                <a href="/users" class="btn btn-primary">Back</a>
+            </div>
+        </div>
     @endsection('content')

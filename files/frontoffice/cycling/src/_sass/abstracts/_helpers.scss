@@ -1,5 +1,31 @@
 $border-bottom-line: 2px solid #707070;
+$margin-bottom: 10px;
+
+$card-background-color: #fff;
+$card-padding: 20px;
+
+$button-background-color: #00A99D;
+$button-color: #000;
+$button-border-radius: 20px;
+$button-padding: 15px 0;
 
 .border-line {
     border-bottom: $border-bottom-line;
+    margin-bottom: $margin-bottom;
+}
+
+.card {
+    background-color: $card-background-color;
+    padding: $card-padding;
+}
+
+.main-button {
+    color: $button-color;
+    background-color: $button-background-color;
+    border-radius: $button-border-radius;
+    width: 100%;
+    height: auto;
+    font-size: 20px;
+    text-decoration: none;
+    padding: $button-padding;  
 }

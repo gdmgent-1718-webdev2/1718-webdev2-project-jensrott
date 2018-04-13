@@ -24,7 +24,7 @@ $myswatch : (
   color3 : #e6e6d8,
   color4 : #666643,
   color5 : #b3b3a8,
-  color6 : #00a99d, // Really liked this one, not from Adobe Kuler ^_^
+  color6 : #00a99d,
 );
 
 /* The swatches I will use */
@@ -209,8 +209,8 @@ $sans-serif-font-family: sans-serif;
 $serif-font-family: serif;
 
 $base-font-size: #{$ms00 * 16}px !default;
-$base-line-height: 1.5;
-$base-border-radius: 3px;
+$base-line-height: 1.0;
+$base-border-radius: 12px;
 
 $body-background-color: #fff;
 $base-color: #444;

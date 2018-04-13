@@ -1,0 +1,33 @@
+@import 'abstracts/helpers';
+@import 'abstracts/variables';
+
+.text-card {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+.contact-card {
+    img {
+        width: 80px;
+        height: auto;
+    }
+}
+
+
+.form-input {
+    border-radius: $base-border-radius;
+    border: 0.5px solid #000;
+    width: 100%;
+}
+
+.button-container {
+
+    margin-top: 30px;
+}
+
+
+
+.bottom-text {
+    text-align: right;
+}

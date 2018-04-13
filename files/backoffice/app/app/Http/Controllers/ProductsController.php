@@ -23,7 +23,9 @@ class ProductsController extends Controller
         $title = $this->title;
         $products = DB::table('products')->orderBy('id', 'desc')->get();
         $usersIds = DB::select('select id from users where id = id'); // Query nog aanpassen
+
         //var_dump($usersIds);
+        var_dump($usersIds);
         //$users = Product::find($usersIds)->user;
         return view('products.index', compact('title', 'products', 'usersIds'));
     }

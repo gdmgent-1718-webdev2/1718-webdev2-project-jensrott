@@ -26,18 +26,6 @@ h1,h2,h3,h4 {
   }
 }
 
-h2 {
-  //color: map-get($mainswatch, subtitle);
-}
-
-h3 {
-  //color: map-get($mainswatch, subtitle);
-}
-
-h4 {
-  //color: map-get($mainswatch, subtitle);
-}
-
 img {
   width: auto;
   height: 400px;
@@ -46,9 +34,10 @@ img {
 
 // Opmaak voor de 2 grote foto's van 2dehands.be
 .hands {
-  background-color: red;
   width: auto;
-  height: 400px;
+  height: 50px;
+  
+
 }
 
 a {

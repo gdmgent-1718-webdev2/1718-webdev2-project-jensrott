@@ -29,6 +29,7 @@ Koerstruitjes:
 {:.hands}
 
 ![afbeelding](../../assets/images/2dehands1.JPG)
+{:.hands}
 
 #### catawiki.be 
 Op [catawiki](https://www.catawiki.be/) kan je ook nieuwe of oude fietsen kopen
