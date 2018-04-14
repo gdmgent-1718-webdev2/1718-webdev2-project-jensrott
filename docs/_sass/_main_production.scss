@@ -20,10 +20,6 @@ body {
 h1,h2,h3,h4 {
   font-family: $primary-font-family;
   color: map-get($mainswatch, betterheading);
-  &:hover {
-    color: map-get($mainswatch, headinghover);
-    transition: 0.5s;
-  }
 }
 
 img {
@@ -44,7 +40,12 @@ a {
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
-  color: map-get($code-color-palette , color-F);
+  color: map-get($mainswatch, betterheading);
+
+  &:hover {
+    color: map-get($mainswatch, headinghover);
+    transition: 0.5s;
+  }
 }
 
 
