@@ -1,0 +1,17 @@
+@import 'abstracts/helpers';
+@import 'abstracts/variables';
+
+.form-input {
+    border-radius: $base-border-radius;
+    border: 0.5px solid #000;
+    width: 100%;
+}
+
+.register-form {
+    margin-top: 10%;
+    width: 50%;
+
+    .button-container {
+        margin-top: 30px;
+    }
+}

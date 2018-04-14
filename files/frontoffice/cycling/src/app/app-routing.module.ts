@@ -7,6 +7,7 @@ import { ProductsPageComponent } from './products/pages/products-page/products-p
 import { OfferPageComponent } from './offer/pages/offer-page/offer-page.component';
 import { ContactPageComponent } from './contact/pages/contact-page/contact-page.component';
 import { ProfilePageComponent } from './profile/pages/profile-page/profile-page.component';
+import { RegisterPageComponent } from './profile/pages/register-page/register-page.component';
 import { NotFoundPageComponent } from './core/pages/not-found-page/not-found-page.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
  {path: 'home', component: HomePageComponent},
  {path: 'products', component: ProductsPageComponent},
  {path: 'profile', component: ProfilePageComponent},
+ {path: 'register', component: RegisterPageComponent},
  {path: 'offer', component: OfferPageComponent},
  {path: 'contact', component: ContactPageComponent},
  {path: '404', component: NotFoundPageComponent},

@@ -1,5 +1,6 @@
-@import 'app.scss';
-
+@import 'abstracts/variables';
+@import 'abstracts/helpers';
+@import 'abstracts/mixins';
 /* TODO MAKE IT RESPONSIVE!! */
 
 .header {
@@ -27,9 +28,11 @@
     .nav-left {
         display: flex;
         margin-right: auto;
+        /*
         &__logo {     
-           // background: url('../../../../assets/images/placeholder.jpg') no-repeat center center;
+           background: url('../../../../assets/images/placeholder.jpg') no-repeat center center;
         }
+        */
     }
 
     .nav-right {
