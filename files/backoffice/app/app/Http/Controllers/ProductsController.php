@@ -52,8 +52,8 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|string|max:50',
-            'description' => 'required|string|max:50',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
             'picture' => 'required|string|max:50',
             'offered_by' => 'string|max:20',
             'start_of_bid_period' => 'required|date',

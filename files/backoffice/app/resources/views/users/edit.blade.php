@@ -66,9 +66,15 @@
                                     <input class="form-control" type="text" name="address_country" value="{{ old('address_country', $user->address_country) }}">
                                 </div>
                             </div>
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
+
+                            <div class="form-group row">
+                                <div class="col-md-6 ml-auto">
                                     <button class="btn btn-primary" type="submit">Save</button>
+
+                                    <a class="btn btn-outline-secondary" href="<?=route('users.index') ?>">
+                                        Cancel
+                                    </a>
+
                                 </div>
                             </div>
                         </form>

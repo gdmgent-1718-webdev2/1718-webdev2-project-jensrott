@@ -17,63 +17,65 @@
         <div class="row">
             <nav class="col-md-2 d-md-block bg-light sidebar mb-3 mt-3">
                 <div class="sidebar-sticky">
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Edit</span>
-                        <a class="d-flex align-items-center text-muted" href="#">
-                            <span data-feather="database"></span>
-                        </a>
-                    </h6>
+
+                        <h4 style="border-bottom: 2px solid #697170;" class="sidebar-heading d-flex justify-content-between align-items-center mt-3 mb-3 text-muted">
+                            <span>Edit</span>
+                            <a class="d-flex align-items-center text-muted">
+                                <span data-feather="edit"></span>
+                            </a>
+                        </h4>
+
                     <ul class="nav flex-column">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/home">
+                            <a class="nav-link disabled" href="/home">
                                 <span data-feather="home"></span>
                                 Dashboard <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('users.index') }}>
-                                <span data-feather="file"></span>
+                            <a class="nav-link active" href={{ route('users.index') }}>
+                                <span data-feather="users"></span>
                                 Users
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('admins.index') }}>
-                                <span data-feather="shopping-cart"></span>
+                            <a class="nav-link disabled" href={{ route('admins.index') }}>
+                                <span data-feather="user-plus"></span>
                                 Admins
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('categories.index') }}>
-                                <span data-feather="users"></span>
+                            <a class="nav-link disabled" href={{ route('categories.index') }}>
+                                <span data-feather="box"></span>
                                 Categories
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('products.index') }}>
-                                <span data-feather="bar-chart-2"></span>
+                            <a class="nav-link disabled" href={{ route('products.index') }}>
+                                <span data-feather="gift"></span>
                                 Products
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('bids.index') }}>
-                                <span data-feather="layers"></span>
+                            <a class="nav-link disabled" href={{ route('bids.index') }}>
+                                <span data-feather="dollar-sign"></span>
                                 Bids
                             </a>
                         </li>
                     </ul>
 
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Data</span>
-                        <a class="d-flex align-items-center text-muted" href="#">
-                            <span data-feather="database"></span>
+                    <h4 style="border-bottom: 2px solid #697170;" class="sidebar-heading d-flex justify-content-between align-items-center mt-5 mb-4 text-muted">
+                        <span>View</span>
+                        <a class="d-flex align-items-center text-muted">
+                            <span data-feather="eye"></span>
                         </a>
-                    </h6>
+                    </h4>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('metrics.index') }}>
+                            <a class="nav-link disabled" href={{ route('metrics.index') }}>
                                 <span data-feather="bar-chart-2"></span>
-                                View Metrics
+                                Metrics
                             </a>
                         </li>
                     </ul>
@@ -89,39 +91,23 @@
                         </form>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-striped table-sm">
-                            <thead>
+                        <table class="table table-light table-hover">
+                            <thead class="thead-dark">
                             <tr>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Detail</th>
-                                <th>Action</th>
+                                <th class="text-center">Username</th>
+                                <th class="text-center">Email</th>
+                                <th class="text-center">Detail</th>
                             </tr>
                             </thead>
                             @if(count($users) > 0)
                                 @foreach($users as $user)
                                 <tbody>
-                                <tr>
-                                    <td>{{$user->user_name}}</td>
-                                    <td>{{$user->email}}</td>
+                                <tr class="text-center">
+                                    <td class="align-middle">{{$user->user_name}}</td>
+                                    <td class="align-middle">{{$user->email}}</td>
 
-                                    <td>
-                                        <form action={{route('users.show', $user->id)}}>
-                                            <button class="btn btn-secondary">Detail</button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <div class="btns-flex-container">
-                                            <form action={{route('users.edit', $user->id)}}>
-                                                <button class="btn btn-primary btns-flex-child">Edit</button>
-                                            </form>
-
-                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                                {!! method_field('DELETE') !!}
-                                                {{csrf_field()}}
-                                                <button class="btn btn-danger btns-flex-child" type="submit">Delete</button>
-                                            </form>
-                                        </div>
+                                    <td class="align-middle">
+                                        <a class="btn btn-secondary" href="{{route('users.show', $user->id)}}">Detail</a>
                                     </td>
                                 </tr>
                                 </tbody>

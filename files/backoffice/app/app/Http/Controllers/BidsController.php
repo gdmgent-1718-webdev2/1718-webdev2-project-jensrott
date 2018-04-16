@@ -13,7 +13,7 @@ class BidsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $title = 'Bids';
+    protected $title = 'Ongoing Bids';
 
     public function index()
     {

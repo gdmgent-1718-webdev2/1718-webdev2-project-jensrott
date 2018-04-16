@@ -16,23 +16,6 @@
             </div>
         </div>
 
-
-    @else
-        <!-- Wel ingelogd -->
-        <h2 style="margin-bottom: 50px;">Welcome to the backoffice</h2>
-        <div class="row">
-            <div class="col-sm-6" style="border: black 2px solid">
-                Click on <a href="/home">Manage</a> to create magic
-            </div>
-            <div class="col-sm-6" style="border: black 2px solid">
-                View <a href="/profile">Profile</a>
-            </div>
-        </div>
-        <div class="card" style="margin-top: 50px;">
-            <div class="card-header">Currently Online</div>
-
-        </div>
-
     @endif
 
 @endsection

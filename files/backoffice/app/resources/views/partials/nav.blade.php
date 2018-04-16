@@ -1,8 +1,14 @@
 <nav class="navbar navbar-expand-md bg-light navbar-light navbarstyle">
     <div class="container">
+        @if (Auth::guest())
         <a class="navbar-brand" style="font-size: 2rem;" href="{{ url('/') }}">
             Backoffice | VCS
         </a>
+        @else
+        <a class="navbar-brand" style="font-size: 2rem;" href="{{ url('/home') }}">
+            Backoffice | VCS
+        </a>
+        @endif
         <button class="navbar-toggler"
                 type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
