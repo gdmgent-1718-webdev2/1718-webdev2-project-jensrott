@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 /* Pages Modules */
 import { HomeModule } from './home/home.module'; // Card module is in here
-import { ProductsModule } from './products/products.module';
+import { AuctionModule } from './auctions/auction.module';
 import { ProfileModule } from './profile/profile.module';
 import { ContactModule } from './contact/contact.module';
 import { OfferModule } from './offer/offer.module';
@@ -29,7 +29,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     HomeModule,
-    ProductsModule,
+    AuctionModule,
     ProfileModule,
     ContactModule,
     OfferModule,

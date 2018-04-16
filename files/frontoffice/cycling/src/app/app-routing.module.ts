@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 /* Pages */
 import { HomePageComponent } from './home/pages/home-page/home-page.component';
-import { ProductsPageComponent } from './products/pages/products-page/products-page.component';
+import { AuctionsPageComponent } from './auctions/pages/auctions-page/auctions-page.component';
 import { OfferPageComponent } from './offer/pages/offer-page/offer-page.component';
 import { ContactPageComponent } from './contact/pages/contact-page/contact-page.component';
 import { NoAccountPageComponent } from './profile/pages/noaccount-page/noaccount-page.component';
@@ -13,7 +13,7 @@ import { NotFoundPageComponent } from './core/pages/not-found-page/not-found-pag
 const routes: Routes = [
  {path: '', redirectTo: '/home', pathMatch: 'full'},
  {path: 'home', component: HomePageComponent},
- {path: 'products', component: ProductsPageComponent},
+ {path: 'products', component: AuctionsPageComponent},
  {path: 'create', component: NoAccountPageComponent},
  {path: 'register', component: RegisterPageComponent},
  {path: 'offer', component: OfferPageComponent},
