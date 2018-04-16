@@ -15,6 +15,38 @@ class UsersTableSeeder extends Seeder
 
     public function run(Faker $faker)
     {
+
+        /* Test User */
+        $testuser = [];
+        $testuser[] = [
+            'user_name' => 'Jensie',
+            'first_name' => 'Jens',
+            'last_name' => 'Rottiers',
+            'email' => 'jens.rottiers@test.be',
+            'address_street' => 'TestStreet',
+            'address_number' => 20,
+            'address_postcode' => 1234,
+            'address_location' => 'TestCity',
+            'address_country' => 'TestCountry',
+            'password' => bcrypt('654321'),
+            'created_at' => new DateTime(),
+        ];
+
+       $testuser[] = [
+            'user_name' => 'Jensieke',
+            'first_name' => 'Jens',
+            'last_name' => 'Rottiers',
+            'email' => 'jensieke.rottiers@test.be',
+            'address_street' => 'TestStreet',
+            'address_number' => 20,
+            'address_postcode' => 1234,
+            'address_location' => 'TestCity',
+            'address_country' => 'TestCountry',
+            'password' => bcrypt('654321'),
+            'created_at' => new DateTime(),
+        ];
+
+        /*
         for($i = 0; $i <= 9; $i++) {
             DB::table(self::TABLE)->insert([
                 'user_name' => $faker->userName,
@@ -31,5 +63,8 @@ class UsersTableSeeder extends Seeder
                 'password' => password_hash($faker->password, PASSWORD_DEFAULT),
             ]);
         }
+        */
+
+        DB::table(self::TABLE)->insert($testuser);
     }
 }

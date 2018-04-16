@@ -15,6 +15,7 @@ class ProductsTableSeeder extends Seeder
 
     public function run(Faker $faker)
     {
+        /*
         for ($i = 0; $i <= 9; $i++) {
             DB::table(self::TABLE)->insert([
                 'name' => $faker->name,
@@ -26,5 +27,92 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => rand(1,10),
             ]);
         }
+        */
+        $products = [];
+        $products[] = [
+            'name' => 'Fiets Bianchi',
+            'description' => 'Bianchi Fiets uit 1956',
+            'picture' => 'f',
+            'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'user_id' => 3,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'category_id' => 8,
+        ];
+
+        $products[] = [
+            'name' => 'Fiets Flanders',
+            'description' => 'Flanders fiets uit 1980',
+            'picture' => 'f',
+            'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'user_id' => 8,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'category_id' => 8,
+        ];
+
+        $products[] = [
+            'name' => 'Fiets Eddy Merckx',
+            'description' => 'Eddy Merckx fiets uit 1972',
+            'picture' => 'f',
+            'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'user_id' => 6,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'category_id' => 8,
+        ];
+
+        $products[] = [
+            'name' => 'Koerspetje Isorex',
+            'description' => 'Koerspetje nog gedragen door Jens Rottiers',
+            'picture' => 'f',
+            'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'user_id' => 10,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'category_id' => 5,
+        ];
+
+        $products[] = [
+            'name' => 'Koerspetje Flandria',
+            'description' => 'Koerspetje nog gedragen door Freddy Maertens',
+            'picture' => 'f',
+            'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'user_id' => 8,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'category_id' => 5,
+        ];
+
+        $products[] = [
+            'name' => 'Handschoenen Luc Rottiers',
+            'description' => 'Handschoen nog gedragen door de wereldkampioen',
+            'picture' => 'f',
+            'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'user_id' => 10,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'category_id' => 6,
+        ];
+
+        $products[] = [
+            'name' => 'Wielertruitje Jan Janssen',
+            'description' => 'Truitje gedragen door Jan in de ronde',
+            'picture' => 'f',
+            'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
+            'user_id' => 8,
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'category_id' => 3,
+        ];
+
+        DB::table(self::TABLE)->insert($products);
     }
 }
