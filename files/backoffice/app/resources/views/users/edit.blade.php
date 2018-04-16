@@ -29,13 +29,13 @@
                                     <input class="form-control" type="text" name="last_name" value="{{ old('last_name', $user->first_name) }}">
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row mb-5">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
                                 <div class="col-md-6">
                                     <input class="form-control" type="text" name="email" value="{{ old('email', $user->email) }}">
                                 </div>
                             </div>
-                            <h1 class="card-title">Address</h1>
+
                             <div class="form-group row">
                                 <label for="address_street" class="col-md-4 col-form-label text-md-right">{{ __('Street') }}</label>
                                 <div class="col-md-6">
@@ -71,7 +71,7 @@
                                 <div class="col-md-6 ml-auto">
                                     <button class="btn btn-primary" type="submit">Save</button>
 
-                                    <a class="btn btn-outline-secondary" href="<?=route('users.index') ?>">
+                                    <a class="btn btn-outline-secondary" href="{{route('users.show',  $user->id)}}">
                                         Cancel
                                     </a>
 

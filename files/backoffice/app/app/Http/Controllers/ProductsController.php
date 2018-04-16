@@ -55,9 +55,10 @@ class ProductsController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'picture' => 'required|string|max:50',
-            'offered_by' => 'string|max:20',
             'start_of_bid_period' => 'required|date',
             'end_of_bid_period' => 'required|date',
+            'user_id' => 'required|integer',
+            'category_id' => 'required|integer',
         ]);
 
         $product = Product::create($request->all());
@@ -110,7 +111,8 @@ class ProductsController extends Controller
             $product->picture = $request->input('picture');
             $product->start_of_bid_period = $request->input('start_of_bid_period');
             $product->end_of_bid_period = $request->input('end_of_bid_period');
-            $product->offered_by = $request->input('offered_by');
+            $product->user_id = $request->input('user_id');
+            $product->category_id = $request->input('category_id');
         }
 
         $product->save();

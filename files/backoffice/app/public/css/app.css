@@ -10005,6 +10005,15 @@ a.text-dark:focus {
 body {
   /* Margin bottom by footer height */
   font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 /********* Extra styles I added *********/
@@ -10015,6 +10024,7 @@ body {
   -webkit-box-shadow: 0 1px 1px 0 rgba(10, 16, 34, 0.2);
   box-shadow: 0 1px 1px 0 rgba(10, 16, 34, 0.2);
   margin-bottom: 50px;
+  margin-top: 0;
 }
 
 h1 {
@@ -10058,6 +10068,7 @@ p {
 
 .footer {
   position: fixed;
+  margin: 0;
   left: 0;
   bottom: 0;
   width: 100%;

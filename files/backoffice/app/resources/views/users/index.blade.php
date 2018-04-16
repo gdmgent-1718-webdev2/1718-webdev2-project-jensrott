@@ -18,7 +18,7 @@
             <nav class="col-md-2 d-md-block bg-light sidebar mb-3 mt-3">
                 <div class="sidebar-sticky">
 
-                        <h4 style="border-bottom: 2px solid #697170;" class="sidebar-heading d-flex justify-content-between align-items-center mt-3 mb-3 text-muted">
+                        <h4 class="sidebar-heading d-flex justify-content-between align-items-center mt-3 mb-3 text-muted border-bottom">
                             <span>Edit</span>
                             <a class="d-flex align-items-center text-muted">
                                 <span data-feather="edit"></span>
@@ -65,7 +65,7 @@
                         </li>
                     </ul>
 
-                    <h4 style="border-bottom: 2px solid #697170;" class="sidebar-heading d-flex justify-content-between align-items-center mt-5 mb-4 text-muted">
+                    <h4 class="sidebar-heading d-flex justify-content-between align-items-center mt-5 mb-4 text-muted border-bottom">
                         <span>View</span>
                         <a class="d-flex align-items-center text-muted">
                             <span data-feather="eye"></span>

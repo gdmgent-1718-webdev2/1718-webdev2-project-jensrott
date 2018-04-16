@@ -11,69 +11,71 @@
         </div>
     </div>
 
-    <h1>Welcome {{Auth::user()->first_name}}!</h1>
+    <h1>Welcome {{ Auth::user()->user_name }} ! </h1>
 
     <div class="container-fluid">
         <div class="row">
             <nav class="col-md-2 d-md-block bg-light sidebar mb-3 mt-3">
                 <div class="sidebar-sticky">
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+
+                    <h4 class="sidebar-heading d-flex justify-content-between align-items-center mt-3 mb-3 text-muted border-bottom">
                         <span>Edit</span>
-                        <a class="d-flex align-items-center text-muted" href="#">
-                            <span data-feather="database"></span>
+                        <a class="d-flex align-items-center text-muted">
+                            <span data-feather="edit"></span>
                         </a>
-                    </h6>
+                    </h4>
+
                     <ul class="nav flex-column">
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="/home">
+                            <a class="nav-link disabled" href="/home">
                                 <span data-feather="home"></span>
                                 Dashboard <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('users.index') }}>
-                                <span data-feather="file"></span>
+                            <a class="nav-link disabled" href={{ route('users.index') }}>
+                                <span data-feather="users"></span>
                                 Users
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('admins.index') }}>
-                                <span data-feather="shopping-cart"></span>
+                            <a class="nav-link disabled" href={{ route('admins.index') }}>
+                                <span data-feather="user-plus"></span>
                                 Admins
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('categories.index') }}>
-                                <span data-feather="users"></span>
+                            <a class="nav-link disabled" href={{ route('categories.index') }}>
+                                <span data-feather="box"></span>
                                 Categories
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('products.index') }}>
-                                <span data-feather="bar-chart-2"></span>
+                            <a class="nav-link disabled" href={{ route('products.index') }}>
+                                <span data-feather="gift"></span>
                                 Products
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('bids.index') }}>
-                                <span data-feather="layers"></span>
+                            <a class="nav-link active" href={{ route('bids.index') }}>
+                                <span data-feather="dollar-sign"></span>
                                 Bids
                             </a>
                         </li>
                     </ul>
 
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Data</span>
-                        <a class="d-flex align-items-center text-muted" href="#">
-                            <span data-feather="database"></span>
+                    <h4 class="sidebar-heading d-flex justify-content-between align-items-center mt-5 mb-4 text-muted border-bottom">
+                        <span>View</span>
+                        <a class="d-flex align-items-center text-muted">
+                            <span data-feather="eye"></span>
                         </a>
-                    </h6>
+                    </h4>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href={{ route('metrics.index') }}>
+                            <a class="nav-link disabled" href={{ route('bids.index') }}>
                                 <span data-feather="bar-chart-2"></span>
-                                View Metrics
+                                Metrics
                             </a>
                         </li>
                     </ul>
@@ -82,48 +84,36 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap align-items-center pb-2 mb-3 border-bottom">
-                    <h1 class="h1">{{$title}}</h1>
+                    <h1 class="h1">On-going auctions</h1>
                     <div>
                         <form action={{route('bids.create')}}>
                             <button class="btn btn-primary">Add {{$title}}</button>
                         </form>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-striped table-sm">
-                            <thead>
+                        <table class="table table-light table-hover">
+                            <thead class="thead-dark">
                             <tr>
-                                <th>Value</th>
-                                <th>Status</th>
-                                <th>Detail</th>
-                                <th>Action</th>
+                                <th class="text-center">Product-name</th>
+                                <th class="text-center">Description
+                                <th class="text-center">Highest Bid</th>
+                                <th class="text-center">Offered By</th>
+                                <th class="text-center">Detail</th>
                             </tr>
                             </thead>
                             @if(count($bids) > 0)
                                 @foreach($bids as $bid)
-                            <tbody>
-                            <tr>
-                                <td>{{$bid->value}}</td>
-                                <td>{{$bid->status}}</td>
-                                <td>
-                                    <form action={{route('bids.show', $bid->id)}}>
-                                        <button class="btn btn-secondary">Detail</button>
-                                    </form>
-                                </td>
-                                <td>
-                                    <div class="btns-flex-container">
-                                        <form action={{route('bids.edit', $bid->id)}}>
-                                            <button class="btn btn-primary btns-flex-child">Edit</button>
-                                        </form>
+                                    <tbody>
+                                    <tr class="text-center">
+                                        <td class="align-middle">{{$bid->product_id}}</td>
+                                        <td class="align-middle">{{$bid->description}}</td>
+                                        <td class="align-middle">{{$bid->value}}</td>
 
-                                        <form action="{{ route('bids.destroy', $bid->id) }}" method="POST">
-                                            {!! method_field('DELETE') !!}
-                                            {{csrf_field()}}
-                                            <button class="btn btn-danger btns-flex-child" type="submit">Delete</button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
+                                        <td class="align-middle">
+                                            <a class="btn btn-secondary" href="{{route('bids.show', $bid->id)}}">Detail</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
                                 @endforeach
                             @else
                                 <td>No Bids!</td>
@@ -135,3 +125,4 @@
         </div>
     </div>
 @endsection
+

@@ -1,5 +1,5 @@
 <footer class="footer">
     <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <span class="text-muted">Copyright VCS © 2018</span>
     </div>
 </footer>
