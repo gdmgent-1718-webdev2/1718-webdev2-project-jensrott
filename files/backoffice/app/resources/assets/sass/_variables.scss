@@ -1,17 +1,18 @@
 /* The swatches I will use */
 $mainswatch : (
         bg: #e6e6d8,
-        headinghover : #00a99d,
-        heading : #697170,
-        subtitle: #005C56,
-        othersubtitle: #A93800,
-        txt : #000000,
-        dangertext : #A93800,
+        color-1 : #000000,
+        color-2 : #697170,
+        color-3: #005C56,
+        color-4: #A93800,
+        color-5 : #04AE5F,
+        color-6: #005D57,
+        color-7: #FBFBFB,
 );
 
 // Body
 $body-bg: map-get($mainswatch, bg);
-$body-color: map_get($mainswatch, txt);
+$body-color: map_get($mainswatch, color-1);
 
 // Typography
 $base-margin: 16px;

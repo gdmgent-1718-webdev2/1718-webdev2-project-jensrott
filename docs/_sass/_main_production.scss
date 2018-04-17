@@ -9,17 +9,17 @@ body {
     padding: $base-padding;
     margin: $base-margin;
     font-family: $base-font-family;
-    background-color: map-get($mainswatch, bg);
+    background-color: $body-background-color;
     font-size: $base-font-size;
     line-height: $base-line-height;
-    color: map-get($mainswatch, txt);
+    color: map-get($mainswatch, color-1);
 }
 
 
 
 h1,h2,h3,h4 {
   font-family: $primary-font-family;
-  color: map-get($mainswatch, betterheading);
+  color: map-get($mainswatch, color-2);
 }
 
 img {
@@ -40,10 +40,10 @@ a {
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
-  color: map-get($mainswatch, betterheading);
+  color: map-get($mainswatch, color-2);
 
   &:hover {
-    color: map-get($mainswatch, headinghover);
+    color: map-get($mainswatch, color-1);
     transition: 0.5s;
   }
 }

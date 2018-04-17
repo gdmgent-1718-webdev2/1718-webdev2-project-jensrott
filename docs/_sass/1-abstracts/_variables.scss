@@ -30,12 +30,13 @@ $myswatch : (
 /* The swatches I will use */
 $mainswatch : (
   bg: #e6e6d8,
-  headinghover : #00a99d,
-  betterheading: #697170,
-  subtitle: #005C56,
-  othersubtitle: #A93800,
-  txt : #000000,
-  dangertext : #A93800,
+  color-1: #000000,
+  color-2: #697170,
+  color-3: #005C56,
+  color-4: #A93800,
+  color-5: #04AE5F,
+  color-6: #005D57,
+  color-7: #FBFBFB,
 );
 
 // Fonts
@@ -212,5 +213,5 @@ $base-font-size: #{$ms00 * 16}px !default;
 $base-line-height: 1.0;
 $base-border-radius: 12px;
 
-$body-background-color: #fff;
+$body-background-color: map-get($mainswatch, bg);
 $base-color: #444;

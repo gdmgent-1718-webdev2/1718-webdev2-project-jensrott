@@ -4,7 +4,7 @@
 /* TODO MAKE IT RESPONSIVE!! */
 
 .header {
-    background-color: rgb(51, 51, 51);
+    background-color: map-get($mainswatch , color-5);
     top: 0;
     width: 100%;
     z-index: 20;
@@ -48,11 +48,6 @@
             }
         }
 
-        /*
-        .activepage {
-            color: map-get($mainswatch , headinghover);
-        }
-        */
     }
 
     li {
@@ -61,11 +56,11 @@
         margin: 20px;
         a {
             text-decoration: none;
-            color: #fff; //map-get($mainswatch , betterheading); 
+            color: #fff; 
 
             &:hover {
                 text-decoration: none;
-                color: map-get($mainswatch , headinghover);
+                color: #000000;
             }
 
 

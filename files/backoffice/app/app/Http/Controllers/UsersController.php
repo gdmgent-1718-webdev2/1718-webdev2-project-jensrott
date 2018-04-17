@@ -149,6 +149,22 @@ class UsersController extends Controller
         return redirect('/users');
     }
 
+
+    public function softDelete($id) {
+
+        $user = User::withTrashed()->where($id, 1)->get();
+
+        if($user->trashed()) {
+            echo 'soft deleted';
+        }
+    }
+
+    public function softUnDelete($id) {
+        $user = User::withTrashed()->where($id, 1)->get();
+        $user->restore();
+    }
+    
+
     /**
      * Remove the specified resource from storage.
      *

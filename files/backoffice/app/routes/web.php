@@ -24,6 +24,9 @@ Route::resource('bids', 'BidsController');
 Route::resource('admins', 'AdminsController');
 Route::resource('products', 'ProductsController');
 Route::resource('categories', 'CategoriesController');
+
+Route::get('users', 'UsersController@softDelete');
+Route::get('users', 'UsersController@softUnDelete');
 Route::resource('users', 'UsersController');
 Route::resource('metrics', 'MetricsController');
 

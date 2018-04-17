@@ -4,7 +4,7 @@
 html,body {
     margin: 0;
     padding: 0;
-    background-color: map-get($mainswatch , bg);
+    background-color: $body-background-color;
     line-height: $base-line-height;
     font-size: $base-font-size;
 }
@@ -15,12 +15,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-family: $primary-font-family;
-    color: map-get($mainswatch , betterheading); 
+    color: map-get($mainswatch , color-2); 
 }
 
 h2,h3,h4,h5,h6 {
     font-family: $base-font-family;
-    color: map-get($mainswatch , betterheading); 
+    color: map-get($mainswatch , color-2); 
 }
 
 p {

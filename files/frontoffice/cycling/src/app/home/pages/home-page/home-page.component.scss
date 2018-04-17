@@ -40,17 +40,12 @@
     
 
     &__custom-icon {
-        color: map-get($mainswatch , betterheading);
+        color: map-get($mainswatch , color-2);
         font-size: 100px;
+        
         &:hover {
-            color: map-get($mainswatch , headinghover);
-        }
-
-        /*
-        &:focus {
-            background-color: map-get($mainswatch , betterheading );
-        }
-        */
+            color: map-get($mainswatch , color-1);
+          }
     }
     
 }
@@ -71,7 +66,7 @@
 
         &:hover {
             text-decoration: none;
-            color: map-get($mainswatch , headinghover);
+            color: map-get($mainswatch , color-1);
         }
     }
 

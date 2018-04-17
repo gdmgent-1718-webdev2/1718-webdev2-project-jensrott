@@ -1,11 +1,12 @@
 @import './abstracts/variables';
 
-$card-background-color: #FFFFFF;
+$card-background-color:map-get($mainswatch , color-7);
 $card-background-boxshadow: 0px 3px 6px 0px rgba(0,0,0,0.75);
 $card-padding: 10px;
-$card-bid-color: #00A99D;
-$card-hide-color: #00766E;
+$card-bid-color: map-get($mainswatch, color-5);
+$card-hide-color: map-get($mainswatch, color-6);
 $card-text-color: #fff;
+$card-border-radius: 15px;
 
 $button-border-radius: 15px;
 $button-border: 1px solid #000;
@@ -16,6 +17,7 @@ $button-border: 1px solid #000;
         background-color: $card-background-color;
         box-shadow: $card-background-boxshadow;
         padding: $card-padding;
+        border-radius: $card-border-radius;
         margin-bottom: 10px;
 
         .main-title {
@@ -50,11 +52,11 @@ $button-border: 1px solid #000;
                 width: 100%;
             }
 
-            /* REFACTOR THIS LATER */
+            /* REFACTOR THIS LATER!!!!! */
             .buttons {
                 display: flex;
                 align-items: center;
-                color: $card-text-color;
+                
                 
 
                 .button-bid {
@@ -62,7 +64,20 @@ $button-border: 1px solid #000;
                     width: 100px;
                     height: auto;
                     border-radius: $button-border-radius;
-                    border: $button-border;
+                    text-transform: uppercase;
+                    border: 0;
+                    color: $card-text-color;
+                    padding: 7px;
+                    margin-bottom: 10px;
+
+                    &:hover {
+                        transform: scale(1.035);
+                        background-color: $card-bid-color;
+                      }
+                      
+                      &:active {
+                        transform: scale(.95);
+                      }
                 }
 
                 .button-hide {
@@ -70,8 +85,22 @@ $button-border: 1px solid #000;
                     width: 100px;
                     height: auto;
                     border-radius: $button-border-radius;
-                    border: $button-border;
+                    text-transform: uppercase;
+                    border: 0;
+                    color: $card-text-color;
+                    padding: 7px;
+
+                    &:hover {
+                        transform: scale(1.035);
+                        background-color: $card-hide-color;
+                      }
+                      
+                      &:active {
+                        transform: scale(.95);
+                      }
                 }
+
+                
             }
         }
     }

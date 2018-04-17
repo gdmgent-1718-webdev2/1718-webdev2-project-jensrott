@@ -32,12 +32,12 @@ body {
 
 h1 {
   font-family: $primary-font-family;
-  color: map-get($mainswatch, heading);
+  color: map-get($mainswatch, color-2);
 }
 
 h2,h3,h4 {
   font-family: $primary-font-family;
-  color: map-get($mainswatch, heading);
+  color: map-get($mainswatch, color-2);
 }
 
 a {
@@ -47,7 +47,7 @@ a {
 
 p {
   font-family: $base-font-family;
-  color: map-get($mainswatch, txt);
+  color: $body-color;
   margin: $base-margin;
 }
 
