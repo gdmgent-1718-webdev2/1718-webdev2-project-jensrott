@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 /* Modules */
@@ -17,6 +18,7 @@ import { OfferModule } from './offer/offer.module';
 
 import { AppComponent } from './app.component';
 
+import { UserService } from './core/services/user.service';
 
 @NgModule({
   declarations: [
@@ -33,8 +35,9 @@ import { AppComponent } from './app.component';
     ProfileModule,
     ContactModule,
     OfferModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

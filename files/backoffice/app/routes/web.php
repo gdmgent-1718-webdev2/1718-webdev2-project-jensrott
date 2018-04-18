@@ -25,8 +25,14 @@ Route::resource('admins', 'AdminsController');
 Route::resource('products', 'ProductsController');
 Route::resource('categories', 'CategoriesController');
 
-Route::get('users', 'UsersController@softDelete');
-Route::get('users', 'UsersController@softUnDelete');
-Route::resource('users', 'UsersController');
+
+
+Route::get('/users/deleted', 'UsersController@showTrash')->name('users.trash');
+
+Route::get('/users/restore/{id}', 'UsersController@restore')->name('users.restore');
+//Route::post('/users/{id}', 'UsersController@softDelete')->name('users.softDelete');
+
+Route::resource('users', 'UsersController'); // Softdelete is in here (destroy)
+Route::post('/users/{id}', 'UsersController@delete')->name('users.delete'); // Forcedelete
 Route::resource('metrics', 'MetricsController');
 

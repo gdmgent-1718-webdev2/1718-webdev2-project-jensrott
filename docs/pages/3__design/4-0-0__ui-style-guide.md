@@ -5,3 +5,6 @@ permalink: design/ui-style-guide/
 # ─────────────────────
 title: UI Style Guide
 ---
+
+<button class="button-bid">test</button>
+

@@ -29,13 +29,13 @@
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                             {!! method_field('DELETE') !!}
                             {{csrf_field()}}
-                            <button class="btn btn-danger" type="submit">Delete</button>
-                        </form>
-                        <form action="{{ route('users.softDelete', $user->id) }}" method="POST">
-                            {!! method_field('DELETE') !!}
-                            {{csrf_field()}}
                             <button class="btn btn-danger" type="submit">Soft Delete</button>
                         </form>
+
+                        <!-- Later als het gedeleted is knop erbij restore -->
+
+
+
                     </div>
                 </div>
         </div>

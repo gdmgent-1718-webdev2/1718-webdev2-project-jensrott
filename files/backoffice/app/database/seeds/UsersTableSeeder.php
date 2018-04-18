@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
             'address_location' => 'TestCity',
             'address_country' => 'TestCountry',
             'password' => bcrypt('654321'),
-            'created_at' => new DateTime(),
+            //'created_at' => new DateTime(),
         ];
 
        $testuser[] = [
@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
             'address_location' => 'TestCity',
             'address_country' => 'TestCountry',
             'password' => bcrypt('654321'),
-            'created_at' => new DateTime(),
+            //'created_at' => new DateTime(),
         ];
 
         /*

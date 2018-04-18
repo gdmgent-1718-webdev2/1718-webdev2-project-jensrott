@@ -86,9 +86,16 @@
                 <div class="d-flex justify-content-between flex-wrap align-items-center pb-2 mb-3 border-bottom">
                     <h1 class="h1">{{$title}}</h1>
                     <div>
-                        <form action={{route('users.create')}}>
-                            <button class="btn btn-primary">Add {{$title}}</button>
-                        </form>
+                        <div>
+                            <form action={{route('users.create')}}>
+                                <button class="btn btn-primary">Add {{$title}}</button>
+                            </form>
+                        </div>
+                        <div>
+                            <form action={{route('users.trash')}}>
+                                <button class="btn btn-primary">Restore {{$title}}</button>
+                            </form>
+                        </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-light table-hover">
@@ -97,6 +104,7 @@
                                 <th class="text-center">Username</th>
                                 <th class="text-center">Email</th>
                                 <th class="text-center">Detail</th>
+                                <th class="text-center">Delete Forever</th>
                             </tr>
                             </thead>
                             @if(count($users) > 0)
@@ -106,9 +114,16 @@
                                     <td class="align-middle">{{$user->user_name}}</td>
                                     <td class="align-middle">{{$user->email}}</td>
 
-                                    <td class="align-middle">
-                                        <a class="btn btn-secondary" href="{{route('users.show', $user->id)}}">Detail</a>
-                                    </td>
+                                        <td class="align-middle">
+                                            <a class="btn btn-secondary" href="{{route('users.show', $user->id)}}">Detail</a>
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('users.delete', $user->id) }}" method="POST">
+                                                {!! method_field('DELETE') !!}
+                                                {{csrf_field()}}
+                                                <button class="btn btn-danger" type="submit">Delete Forever</button> <!-- Permanent delete, doesn't work yet  -->
+                                            </form>
+                                        </td>
                                 </tr>
                                 </tbody>
                                 @endforeach

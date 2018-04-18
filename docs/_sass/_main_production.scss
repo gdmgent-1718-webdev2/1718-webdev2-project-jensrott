@@ -3,7 +3,8 @@
   "1-abstracts/variables",
   "2-base/fonts",
   "2-base/reset",
-  "3-components/tables";
+  "3-components/tables",
+  "3-components/card";
 
 body {
     padding: $base-padding;
@@ -28,13 +29,12 @@ img {
   margin: 10px;
 }
 
-// Opmaak voor de 2 grote foto's van 2dehands.be
-.hands {
+/* Opmaak voor de 2 grote foto's van 2dehands.be
+//.hands {
   width: auto;
   height: 50px;
-  
-
 }
+*/
 
 a {
   text-decoration: none;

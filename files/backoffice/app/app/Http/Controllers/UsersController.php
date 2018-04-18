@@ -7,6 +7,8 @@ use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+//use App\Exceptions\Handler;
+
 class UsersController extends Controller
 {
     /**
@@ -19,10 +21,14 @@ class UsersController extends Controller
 
     public function index()
     {
-        //$users = User::all();
-        $users = DB::table('users')->orderBy('id', 'desc')->get();
+       // $users = User::select('user_name', 'email', 'id', 'deleted_at')->withTrashed(); // Vind het niet
+        $users = DB::table('users')->whereNull('deleted_at')->orderBy('id', 'asc')->get();
+
+        //$users = User::all('id')->withTrashed()->get();
+        //$users = User::all()->withTrashed()->sortByDesc('name');
+        //$trash = DB::table('users')->withTrashed()->get();
         $title = $this->title;
-        return view('users.index', compact('title', 'users'));
+        return view('users.index', compact('title' ,'trashedUsers' , 'users'));
     }
 
     /**
@@ -149,22 +155,6 @@ class UsersController extends Controller
         return redirect('/users');
     }
 
-
-    public function softDelete($id) {
-
-        $user = User::withTrashed()->where($id, 1)->get();
-
-        if($user->trashed()) {
-            echo 'soft deleted';
-        }
-    }
-
-    public function softUnDelete($id) {
-        $user = User::withTrashed()->where($id, 1)->get();
-        $user->restore();
-    }
-    
-
     /**
      * Remove the specified resource from storage.
      *
@@ -175,11 +165,48 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         if($user) {
-            $user->delete();
+            $user->delete(); // SoftDelete
+            // Succesful
         }
 
         return redirect('/users');
-
     }
 
+    // Doesn't work yet
+    // Because he looks for the id in users.show and that isn't there anymore for some strange reason
+    // restore works
+    public function delete($id)
+    {
+
+        $user = User::find($id);
+        if ($user) {
+            $user->forceDelete(); // Hard delete forever
+        }
+
+        //$user = User::find($id)->withTrashed()->history()->forceDelete();
+        compact('user');
+        return redirect('/users');
+    }
+
+
+    // Show soft deleted users
+    public function showTrash() {
+        $title = $this->title;
+        //$users = DB::table('users')->whereNotNull('deleted_at')->orderBy('id', 'asc')->get();
+        $users = User::onlyTrashed()->get();
+       // $trashedUsers = User::onlyTrashed()->get();
+        return view('users.trash', compact('users', 'title'));
+    }
+
+    // Restore a user
+    public function restore($id) {
+
+        $user = User::onlyTrashed()->find($id)->restore();
+
+           // compact('user');
+            return redirect('/users');
+
+            // Message erbij van succesful
+
+    }
 }

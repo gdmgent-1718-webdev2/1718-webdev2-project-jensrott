@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../../core/models/user';
+import { UserService } from '../../../core/services/user.service';
+
+
 
 @Component({
   selector: 'app-register-page',
@@ -6,10 +10,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent implements OnInit {
+  constructor(private userService: UserService) {}
 
-  constructor() { }
+  model = new User();
 
-  ngOnInit() {
+  ngOnInit() {}
+
+
+  // Call our api through the service
+  addProfile() {
+    this.userService
+    .addProfile(this.model)
+    .subscribe(user => {
+      console.log(user);
+    });
   }
-
 }

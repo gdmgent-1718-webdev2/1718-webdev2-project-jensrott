@@ -1,2 +1,51 @@
 @import
   "2-base/reset";
+
+@import "./1-abstracts/variables";
+
+$border-bottom-line: 2px solid #707070;
+$margin-bottom: 10px;
+
+$card-background-color: map-get($mainswatch, color-7);
+$card-padding: 20px;
+$card-border-radius: 15px;
+
+$button-background-color: map-get($mainswatch, color-5); 
+$button-color: #fff;
+$button-border-radius: 20px;
+$button-padding: 15px 0;
+
+.border-line {
+    border-bottom: $border-bottom-line;
+    margin-bottom: $margin-bottom;
+}
+
+.card {
+    background-color: $card-background-color;
+    padding: $card-padding;
+    border-radius: $card-border-radius;
+}
+
+.main-button {
+    color: $button-color;
+    background-color: $button-background-color;
+    border-radius: $button-border-radius;
+    text-transform: uppercase;
+    border: 0;
+    width: 100%;
+    height: auto;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    padding: $button-padding;
+    margin-bottom: 10px;  
+
+    &:hover {
+        transform: scale(1.035);
+        background-color: $button-background-color;
+      }
+      
+      &:active {
+        transform: scale(.95);
+      }
+}
