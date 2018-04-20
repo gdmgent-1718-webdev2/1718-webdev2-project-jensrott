@@ -118,7 +118,7 @@
                                             <a class="btn btn-secondary" href="{{route('users.show', $user->id)}}">Detail</a>
                                         </td>
                                         <td>
-                                            <form action="{{ route('users.delete', $user->id) }}" method="POST">
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                                 {!! method_field('DELETE') !!}
                                                 {{csrf_field()}}
                                                 <button class="btn btn-danger" type="submit">Delete Forever</button> <!-- Permanent delete, doesn't work yet  -->

@@ -13,7 +13,7 @@
             </td>
 
         <td class="align-middle">
-                <a class="btn btn-secondary" href="{{route('users.delete', $user->id)}}">Delete forever</a>
+                <a class="btn btn-secondary" href="{{route('users.hardDelete', $user->id)}}">Delete forever</a>
             </td>
             <td class="align-middle">
                 <a class="btn btn-secondary" href="{{route('users.show', $user->id)}}">Detail</a>

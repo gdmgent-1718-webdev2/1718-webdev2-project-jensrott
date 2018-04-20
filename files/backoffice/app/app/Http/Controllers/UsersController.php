@@ -155,30 +155,18 @@ class UsersController extends Controller
         return redirect('/users');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $user = User::find($id);
-        if($user) {
-            $user->delete(); // SoftDelete
-            // Succesful
-        }
 
-        return redirect('/users');
-    }
+
+
 
     // Doesn't work yet
     // Because he looks for the id in users.show and that isn't there anymore for some strange reason
     // restore works
-    public function delete($id)
+
+    public function hardDelete($id)
     {
 
-        $user = User::find($id);
+        $user = User::withTrashed()->where($id)->get();
         if ($user) {
             $user->forceDelete(); // Hard delete forever
         }
@@ -189,6 +177,8 @@ class UsersController extends Controller
     }
 
 
+
+
     // Show soft deleted users
     public function showTrash() {
         $title = $this->title;
@@ -197,6 +187,33 @@ class UsersController extends Controller
        // $trashedUsers = User::onlyTrashed()->get();
         return view('users.trash', compact('users', 'title'));
     }
+
+    public function softDelete($id) {
+        User::find($id)->delete();
+        return redirect('/users');
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    // Error hij zoekt altijd naar destroy method no matter what.
+    public function destroy($id) {
+       // $user = User::withTrashed()->where($id)->get();
+        $user = User::find($id);
+        //dd($user);
+        if ($user) {
+            $user->forceDelete(); // Hard delete forever
+        }
+
+        //$user = User::find($id)->withTrashed()->history()->forceDelete();
+        compact('user');
+        return redirect('/users');
+    }
+
 
     // Restore a user
     public function restore($id) {
