@@ -8,3 +8,5 @@ title: Sitemap
 
 Backoffice
 ----------
+
+![afbeelding](../../../assets/images/sitemap/sitemap_backoffice.JPG)

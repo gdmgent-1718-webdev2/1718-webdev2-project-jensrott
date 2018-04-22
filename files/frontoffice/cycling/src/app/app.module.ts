@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-
 /* Modules */
 import { CoreModule } from './core/core.module'; // footer,header,notfound
 import { MaterialModule } from './material/material.module';
@@ -15,6 +14,7 @@ import { AuctionModule } from './auctions/auction.module';
 import { ProfileModule } from './profile/profile.module';
 import { ContactModule } from './contact/contact.module';
 import { OfferModule } from './offer/offer.module';
+
 
 import { AppComponent } from './app.component';
 
@@ -35,7 +35,7 @@ import { UserService } from './core/services/user.service';
     ProfileModule,
     ContactModule,
     OfferModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

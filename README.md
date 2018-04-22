@@ -8,19 +8,26 @@ Student: Jens Rottiers
 Productiedossier
 ----------------
 
-### Installatie
+### Installatie Backoffice
 
 ```
-PS> c
-PS> git clone «repository-url» «MAPNAAM»
-PS> c «MAPNAAM»
+PS> git clone https://github.com/gdmgent-1718-webdev2/1718-webdev2-project-jensrott.git 
+PS> cd files->backoffice->app
+PS> composer install
+PS> npm install or yarn install
+
+Add your own DB_DATABASE , DB_USERNAME, DB_PASSWORD to .env.example and rename it to .env
+Creating the tables and seeding them with data -> php artisan migrate --seed 
 ```
 
+### Installatie Frontoffice
+
 ```
-PS> c «MAPNAAM»
-PS> cd docs
-PS> bundle update
-PS> bundle exec jekyll serve
+PS> git clone https://github.com/gdmgent-1718-webdev2/1718-webdev2-project-jensrott.git 
+PS> cd files->frontoffice->cycling
+PS> npm install or yarn install
+PS> ng serve
+
 ```
 
 ### Jekyll-configuratie
@@ -33,12 +40,8 @@ In `_config.yml` pas je de `baseurl` aan, van:
 baseurl: /1718-webdev2-project # the subpath of your site, e.g. /blog
 ```
 
-naar `«REPOSITORYNAAM»` (bv. `1718-webdev2-project-olivpa`):
+naar `1718-webdev2-project-jensrott` (bv. `1718-webdev2-project-olivpa`):
 
-```
-# Site settings
-# ─────────────
-baseurl: /«REPOSITORYNAAM» # the subpath of your site, e.g. /blog
 ```
 
 ### GitHub Pages Configuratie

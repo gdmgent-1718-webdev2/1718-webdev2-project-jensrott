@@ -8,46 +8,39 @@ import { HttpModule } from '@angular/http';
 */
 
 import { Observable } from 'rxjs/Observable';
-import { catchError, retry } from 'rxjs/operators';
+import 'rxjs/add/operator/map';
 
 import { User } from '../models/user';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class UserService {
-  serverUrl = 'http://127.0.0.1:8000';
 
-  options: any;
+  private _apiEndPointGet = environment.CyclingAPI.url + environment.CyclingAPI.endPoints.get;
+  private _apiEndPointGetSpecific = environment.CyclingAPI.url + environment.CyclingAPI.endPoints.getspecific;
+  private _apiEndPointPost = environment.CyclingAPI.url + environment.CyclingAPI.endPoints.post;
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      enctype: 'multipart/form-data',
+      'enctype': 'multipart/form-data',
       'X-Requested-With': 'XMLHttpRequest'
     })
   };
 
   // Login, register with laravel
-  constructor(private _httpClient: HttpClient) {
-    /*
-    this.headers.append('enctype', 'multipart/form-data');
-    this.headers.append('Content-Type', 'application/json');
-    this.headers.append('X-Requested-With', 'XMLHttpRequest');
-    this.options = new RequestOptions({headers: this.headers});
-    */
+  constructor(private _httpClient: HttpClient) { }
+
+  getUsers(): Observable<Array<User>> {
+  return this._httpClient.get<Array<User>>(this._apiEndPointGet);
   }
 
-  addProfile(user: User) {
-    // const data = JSON.stringify(info);
-    return this._httpClient.post(
-      this.serverUrl + 'create profile',
-      user,
-      this.httpOptions
-    );
+  getProjectsById(id: number): Observable<User> {
+    const url = `${this._apiEndPointGetSpecific}${id}`;
+    return this._httpClient.get<User>(`${ url }`);
+  }
 
-    /*.pipe(
-        catchError(this.handleError('addHero', user))
-      );
-      */
+  addUser(user: User) {
+    return this._httpClient.post<User>(this._apiEndPointPost, user, this.httpOptions);
   }
 }

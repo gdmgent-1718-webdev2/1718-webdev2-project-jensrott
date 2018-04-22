@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../../core/models/user';
 import { UserService } from '../../../core/services/user.service';
-
-
 
 @Component({
   selector: 'app-register-page',
@@ -12,17 +10,42 @@ import { UserService } from '../../../core/services/user.service';
 export class RegisterPageComponent implements OnInit {
   constructor(private userService: UserService) {}
 
-  model = new User();
+  public users: Array<User>;
+  public user: User;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getUsers();
+    this.getSpecificUser();
+  }
 
+  getUsers() {
+    this.userService
+    .getUsers()
+    .subscribe(user => this.users = user);
+  }
+
+  getSpecificUser() {
+   this.userService
+   .getProjectsById(1)
+   .subscribe(user =>
+      console.log(user));
+  }
 
   // Call our api through the service
-  addProfile() {
+
+  addUser() {
     this.userService
-    .addProfile(this.model)
+    .addUser(this.user)
     .subscribe(user => {
-      console.log(user);
+      this.user = user;
     });
   }
+  /*
+  add(): void {
+    this.userService.addUser(this.user)
+      .subscribe(user => {
+        this.users.push(user);
+      });
+  }
+  */
 }
