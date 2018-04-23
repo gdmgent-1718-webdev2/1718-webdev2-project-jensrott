@@ -39,8 +39,6 @@ Route::delete('/users/{user}', 'UsersController@softDelete')->name('users.softDe
 Route::get('/users/deleted', 'UsersController@showTrash')->name('users.trash');
 Route::get('/users/restore/{id}', 'UsersController@restore')->name('users.restore');
 
-
-
 Route::resource('users', 'UsersController'); // Softdelete is in here (destroy)
 Route::resource('metrics', 'MetricsController');
 

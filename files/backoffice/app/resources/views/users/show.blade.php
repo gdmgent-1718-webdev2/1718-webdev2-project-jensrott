@@ -15,6 +15,7 @@
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Email: </span>{{$user->email}}</p></li>
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Date Created: </span>{{$user->created_at}}</p></li>
 
+
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Street: </span>{{$user->address_street}}</p></li>
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Number: </span>{{$user->address_number}}</p></li>
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Postcode: </span>{{$user->address_postcode}}</p></li>

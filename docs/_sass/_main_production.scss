@@ -40,7 +40,7 @@ a {
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
-  color: map-get($mainswatch, color-2);
+  color: map-get($mainswatch, color-6);
 
   &:hover {
     color: map-get($mainswatch, color-1);

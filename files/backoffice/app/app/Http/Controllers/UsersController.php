@@ -59,8 +59,10 @@ class UsersController extends Controller
             'user_name' => 'string|max:20|unique:users',
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
-            'email' => 'required|string|email|max:60|unique:users',
+            'email' => 'required|string|email|max:60',
             'password' => 'required|string|min:6|confirmed',
+
+           // 'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             'address_street' => 'required|string|max:95',
             'address_number' => 'required|integer|max:16',
@@ -69,12 +71,43 @@ class UsersController extends Controller
             'address_country' => 'required|string|max:95'
         ]);
 
-        $user = User::create([
+        /*
+        if ($request->hasFile('cover_image')) {
+            $image = $request->file('cover_image');
+            $name = time().'.'.$image->getClientOriginalExtension(); // Welke naam we het gaan opslaan
+            $destinationPath = $image->storeAs('public/images', $name);
+            $image->move($destinationPath, $name);
+        }
+        */
+        /*
+        if($request->hasFile('cover_image')) {
+            $fileNameWithExt = $request->file('cover_image')->getClientOriginalName(); // Dit zet de exacte file naam in een var
+
+            // Get just filename
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME); // Standaard php geen Laravel
+
+            // Get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            // Filename to store, alles samengevoegd in 1 var
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+
+            // Upload the image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore); // Saven in de image
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+        */
+
+
+       $user = User::create([
             'user_name' => $request->input('user_name'),
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
+
+           // 'cover_image' => $fileNameToStore,
 
             'address_street' => $request->input('address_street'),
             'address_number' => $request->input('address_number'),
@@ -84,6 +117,32 @@ class UsersController extends Controller
 
             //'status' => 'Active',
         ]);
+
+
+
+        /*
+        $user = new User();
+        $user->user_name = $request->input('user_name');
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+
+        $user->cover_image = $fileNameToStore;
+
+        $user->address_street = $request->input('address_street');
+        $user->address_number = $request->input('address_number');
+        $user->address_postcode = $request->input('address_postcode');
+        $user->address_location = $request->input('address_location');
+        $user->address_country = $request->input('address_country');
+
+        $user->save();
+        */
+
+
+
+
+
 
         /*
         $user = new User;
@@ -95,7 +154,7 @@ class UsersController extends Controller
         $user->save();
         */
 
-        compact('user');
+       compact('user');
         return redirect('/users');
 
 
