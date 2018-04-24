@@ -27,8 +27,8 @@ export class RegisterPageComponent implements OnInit {
   getSpecificUser() {
    this.userService
    .getProjectsById(1)
-   .subscribe(user =>
-      console.log(user));
+   .subscribe(newuser =>
+      this.user = newuser);
   }
 
   // Call our api through the service
@@ -37,7 +37,9 @@ export class RegisterPageComponent implements OnInit {
     this.userService
     .addUser(this.user)
     .subscribe(user => {
-      this.user = user;
+      this.user.first_name = user.first_name;
+      this.user.email = user.email;
+      this.user.password = user.password;
     });
   }
   /*

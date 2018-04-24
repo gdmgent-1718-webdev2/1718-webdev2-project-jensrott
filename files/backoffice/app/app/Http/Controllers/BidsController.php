@@ -51,6 +51,7 @@ class BidsController extends Controller
         $bid = Bid::create($request->all()); // Fout user_id heeft geen default value, is voorlopig niet erg.
         //$product->save();
         compact('bid');
+        $request->session()->flash('alert-dark', 'Bid was successful added!');
         return redirect('/bids');
     }
 
@@ -101,6 +102,7 @@ class BidsController extends Controller
         $bid->save();
 
         compact('bid');
+        $request->session()->flash('alert-dark', 'Bid was successful updated!');
         return redirect('/bids');
     }
 
@@ -110,13 +112,13 @@ class BidsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         $bid = Bid::find($id);
         if($bid) {
             $bid->delete();
         }
-
+        $request->session()->flash('alert-danger', 'Bid was successful deleted!');
         return redirect('/bids');
     }
 }

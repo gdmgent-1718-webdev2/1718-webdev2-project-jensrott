@@ -46,6 +46,7 @@ class AdminsController extends Controller
             'role' => $request->input('role'),
         ]);
         compact('admin');
+        $request->session()->flash('alert-dark', 'Admin was successful added!');
         return redirect('/admins');
     }
 
@@ -84,16 +85,17 @@ class AdminsController extends Controller
         $admin->save();
 
         compact('admin');
+        $request->session()->flash('alert-dark', 'Admin was successful updated!');
         return redirect('/admins');
     }
 
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         $admin = Admin::find($id);
         if($admin) {
             $admin->delete();
         }
-
+        $request->session()->flash('alert-danger', 'Admin was successful deleted!');
         return redirect('/admins');
     }
 }

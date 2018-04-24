@@ -41,6 +41,7 @@ export class UserService {
   }
 
   addUser(user: User) {
+    console.log(user);
     return this._httpClient.post<User>(this._apiEndPointPost, user, this.httpOptions);
   }
 }

@@ -25,7 +25,7 @@
             </div>
             <div class="card-footer">
                 <div class="input-group">
-                    <a href="{{route('users.index', $product->id)}}" class="btn btn-primary mr-2">Close</a>
+                    <a href="{{route('products.index', $product->id)}}" class="btn btn-primary mr-2">Close</a>
                     <a class="btn btn-secondary mr-2" href={{route('products.edit', $product->id)}}>Edit</a>
                     <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                         {!! method_field('DELETE') !!}

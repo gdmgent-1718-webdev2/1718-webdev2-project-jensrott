@@ -9,16 +9,16 @@
         <h1></h1>
         
         <label for="userName"><h2>User</h2></label>
-        <input required maxlength="30" class="form-input" type="text" name="form-name" id="form-name" #user_name>
+        <input required maxlength="30" class="form-input" type="text" name="user_name" id="user_name" [(ngModel)]="user.user_name">
   
         <h2>Email</h2>
-        <input class="form-input" type="email" name="form-email" id="form-email">
+        <input class="form-input" type="email" name="email" id="email">
 
         <h2>Wachtwoord</h2>
-        <input class="form-input" type="password" name="form-password" id="form-password">
+        <input class="form-input" type="password" name="password" id="password">
 
         <h2>Wachtwoord</h2>
-        <input class="form-input" type="password" name="form-repeat-password" id="form-repeat-password">
+        <input class="form-input" type="password" name="repeat-password" id="repeat-password">
 
         <div class="button-container">
           <button type="submit" class="main-button register-button" (click)="addUser();">

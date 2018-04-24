@@ -14,6 +14,13 @@
     <h1>Welcome {{ Auth::user()->user_name }} ! </h1>
 
     <div class="container-fluid">
+        <div class="flash-message text-center">
+            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                @if(Session::has('alert-' . $msg))
+                    <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                @endif
+            @endforeach
+        </div>
         <div class="row">
             <nav class="col-md-2 d-md-block bg-light sidebar mb-3 mt-3">
                 <div class="sidebar-sticky">
@@ -85,10 +92,10 @@
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap align-items-center pb-2 mb-3 border-bottom">
                     <h1 class="h1">{{$title}}</h1>
-                    <div>
-                        <div>
+                    <div class="row">
+                        <div class="btn-group">
                             <form action={{route('users.create')}}>
-                                <button class="btn btn-primary">Add {{$title}}</button>
+                                <button class="btn btn-primary mr-3">Add {{$title}}</button>
                             </form>
                         </div>
                         <div>

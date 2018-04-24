@@ -154,7 +154,8 @@ class UsersController extends Controller
         $user->save();
         */
 
-       compact('user');
+        compact('user');
+        $request->session()->flash('alert-dark', 'User was successful added!');
         return redirect('/users');
 
 
@@ -212,6 +213,7 @@ class UsersController extends Controller
         $user->save();
 
         compact('user');
+        $request->session()->flash('alert-dark', 'User was successful updated!');
         return redirect('/users');
     }
 
@@ -261,7 +263,7 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     // Error hij zoekt altijd naar destroy method no matter what.
-    public function destroy($id) {
+    public function destroy($id, Request $request) {
        // $user = User::withTrashed()->where($id)->get();
         $user = User::find($id);
         //dd($user);
@@ -271,6 +273,7 @@ class UsersController extends Controller
 
         //$user = User::find($id)->withTrashed()->history()->forceDelete();
         compact('user');
+        $request->session()->flash('alert-danger', 'User was successful deleted!');
         return redirect('/users');
     }
 

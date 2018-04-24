@@ -64,6 +64,7 @@ class ProductsController extends Controller
         $product = Product::create($request->all());
         //$product->save();
         compact('product');
+        $request->session()->flash('alert-dark', 'Product was successful added!');
         return redirect('/products');
     }
 
@@ -89,6 +90,7 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
+
         return view('products.edit', compact('product'));
     }
 
@@ -118,6 +120,7 @@ class ProductsController extends Controller
         $product->save();
 
         compact('product');
+        $request->session()->flash('alert-dark', 'Product was successful updated!');
         return redirect('/products');
     }
 
@@ -127,13 +130,13 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         $product = Product::find($id);
         if($product) {
             $product->delete();
         }
-
+        $request->session()->flash('alert-danger', 'Product was successful deleted!');
         return redirect('/products');
     }
 }

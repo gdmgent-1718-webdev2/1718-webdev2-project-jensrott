@@ -14,6 +14,13 @@
     <h1>Welcome {{ Auth::user()->user_name }} ! </h1>
 
     <div class="container-fluid">
+        <div class="flash-message text-center">
+            @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                @if(Session::has('alert-' . $msg))
+                    <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                @endif
+            @endforeach
+        </div>
         <div class="row">
             <nav class="col-md-2 d-md-block bg-light sidebar mb-3 mt-3">
                 <div class="sidebar-sticky">

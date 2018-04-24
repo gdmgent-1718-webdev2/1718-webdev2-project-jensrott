@@ -50,6 +50,7 @@ class CategoriesController extends Controller
         $category = Category::create($request->all());
         //$product->save();
         compact('category');
+        $request->session()->flash('alert-dark', 'Category was successful added!');
         return redirect('/categories');
     }
 
@@ -98,6 +99,7 @@ class CategoriesController extends Controller
         $category->save();
 
         compact('category');
+        $request->session()->flash('alert-dark', 'Category was successful updated!');
         return redirect('/categories');
     }
 
@@ -107,13 +109,13 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         $category = Category::find($id);
         if($category) {
             $category->delete();
         }
-
+        $request->session()->flash('alert-danger', 'Category was successful deleted!');
         return redirect('/categories');
     }
 }
