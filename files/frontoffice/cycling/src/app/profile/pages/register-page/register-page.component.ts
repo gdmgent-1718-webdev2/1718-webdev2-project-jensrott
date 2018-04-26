@@ -8,10 +8,22 @@ import { UserService } from '../../../core/services/user.service';
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent implements OnInit {
-  constructor(private userService: UserService) {}
 
   public users: Array<User>;
-  public user: User;
+  // Lege user for input
+  user: User = {
+    id: '',
+    user_name: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    // address: '',
+  };
+  public newuser: ''; // Voor input;
+
+  constructor(private userService: UserService) {}
+
 
   ngOnInit() {
     this.getUsers();
@@ -19,14 +31,12 @@ export class RegisterPageComponent implements OnInit {
   }
 
   getUsers() {
-    this.userService
-    .getUsers()
+    this.userService.getUsers()
     .subscribe(user => this.users = user);
   }
 
   getSpecificUser() {
-   this.userService
-   .getProjectsById(1)
+   this.userService.getProjectsById(1)
    .subscribe(newuser =>
       this.user = newuser);
   }
@@ -34,20 +44,9 @@ export class RegisterPageComponent implements OnInit {
   // Call our api through the service
 
   addUser() {
-    this.userService
-    .addUser(this.user)
-    .subscribe(user => {
-      this.user.first_name = user.first_name;
-      this.user.email = user.email;
-      this.user.password = user.password;
+    this.userService.addUser(this.user)
+    .subscribe(res => {
+      console.log(res);
     });
   }
-  /*
-  add(): void {
-    this.userService.addUser(this.user)
-      .subscribe(user => {
-        this.users.push(user);
-      });
-  }
-  */
 }

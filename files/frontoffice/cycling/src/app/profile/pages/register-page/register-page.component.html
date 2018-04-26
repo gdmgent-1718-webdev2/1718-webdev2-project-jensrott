@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <form class="card register-form" action="post" (submit)="addUser()" >
+      <form class="card register-form" action="post" (ngSubmit)="addUser()" >
         <div class="border-line" *ngIf="users && users.length">
           <h1 class="main-title">{{users[0].user_name}}</h1>
         </div>
@@ -12,13 +12,13 @@
         <input required maxlength="30" class="form-input" type="text" name="user_name" id="user_name" [(ngModel)]="user.user_name">
   
         <h2>Email</h2>
-        <input class="form-input" type="email" name="email" id="email">
+        <input class="form-input" type="email" name="email" id="email" [(ngModel)]="user.email">
 
         <h2>Wachtwoord</h2>
-        <input class="form-input" type="password" name="password" id="password">
+        <input class="form-input" type="password" name="password" id="password" [(ngModel)]="user.password">
 
         <h2>Wachtwoord</h2>
-        <input class="form-input" type="password" name="repeat-password" id="repeat-password">
+        <input class="form-input" type="password" name="repeat-password" id="repeat-password" [(ngModel)]="user.password">
 
         <div class="button-container">
           <button type="submit" class="main-button register-button" (click)="addUser();">
