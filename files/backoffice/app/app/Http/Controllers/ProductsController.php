@@ -21,12 +21,7 @@ class ProductsController extends Controller
     public function index()
     {
         $title = $this->title;
-        $products = DB::table('products')->orderBy('id', 'desc')->get();
-        $usersIds = DB::select('select id from users where id = id'); // Query nog aanpassen
-
-        //var_dump($usersIds);
-        var_dump($usersIds);
-        //$users = Product::find($usersIds)->user;
+        $products = Product::all()->sortByDesc('id');
         return view('products.index', compact('title', 'products', 'usersIds'));
     }
 
@@ -37,10 +32,11 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        $users = User::all();
+       // $users = User::all();
+        $categories = Category::all(); // Can be cleaner with $product->category->name
+        $products = Product::all()->sortByDesc('id');
         $title = $this->title;
-        return view('products.create', compact('title', 'categories', 'users'));
+        return view('products.create', compact('title', 'products', 'categories'));
     }
 
     /**
@@ -57,8 +53,8 @@ class ProductsController extends Controller
             'picture' => 'required|string|max:50',
             'start_of_bid_period' => 'required|date',
             'end_of_bid_period' => 'required|date',
-            'user_id' => 'required|integer',
-            'category_id' => 'required|integer',
+            'offered_by' => 'required|string',
+            'category_name' => 'required|string',
         ]);
 
         $product = Product::create($request->all());
@@ -113,8 +109,8 @@ class ProductsController extends Controller
             $product->picture = $request->input('picture');
             $product->start_of_bid_period = $request->input('start_of_bid_period');
             $product->end_of_bid_period = $request->input('end_of_bid_period');
-            $product->user_id = $request->input('user_id');
-            $product->category_id = $request->input('category_id');
+            $product->offered_by = $request->input('offered_by');
+            $product->category_name = $request->input('category_name');
         }
 
         $product->save();

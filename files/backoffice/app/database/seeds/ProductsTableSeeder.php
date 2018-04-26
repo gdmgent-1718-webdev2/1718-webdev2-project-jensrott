@@ -35,10 +35,10 @@ class ProductsTableSeeder extends Seeder
             'picture' => 'f',
             'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
             'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
-            'user_id' => 3,
+            'user_id' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
-            'category_id' => 8,
+            'category_id' => 4,
         ];
 
         $products[] = [
@@ -47,10 +47,10 @@ class ProductsTableSeeder extends Seeder
             'picture' => 'f',
             'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
             'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
-            'user_id' => 8,
+            'user_id' => 2,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
-            'category_id' => 8,
+            'category_id' => 7,
         ];
 
         $products[] = [
@@ -59,10 +59,10 @@ class ProductsTableSeeder extends Seeder
             'picture' => 'f',
             'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
             'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
-            'user_id' => 6,
+            'user_id' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
-            'category_id' => 8,
+            'category_id' => 3,
         ];
 
         $products[] = [
@@ -71,7 +71,7 @@ class ProductsTableSeeder extends Seeder
             'picture' => 'f',
             'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
             'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
-            'user_id' => 10,
+            'user_id' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             'category_id' => 5,
@@ -83,10 +83,10 @@ class ProductsTableSeeder extends Seeder
             'picture' => 'f',
             'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
             'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
-            'user_id' => 8,
+            'user_id' => 2,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
-            'category_id' => 5,
+            'category_id' => 7,
         ];
 
         $products[] = [
@@ -95,7 +95,7 @@ class ProductsTableSeeder extends Seeder
             'picture' => 'f',
             'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
             'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
-            'user_id' => 10,
+            'user_id' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             'category_id' => 6,
@@ -107,7 +107,7 @@ class ProductsTableSeeder extends Seeder
             'picture' => 'f',
             'start_of_bid_period' => $faker->dateTime, // Nog aanpassen
             'end_of_bid_period' => $faker->dateTime, // Nog aanpassen
-            'user_id' => 8,
+            'user_id' => 2,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             'category_id' => 3,

@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
         /* Test User */
         $testuser = [];
         $testuser[] = [
-            'user_name' => 'Jensie',
+            'user_name' => 'Jens',
             'first_name' => 'Jens',
             'last_name' => 'Rottiers',
             'email' => 'jens.rottiers@test.be',
@@ -34,10 +34,10 @@ class UsersTableSeeder extends Seeder
         ];
 
        $testuser[] = [
-            'user_name' => 'Jensieke',
-            'first_name' => 'Jens',
-            'last_name' => 'Rottiers',
-            'email' => 'jensieke.rottiers@test.be',
+            'user_name' => 'John',
+            'first_name' => 'John',
+            'last_name' => 'Doe',
+            'email' => 'john.doe@test.be',
             //'cover_image' => $faker->image('public/images', 200, 200, 'cats', false),
             'address_street' => 'TestStreet',
             'address_number' => 20,
@@ -48,25 +48,8 @@ class UsersTableSeeder extends Seeder
             //'created_at' => new DateTime(),
         ];
 
-        /*
-        for($i = 0; $i <= 9; $i++) {
-            DB::table(self::TABLE)->insert([
-                'user_name' => $faker->userName,
-                'first_name' => $faker->firstName,
-                'last_name' => $faker->lastName,
-                'email' => $faker->email,
-
-                'address_street' => $faker->streetAddress,
-                'address_number' => $faker->randomNumber(3, true),
-                'address_postcode' => $faker->postcode,
-                'address_location' => $faker->city, // Later afleiden van u postcode.
-                'address_country' => $faker->country,
-
-                'password' => password_hash($faker->password, PASSWORD_DEFAULT),
-            ]);
+        for($i = 0; $i <= 4; $i++) {
+            DB::table(self::TABLE)->insert($testuser);
         }
-        */
-
-        DB::table(self::TABLE)->insert($testuser);
     }
 }

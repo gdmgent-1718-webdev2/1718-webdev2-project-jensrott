@@ -101,7 +101,7 @@
                         <table class="table table-light table-hover">
                             <thead class="thead-dark">
                             <tr>
-                                <th class="text-center">Username</th>
+                                <th class="text-center">Name</th>
                                 <th class="text-center">Description</th>
                                 <th class="text-center">Detail</th>
                             </tr>

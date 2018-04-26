@@ -7,6 +7,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 //use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Product as Product;
+
 
 class User extends Model
 {
@@ -42,6 +44,6 @@ class User extends Model
 
     public function product()
     {
-        return $this->hasMany('App\Product');
+        return $this->hasMany(Product::class);
     }
 }

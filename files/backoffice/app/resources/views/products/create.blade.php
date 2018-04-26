@@ -54,13 +54,14 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Offered by') }}</label>
+                                <label for="offered_by" class="col-md-4 col-form-label text-md-right">{{ __('Offered by') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="user_id" class="form-control{{ $errors->has('user_id') ? ' is-invalid' : '' }}" name="user_id" required>
-                                        @foreach($users as $user)
-                                            <option value="{{$user->id}}">
-                                                {{$user->user_name}}
+
+                                    <select id="offered_by" class="form-control {{ $errors->has('offered_by') ? ' is-invalid' : '' }}" name="offered_by" required>
+                                        @foreach($products as $product)
+                                            <option value="{{$product->user->id}}">
+                                                {{$product->user->user_name}}
                                             </option>
                                         @endforeach
                                     </select>
@@ -96,10 +97,11 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="category_id" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
+                                <label for="category_name" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="category_id" class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" required>
+
+                                    <select id="category_name" class="form-control{{ $errors->has('category_name') ? ' is-invalid' : '' }}" name="category_name" required>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}">
                                                 {{$category->name}}

@@ -111,8 +111,7 @@
                                     <tbody>
                                     <tr class="text-center">
                                         <td class="align-middle">{{$product->name}}</td>
-                                        <td class="align-middle">{{$product->user_id}}</td>
-
+                                        <td class="align-middle">{{$product->user->user_name}}</td>
                                         <td class="align-middle">
                                             <a class="btn btn-secondary" href="{{route('products.show', $product->id)}}">Detail</a>
                                         </td>

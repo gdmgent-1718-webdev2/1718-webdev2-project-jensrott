@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Product as Product;
 
 class Bid extends Model
 {
@@ -18,6 +19,6 @@ class Bid extends Model
     /*** Relationship Products ***/
     public function product() {
 
-        return $this->belongsTo('App\Product');
+        return $this->belongsTo(Product::class);
     }
 }

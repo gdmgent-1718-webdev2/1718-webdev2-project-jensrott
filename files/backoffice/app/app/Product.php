@@ -3,12 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User as User;
+use App\Category as Category;
+use App\Bid as Bid;
 
 class Product extends Model
 {
     protected $table = 'products';
 
     protected $fillable = [
+        'name',
         'name',
         'picture',
         'description',
@@ -26,7 +30,7 @@ class Product extends Model
     /*** Relationship Categories ***/
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -37,7 +41,7 @@ class Product extends Model
     /*** Relationship Users ***/
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -59,6 +63,6 @@ class Product extends Model
 
     /*** Relationship Bids ***/
     public function bid() {
-        return $this->hasMany('App\Bid');
+        return $this->hasMany(Bid::class);
     }
 }

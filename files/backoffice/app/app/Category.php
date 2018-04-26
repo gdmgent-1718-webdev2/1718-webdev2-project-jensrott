@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Product as Product;
 
 class Category extends Model
 {
@@ -19,9 +20,9 @@ class Category extends Model
      */
 
     /*** Relationship Products ***/
-    public function products() {
+    public function product() {
 
-        return $this->hasMany('App\Product');
+        return $this->hasMany(Product::class);
     }
 
 }

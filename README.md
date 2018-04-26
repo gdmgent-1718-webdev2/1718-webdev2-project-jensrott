@@ -45,6 +45,6 @@ Op GitHub ga je naar je repository en klik op **Settings**. Scroll naar beneden 
 
 ### Voorbeeldsite
 ```
- - Basissjabloon <https://gdmgent-1718-webdev2.github.io/1718-webdev2-project>
- - Persoonlijke repo van Olivier Parent <https://gdmgent-1718-webdev2.github.io/1718-webdev2-project-olivpa>
+ - Basissjabloon https://gdmgent-1718-webdev2.github.io/1718-webdev2-project
+ - Persoonlijke repo van Olivier Parent https://gdmgent-1718-webdev2.github.io/1718-webdev2-project-olivpa
 ```

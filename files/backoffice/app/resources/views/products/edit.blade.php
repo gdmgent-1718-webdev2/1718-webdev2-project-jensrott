@@ -47,14 +47,18 @@
                             <div class="form-group row">
                                 <label for="offered_by" class="col-md-4 col-form-label text-md-right">{{ __('Offered By') }}</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" name="offered_by" value="{{ old('user_id', $product->user_id) }}">
+                                    <select class="form-control" name="user_id" id="user_id">
+                                        <option value="{{$product->user->user_name}}">
+                                            {{old('offered_by' , $product->user->user_name)}}
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" name="category" value="{{ old('category_id', $product->category_id) }}">
+                                    <input class="form-control" type="text" name="category" value="{{ old('name', $product->category->name) }}">
                                 </div>
                             </div>
 

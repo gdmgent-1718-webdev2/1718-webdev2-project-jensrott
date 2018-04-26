@@ -20,14 +20,15 @@ class UsersController extends Controller
 
     protected $title = 'Users';
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
        // $users = User::select('user_name', 'email', 'id', 'deleted_at')->withTrashed(); // Vind het niet
         $users = DB::table('users')->whereNull('deleted_at')->orderBy('id', 'asc')->get();
-
-        //$users = User::all('id')->withTrashed()->get();
-        //$users = User::all()->withTrashed()->sortByDesc('name');
-        //$trash = DB::table('users')->withTrashed()->get();
         $title = $this->title;
         return view('users.index', compact('title' ,'trashedUsers' , 'users'));
     }

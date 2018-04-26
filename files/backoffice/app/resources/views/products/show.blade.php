@@ -15,8 +15,8 @@
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Start Bid Period: </span>{{$product->start_of_bid_period}}</p></li>
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">End Bid Period: </span>{{$product->end_of_bid_period}}</p></li>
 
-                    <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Offered By: </span>{{$product->user_id}}</p></li>
-                    <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Category: </span>{{$product->category_id}}</p></li>
+                    <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Offered By: </span>{{$product->user->user_name}}</p></li>
+                    <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Category: </span>{{$product->category->name}}</p></li>
 
 
 
