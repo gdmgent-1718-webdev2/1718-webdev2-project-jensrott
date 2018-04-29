@@ -8,13 +8,19 @@ export const environment = {
 
   CyclingAPI: {
     url: 'http://127.0.0.1:8000/api',
-    endPoints: {
+    usersEndPoints: {
       get: '/users', // All users
       post: '/user',
       getspecific: '/user/', // Id behind it
       put: '/user',
       delete: '/user/', // Id behind it
-
+    },
+    productsEndPoints: {
+      get: '/products', // All users
+      post: '/product',
+      getspecific: '/product/', // Id behind it
+      put: '/product',
+      delete: '/product/', // Id behind it
     }
   }
 };

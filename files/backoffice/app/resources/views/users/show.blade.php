@@ -27,8 +27,8 @@
                     <div class="input-group">
                         <a href="{{route('users.index', $user->id)}}" class="btn btn-primary mr-2">Close</a>
                         <a class="btn btn-secondary mr-2" href={{route('users.edit', $user->id)}}>Edit</a>
-                        <form action="/users/{{ $user->id }}" method="POST">
-                            {!! method_field('DELETE') !!}
+                        <form action="{{ route('users.softDelete', $user->id) }}" method="POST">
+
                             {{csrf_field()}}
                             <button class="btn btn-danger" type="submit">Soft Delete</button>
                         </form>

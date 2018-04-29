@@ -1,8 +1,8 @@
 <!-- Hardcoded now will be replaced by variables or objects -->
-
+<div *ngFor="let product of products">
 <div class="card">
-  <div class="main-title">
-    <h1>Eddy Merckx</h1>
+  <div class="main-title" >
+    <h1>{{product.name}}</h1>
     <h1 class="main-title__price">170 €</h1>
   </div>
   <div class="sub-title">
@@ -20,9 +20,10 @@
     </div>
     <div class="buttons">
       <div class="col-md-3">
-        <button class="button-bid">Bied mee</button>
-        <button class="button-hide">Verberg</button>
+        <button class="button-bid"><a href="/detail" class="button-bid">Bied mee</a> </button>
+        <button class="button-hide"><a href="#" class="button-hide">Verberg</a></button>
       </div>
     </div> 
   </div>
+</div>
 </div>

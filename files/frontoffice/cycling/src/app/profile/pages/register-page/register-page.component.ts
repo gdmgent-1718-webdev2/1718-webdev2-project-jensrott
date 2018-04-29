@@ -36,7 +36,7 @@ export class RegisterPageComponent implements OnInit {
   }
 
   getSpecificUser() {
-   this.userService.getProjectsById(1)
+   this.userService.getUsersById(1)
    .subscribe(newuser =>
       this.user = newuser);
   }

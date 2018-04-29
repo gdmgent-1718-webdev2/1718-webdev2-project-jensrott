@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ProductService } from '../../core/services/product.service';
+import { Product } from '../../core/models/product';
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  public products: Array<Product>;
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.productService.getProducts()
+    .subscribe(product => this.products = product);
   }
 
 }

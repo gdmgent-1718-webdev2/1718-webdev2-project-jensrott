@@ -8,7 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 /* Services */
 import { UserService } from './services/user.service';
-
+import { ProductService } from './services/product.service';
 @NgModule({
   imports: [
     CommonModule
@@ -23,6 +23,6 @@ import { UserService } from './services/user.service';
     NotFoundPageComponent,
     FooterComponent,
   ],
-  providers: [UserService],
+  providers: [UserService, ProductService],
 })
 export class CoreModule { }

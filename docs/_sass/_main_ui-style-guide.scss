@@ -7,7 +7,7 @@ $border-bottom-line: 2px solid #707070;
 $margin-bottom: 10px;
 
 $card-background-color: map-get($mainswatch, color-7);
-$card-padding: 20px;
+$card-padding: 10px;
 $card-border-radius: 15px;
 
 $button-background-color: map-get($mainswatch, color-5); 
@@ -22,6 +22,7 @@ $button-padding: 15px 0;
 
 .card {
     background-color: $card-background-color;
+    padding-top: 0;
     padding: $card-padding;
     border-radius: $card-border-radius;
 }

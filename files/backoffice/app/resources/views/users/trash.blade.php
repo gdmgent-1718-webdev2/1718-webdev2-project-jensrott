@@ -9,11 +9,18 @@
         <p> {{$user->user_name}} </p>
             <p> {{$user->first_name}} </p>
             <td class="align-middle">
-                <a class="btn btn-secondary" href="{{route('users.restore', $user->id)}}">Restore</a>
+                <form method="POST" action="{{ route('users.restore', $user->id) }}">
+                    {{csrf_field()}}
+                    <button class="btn btn-danger" type="submit">Restore</button> <!-- Permanent delete, doesn't work yet  -->
+                </form>
             </td>
 
-        <td class="align-middle">
-                <a class="btn btn-secondary" href="{{route('users.hardDelete', $user->id)}}">Delete forever</a>
+            <td class="align-middle">
+                <form action="{{ route('users.hardDelete', $user->id) }}">
+                    {!! method_field('DELETE') !!}
+                    {{csrf_field()}}
+                    <button class="btn btn-danger" type="submit">Delete Forever</button> <!-- Permanent delete, doesn't work yet  -->
+                </form>
             </td>
             <td class="align-middle">
                 <a class="btn btn-secondary" href="{{route('users.show', $user->id)}}">Detail</a>

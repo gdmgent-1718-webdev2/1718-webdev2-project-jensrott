@@ -9,6 +9,7 @@ import { ContactPageComponent } from './contact/pages/contact-page/contact-page.
 import { NoAccountPageComponent } from './profile/pages/noaccount-page/noaccount-page.component';
 import { RegisterPageComponent } from './profile/pages/register-page/register-page.component';
 import { NotFoundPageComponent } from './core/pages/not-found-page/not-found-page.component';
+import { AuctionsDetailComponent } from './auctions/pages/auctions-detail/auctions-detail.component';
 
 const routes: Routes = [
  {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
  {path: 'register', component: RegisterPageComponent},
  {path: 'offer', component: OfferPageComponent},
  {path: 'contact', component: ContactPageComponent},
+ {path: 'detail', component: AuctionsDetailComponent}, // Temporary
  {path: '404', component: NotFoundPageComponent},
  {path: '**', redirectTo: '/404'},
 ];
