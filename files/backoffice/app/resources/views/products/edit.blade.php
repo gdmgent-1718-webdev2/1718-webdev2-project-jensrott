@@ -49,7 +49,7 @@
                                 <div class="col-md-6">
                                     <select class="form-control" name="user_id" id="user_id">
                                         <option value="{{$product->user->user_name}}">
-                                            {{old('offered_by' , $product->user->user_name)}}
+                                            {{old('user_id' , $product->user->user_name)}}
                                         </option>
                                     </select>
                                 </div>

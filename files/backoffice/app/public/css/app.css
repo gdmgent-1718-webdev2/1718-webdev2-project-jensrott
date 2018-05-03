@@ -10057,7 +10057,6 @@ p {
 }
 
 .products:hover {
-  color: #697170;
   text-decoration: none;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
@@ -10082,7 +10081,14 @@ p {
   font-size: 200px;
 }
 
-.back-arrow:hover {
-  color: #697170;
+.chart {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  width: 500px;
+  height: 500px;
+  color: white;
 }
 

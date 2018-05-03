@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App\User;
+
+use App\Http\Resources\Product as ProductResource;
+
 
 class MetricsController extends Controller
 {
@@ -14,7 +19,9 @@ class MetricsController extends Controller
     public function index()
     {
         $title = 'Metrics';
-        return view('metrics.index', compact('title'));
+        $products = Product::all();
+        $users = User::all();
+        return view('metrics.index', compact('title', 'products', 'users'));
     }
 
     /**

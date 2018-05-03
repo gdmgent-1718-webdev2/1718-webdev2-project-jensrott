@@ -35,7 +35,7 @@ class CreateUsersTable extends Migration
            // $table->string('status'); // 2 mogelijke waardes Actief of niet actief
 
             $table->string('password');
-            $table->rememberToken();
+            //$table->rememberToken();
             $table->timestamps();
             $table->softDeletes(); // Softdelete
         });

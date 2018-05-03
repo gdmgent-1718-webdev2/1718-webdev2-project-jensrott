@@ -22,7 +22,7 @@ class ProductsController extends Controller
     {
         $title = $this->title;
         $products = Product::all()->sortByDesc('id');
-        return view('products.index', compact('title', 'products', 'usersIds'));
+        return view('products.index', compact('title', 'products'));
     }
 
     /**
@@ -53,8 +53,8 @@ class ProductsController extends Controller
             'picture' => 'required|string|max:50',
             'start_of_bid_period' => 'required|date',
             'end_of_bid_period' => 'required|date',
-            'offered_by' => 'required|string',
-            'category_name' => 'required|string',
+            'used_id' => 'required|string',
+            'category_id' => 'required|string',
         ]);
 
         $product = Product::create($request->all());

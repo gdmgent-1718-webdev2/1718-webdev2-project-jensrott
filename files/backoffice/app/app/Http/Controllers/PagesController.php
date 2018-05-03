@@ -11,13 +11,13 @@ class PagesController extends Controller
 
     public function index() {
         $this->title = 'hello!';
-        return view('pages.index', compact('title'));
+        return view('index', compact('title'));
     }
 
     // Eventueel later een aparte controller als mijn profiel uitgebreid word
     public function profile() {
         $this->title = 'Profile';
         $firstSuperAdmin = Admin::all()->firstWhere('role', '=', 'Admin'); // Cool! ;p
-        return view('pages.profile', compact('title', 'firstSuperAdmin'));
+        return view('admins.profile', compact('title', 'firstSuperAdmin'));
     }
 }
