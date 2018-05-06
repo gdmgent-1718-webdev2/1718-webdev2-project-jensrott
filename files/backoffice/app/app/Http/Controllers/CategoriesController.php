@@ -42,8 +42,8 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|string|max:50',
-            'description' => 'required|string|max:50',
+            'name' => 'required|regex:/^([^0-9]*)$/|string|max:50',
+            'description' => 'required|regex:/^([^0-9]*)$/|string|max:50',
             'picture' => 'required|string|max:50',
         ]);
 

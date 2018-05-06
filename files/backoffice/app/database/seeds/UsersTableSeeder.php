@@ -32,11 +32,13 @@ class UsersTableSeeder extends Seeder
                 'last_name' => 'Rottiers',
                 'email' => $testname1 . '.rottiers@test.be',
                 //'cover_image' => $faker->image('public/images', 200, 200, 'cats', false),
+                /*
                 'address_street' => 'TestStreet',
                 'address_number' => $addressnumber,
                 'address_postcode' => $adresspostcode,
                 'address_location' => 'TestCity',
                 'address_country' => 'TestCountry',
+                */
                 'password' => bcrypt('654321'),
                 'created_at' => $created_at,
             ];
@@ -47,13 +49,15 @@ class UsersTableSeeder extends Seeder
                 'last_name' => 'Doe',
                 'email' => $testname2 . '.doe@test.be',
                 //'cover_image' => $faker->image('public/images', 200, 200, 'cats', false),
+                /*
                 'address_street' => 'TestStreet',
                 'address_number' => $addressnumber,
                 'address_postcode' => $adresspostcode,
                 'address_location' => 'TestCity',
                 'address_country' => 'TestCountry',
-                'password' => bcrypt('654321'),
-                'created_at' => $created_at,
+                */
+               'password' => bcrypt('654321'),
+               'created_at' => $created_at,
             ];
         }
 

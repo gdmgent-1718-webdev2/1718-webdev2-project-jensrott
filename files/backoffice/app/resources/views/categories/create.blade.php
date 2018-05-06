@@ -15,7 +15,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name Category') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}">
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">
@@ -29,7 +29,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="description" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}" required autofocus>
+                                    <input id="description" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}">
 
                                     @if ($errors->has('description'))
                                         <span class="invalid-feedback">
@@ -43,7 +43,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Picture') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="picture" type="text" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" value="{{ old('picture') }}" required autofocus>
+                                    <input id="picture" type="text" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" value="{{ old('picture') }}">
 
                                     @if ($errors->has('picture'))
                                         <span class="invalid-feedback">

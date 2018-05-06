@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Bid;
 use Illuminate\Support\Facades\DB;
@@ -30,8 +31,10 @@ class BidsController extends Controller
      */
     public function create()
     {
+        $users = User::all();
+        $bids = Bid::all();
         $title = $this->title;
-        return view('bids.create', compact('title'));
+        return view('bids.create', compact('title', 'bids', 'users'));
     }
 
     /**
@@ -44,8 +47,9 @@ class BidsController extends Controller
     {
         $this->validate($request, [
             'date' => 'required|date',
-            'value' => 'required|integer|max:1000',
+            'value' => 'required|integer',
             'status' => 'required|string|max:50',
+            'user_id' => 'required', // Probleem net als bij products, hij corespondeerd niet meer
         ]);
 
         $bid = Bid::create($request->all()); // Fout user_id heeft geen default value, is voorlopig niet erg.
@@ -97,6 +101,7 @@ class BidsController extends Controller
             $bid->date = $request->input('date');
             $bid->value = $request->input('value');
             $bid->status = $request->input('status');
+            $bid->user_id = $request->input('offered_by');
         }
 
         $bid->save();

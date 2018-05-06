@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 //use App\Exceptions\Handler;
 
@@ -28,7 +29,7 @@ class UsersController extends Controller
     public function index()
     {
        // $users = User::select('user_name', 'email', 'id', 'deleted_at')->withTrashed(); // Vind het niet
-        $users = DB::table('users')->whereNull('deleted_at')->orderBy('id', 'asc')->get();
+        $users = DB::table('users')->whereNull('deleted_at')->orderBy('id', 'desc')->get();
         //$trashed_users = User::onlyTrashed()->get();
         $title = $this->title;
         return view('users.index', compact('title' ,'trashed_users' , 'users'));
@@ -58,19 +59,21 @@ class UsersController extends Controller
 
 
         $this->validate($request, [
-            'user_name' => 'string|max:20|unique:users',
-            'first_name' => 'required|string|max:50',
-            'last_name' => 'required|string|max:50',
+            'user_name' => 'required|string|max:20|unique:users',
+            'first_name' => 'required|string|regex:/^([^0-9]*)$/|max:50',
+            'last_name' => 'required|string|regex:/^([^0-9]*)$/|max:50',
             'email' => 'required|string|email|max:60',
             'password' => 'required|string|min:6|confirmed',
 
            // 'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
+            /*
             'address_street' => 'required|string|max:95',
             'address_number' => 'required|integer|max:16',
-            'address_postcode' => 'required|integer',
+            'address_postcode' => 'required|integer|max:16',
             'address_location' => 'required|string|max:95',
             'address_country' => 'required|string|max:95'
+            */
         ]);
 
         /*
@@ -111,50 +114,17 @@ class UsersController extends Controller
 
            // 'cover_image' => $fileNameToStore,
 
+            /* In comments voor eenvoudigheid
             'address_street' => $request->input('address_street'),
             'address_number' => $request->input('address_number'),
             'address_postcode' => $request->input('address_postcode'),
             'address_location' => $request->input('address_location'),
             'address_country' => $request->input('address_country'),
+            */
 
             //'status' => 'Active',
         ]);
 
-
-
-        /*
-        $user = new User();
-        $user->user_name = $request->input('user_name');
-        $user->first_name = $request->input('first_name');
-        $user->last_name = $request->input('last_name');
-        $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-
-        $user->cover_image = $fileNameToStore;
-
-        $user->address_street = $request->input('address_street');
-        $user->address_number = $request->input('address_number');
-        $user->address_postcode = $request->input('address_postcode');
-        $user->address_location = $request->input('address_location');
-        $user->address_country = $request->input('address_country');
-
-        $user->save();
-        */
-
-
-
-
-
-
-        /*
-        $user = new User;
-        $user->user_name = $request->input('user_name');
-        $user->first_name = $request->input('first_name');
-        $user->last_name = $request->input('last_name');
-        $user->email = $request->input('email');
-        $user->password = $request->input('password');
-        $user->save();
-        */
 
         compact('user');
         $request->session()->flash('alert-dark', 'User was successful added!');
@@ -197,6 +167,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*
         $user = User::findOrFail($id);
 
         if ($user) {
@@ -205,14 +176,41 @@ class UsersController extends Controller
             $user->last_name = $request->input('last_name');
             $user->email = $request->input('email');
 
+            /*
             $user->address_street = $request->input('address_street');
             $user->address_number = $request->input('address_number');
             $user->address_postcode = $request->input('address_postcode');
             $user->address_location = $request->input('address_location');
             $user->address_country = $request->input('address_country');
+
         }
 
         $user->save();
+        */
+
+        $user = User::find($id);
+        $validator =  Validator::make($request->all(), $rules);
+        //$user->fill($request->all());
+
+        $rules = [
+            'user_name' => 'required|string|max:20|unique:users',
+            'first_name' => 'required|string|regex:/^([^0-9]*)$/|max:50',
+            'last_name' => 'required|string|regex:/^([^0-9]*)$/|max:50',
+            'email' => 'required|string|email|max:60',
+            'password' => 'required|string|min:6|confirmed',
+        ];
+
+
+
+        $data = [
+            'user_name' => $user->user_name = $request->input('user_name'),
+            'first_name' => $user->first_name = $request->input('first_name'),
+            'last_name' => $user->last_name = $request->input('last_name'),
+            'email' => $user->email = $request->input('email'),
+        ];
+
+        $user->update($data, $rules);
+
 
         compact('user');
         $request->session()->flash('alert-dark', 'User was successful updated!');

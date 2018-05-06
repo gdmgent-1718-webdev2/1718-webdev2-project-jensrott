@@ -15,7 +15,7 @@
                                 <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date bid') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ old('date') }}" required autofocus>
+                                    <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ old('date') }}">
 
                                     @if ($errors->has('date'))
                                         <span class="invalid-feedback">
@@ -29,7 +29,7 @@
                                 <label for="value" class="col-md-4 col-form-label text-md-right">{{ __('Value in Euro') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="value" type="number" class="form-control{{ $errors->has('value') ? ' is-invalid' : '' }}" name="value" value="{{ old('value') }}" required autofocus>
+                                    <input id="value" type="number" class="form-control{{ $errors->has('value') ? ' is-invalid' : '' }}" name="value" value="{{ old('value') }}">
 
                                     @if ($errors->has('value'))
                                         <span class="invalid-feedback">
@@ -43,13 +43,33 @@
                                 <label for="status" class="col-md-4 col-form-label text-md-right">{{ __('Status of the bid') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="status" type="text" class="form-control{{ $errors->has('status') ? ' is-invalid' : '' }}" name="status" value="{{ old('status') }}" required autofocus>
+                                    <select id="status" class="form-control {{ $errors->has('status') ? ' is-invalid' : '' }}" name="status">
+                                        <option>
+                                            Active
+                                        </option>
+                                        <option>
+                                            Pending
+                                        </option>
+                                        <option>
+                                            Declined
+                                        </option>
 
-                                    @if ($errors->has('status'))
-                                        <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('status') }}</strong>
-                                    </span>
-                                    @endif
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="offered_by" class="col-md-4 col-form-label text-md-right">{{ __('Offered by') }}</label>
+
+                                <div class="col-md-6">
+
+                                    <select id="user_id" class="form-control {{ $errors->has('user_id') ? ' is-invalid' : '' }}" name="user_id">
+                                        @foreach($users as $user)
+                                            <option value="{{$user->id}}">
+                                                {{$user->user_name}}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 

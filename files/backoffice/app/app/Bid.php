@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Product as Product;
+use App\User as User;
 
 class Bid extends Model
 {
@@ -20,5 +21,10 @@ class Bid extends Model
     public function product() {
 
         return $this->belongsTo(Product::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
