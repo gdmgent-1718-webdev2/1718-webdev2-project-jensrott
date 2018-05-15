@@ -1,7 +1,227 @@
----
-layout   : default
-# Custom Page Variables
-permalink: presentation/
-# ─────────────────────
-title: Presentatie | Web Development II
----
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Cycling Vintage Shop</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/simple.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/league.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css">
+
+    <style>
+        .title {
+            font-size: 150px;
+            font-weight: bold;
+            margin-bottom: 80px;
+            color: goldenrod;
+        }
+
+        img {
+            width: 100px;
+            height: auto;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="reveal">
+
+
+        <div class="slides">
+            <section>
+                <div class="title">Cycling Vintage Shop</div>
+                <p>
+                    Jens Rottiers
+                </p>
+                <p>
+                    Arteveldehogeschool 2017-2018
+                </p>
+            </section>
+
+            <section data-markdown>
+                #### Ebay : 
+                [Ebay](https://www.benl.ebay.be/) is één van de meest bekend voorbeelden van een veilingsplatform Op ebay kan
+                je ook oud koersmateriaal kopen. 
+
+                Cycling vintage clothes: 
+                ![afbeelding](../assets/images/analyse/ebay1.JPG)
+                ![afbeelding](../assets/images/analyse/ebay2.JPG)
+            </section>
+
+            <section>
+                <div class="title">Concept</div>
+                <p>Ontwerp en codeer de Application Programming Interface van het thematisch veilingsplatform. De API is een
+                    onderdeel van de backend van het systeem waarmee de frontoffice (en eventueel ook de frontend van de
+                    backoffice) communiceert.
+                </p>
+
+            </section>
+
+            <section>
+                <div class="title">Technische specificaties Backoffice</div>
+                <ul>
+                    <li>MySQL 5.7 of hoger</li>
+                    <li>PHP 7.2 of hoger</li>
+                    <li>Laravel 5.6 of hoger</li>
+                    <li>Seeding with Faker</li>
+                    <li>Artisan Console</li>
+                    <li>Models met Eloquent ORM</li>
+                    <li>Views met Blade Templates</li>
+                    <li>Controllers</li>
+                    <li>Carbon</li>
+                    <li>Bootstrap</li>
+                    <li>D3.js</li>
+                    <li>Sass</li>
+                </ul>
+            </section>
+            <section>
+                <div class="title">Functionele specificaties Backoffice</div>
+                <ul>
+                    <li>Inloggen</li>
+                    <li>Verder aanvullen later de gene die ik heb</li>
+                </ul>
+
+            </section>
+
+            <section>
+                <section>
+                    <div class="title">Visual Designs Backoffice</div>
+
+                </section>
+                <section>
+                    <h1>Later meer</h1>
+                </section>
+                <section>
+                    <h1>Later meer</h1>
+                </section>
+            </section>
+
+            <section>
+                <div class="title">
+                    Sitemap Backoffice
+                </div>
+            </section>
+
+
+
+            <section>
+                <div class="title">Technische specificaties Frontoffice</div>
+                <ul>
+                    <li>Angular 5 of hoger</li>
+                    <li>Node.js 8 of hoger</li>
+                    <li>Yarn</li>
+
+                </ul>
+            </section>
+
+            <section>
+                <div class="title">Functionele specificaties Frontoffice</div>
+                <ul>
+                    <li>Inloggen</li>
+                    <li>Verder aanvullen later de gene die ik heb</li>
+                </ul>
+
+            </section>
+
+            <section>
+                <section>
+                    <div class="title">Visual Designs Frontoffice</div>
+
+                </section>
+                <section>
+                    <h1>Later meer</h1>
+                </section>
+                <section>
+                    <h1>Later meer</h1>
+                </section>
+            </section>
+
+            <section>
+                <div class="title">
+                    Wireflow Frontoffice
+                </div>
+            </section>
+
+            <section>
+                <div class="title">Bedankt! Zijn er nog vragen?</div>
+            </section>
+
+
+
+            <section id="themes">
+                <h2>Themes</h2>
+                <p>
+                    reveal.js comes with a few themes built in:
+                    <br>
+                    <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a>
+                    <br>
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+                </p>
+            </section>
+
+
+
+
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+
+    <script>
+
+
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'slide',
+
+
+            dependencies: [
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true }
+            ],
+
+            markdown: {
+                smartypants: true
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
