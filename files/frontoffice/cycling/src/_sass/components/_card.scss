@@ -11,6 +11,7 @@ $card-border-radius: 15px;
 $button-border-radius: 15px;
 $button-border: 1px solid #000;
 
+/* NOTE: This card component is to show a product so not a normal card for example to show information */
 .cards-container {
     margin-top: 50px;
     .card {
@@ -19,6 +20,8 @@ $button-border: 1px solid #000;
         padding: $card-padding;
         border-radius: $card-border-radius;
         margin-bottom: 10px;
+        margin-left: 50px;
+        color: $card-text-color;
 
         h1,h2 {
             margin: 0;
@@ -78,8 +81,7 @@ $button-border: 1px solid #000;
                     height: auto;
                     border-radius: $button-border-radius;
                     text-transform: uppercase;
-                    border: 0;
-                    color: $card-text-color;
+                    border: 0;        
                     padding: 7px;
                     margin-bottom: 10px;
                     font-weight: 400;
@@ -101,7 +103,6 @@ $button-border: 1px solid #000;
                     border-radius: $button-border-radius;
                     text-transform: uppercase;
                     border: 0;
-                    color: $card-text-color;
                     padding: 7px;
                     font-weight: 400;
 

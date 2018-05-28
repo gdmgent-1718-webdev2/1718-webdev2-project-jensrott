@@ -1,5 +1,79 @@
 <div class="container">
-  <div class="border-line">
-    <h1 class="main-title">Bied zelf iets aan</h1>
+  <div class="row margin-helper">
+    <div class="col-2">
+      <div class="card sidebar">
+        <ul>
+          <li>
+            <button class="main-button">
+              <a class="main-button" href="/profile">Profiel</a>
+            </button>
+          </li>
+          <li>
+            <button class="main-button">
+              <a class="main-button" href="/own-auctions">Veilingen</a>
+            </button>
+          </li>
+          <li>
+            <button class="main-button">
+              <a class="main-button" href="/offer">Maken</a>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-10">
+      <div class="card main-content">
+        <h1>Veilingen aanmaken</h1>
+        <div class="row">
+          <div class="col-md-6 ">
+            <div class="card-profile">
+              <div class="element">
+                <label>
+                  <p> Kies een naam</p>
+                </label>
+                <input type="text" name="name" />
+              </div>
+              <div class="element">
+                <label>
+                  <p>Voeg een beschrijving toe</p>
+                </label>
+                <textarea type="text" name="description"></textarea>
+              </div>
+              <div class="element">
+                <label>
+                  <p>Begin bod (€)</p>
+                </label>
+                <input type="number" name="bid" />
+              </div>
+              <div class="element">
+                <label>
+                  <p>Start Datum (€)</p>
+                </label>
+                <input type="date" name="start-bid-period" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card-profile">
+                <p>Voeg een foto toe aan je product</p>
+                <form style="margin-bottom: 20px;" id="uploadForm" enctype="multipart/form-data" method="post" action="#">
+                  <input id="fileUpload" name="myFile" type="file" />
+                  <input type="submit" value="submit" id="submit" />
+                </form>
+                <p>Preview:</p>
+                <img src="../../../../assets/images/placeholder.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <a href="/own-auctions" class="main-button" style="margin: 20px;">Aanmaken</a>
+        </div>
+        <div class="row delete-account-container">
+          <p class="delete-account-text"><a href=""> Verwijder mijn account</a></p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
+

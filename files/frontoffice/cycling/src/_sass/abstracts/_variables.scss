@@ -8,6 +8,8 @@ $mainswatch : (
   color-5: #04AE5F,
   color-6: #005D57,
   color-7: #FBFBFB,
+  color-8: #707070,
+  color-9: #C8C8C8,
 );
 
 /* Base styles */
@@ -28,6 +30,9 @@ $base-border-radius: 3px;
 
 $body-background-color: map-get($mainswatch, bg);
 $base-color: #444;
+
+$input-border-radius: 15px;
+$input-border-color: 0.5px solid #697170;
 
 
 /* Header styles */

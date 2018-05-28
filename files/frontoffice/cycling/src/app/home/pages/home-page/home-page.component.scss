@@ -1,5 +1,4 @@
-@import 'app.scss';
-@import 'abstracts/helpers';
+@import 'abstracts/variables';
 
 .center-text {
     display: flex;
@@ -58,7 +57,7 @@
         display: flex;
         margin-left: auto;
         text-decoration: none;
-        color: #707070;
+        color: map-get($mainswatch , color-8);
         font-size: 1.5em;
         font-family: $primary-font-family;
         font-weight: bold;
@@ -74,6 +73,6 @@
         font-size: 50px;
         margin-left: 11px;
         margin-top: 13px;
-        color: #707070;
+        color: map-get($mainswatch , color-8);
     }
 }

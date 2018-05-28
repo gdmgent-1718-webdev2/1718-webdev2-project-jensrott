@@ -1,4 +1,68 @@
 <!-- Profile page when logged in -->
-<p>
-  profile-page works!
-</p>
+<div class="container">
+  <div class="row margin-helper">
+    <div class="col-2">
+      <div class="card sidebar">
+        <ul>
+          <li>
+            <button class="main-button">
+              <a class="main-button" href="/profile">Profiel</a>
+            </button>
+          </li>
+          <li>
+            <button class="main-button">
+              <a class="main-button" href="/own-auctions">Veilingen</a>
+            </button>
+          </li>
+          <li>
+            <button class="main-button">
+              <a class="main-button" href="/offer">Maken</a>
+            </button>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <div class="col-10">
+      <div class="card main-content">
+        <h1>Mijn Profiel</h1>
+        <div class="row">
+          <div class="col-md-6 ">
+            <div class="card-profile">
+              <div class="element">
+                <label>
+                  <p> Gebruikersnaam</p>
+                </label>
+                <input type="text" name="name" />
+              </div>
+              <div class="element">
+                <label>
+                  <p>Email</p>
+                </label>
+                <input type="email" name="email" />
+              </div>
+              <div class="element">
+                <label>
+                  <p>Wachtwoord</p>
+                </label>
+                <input type="password" name="password" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card-profile">
+                <p>Profile Picture</p>
+                <img src="../../../../assets/images/placeholder.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <a href="/edit-profile" class="change-button">Wijzigen</a>
+        </div>
+        <div class="row delete-account-container">
+          <div class="delete-account-text">Verwijder mijn account</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

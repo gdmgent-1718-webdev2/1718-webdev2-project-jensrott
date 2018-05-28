@@ -1,29 +1,34 @@
 <!-- Hardcoded now will be replaced by variables or objects -->
 <div *ngFor="let product of products">
-<div class="card">
-  <div class="main-title" >
-    <h1>{{product.name}}</h1>
-    <h1 class="main-title__price">170 €</h1>
-  </div>
-  <div class="sub-title">
-    <h2>Sluit over</h2><div class="sub-title__remaining-time">9u 22m 24s</div>
-  </div>
-  <div class="row images">
-    <div class="col-md-3">
-      <img src="../../../../assets/images/placeholder.jpg" alt="">
+  <div class="card">
+    <div class="main-title">
+      <h1>{{product.name}}</h1>
+      <h1 class="main-title__price">170 €</h1>
     </div>
-    <div class="col-md-3">
-      <img src="../../../../assets/images/placeholder.jpg" alt="">
+    <div class="sub-title">
+      <h2>Sluit over</h2>
+      <div class="sub-title__remaining-time">9u 22m 24s</div>
     </div>
-    <div class="col-md-3">
-      <img src="../../../../assets/images/placeholder.jpg" alt="">
-    </div>
-    <div class="buttons">
+    <div class="row images">
       <div class="col-md-3">
-        <button class="button-bid"><a href="/detail" class="button-bid">Bied mee</a> </button>
-        <button class="button-hide"><a href="#" class="button-hide">Verberg</a></button>
+        <img src="../../../../assets/images/placeholder.jpg" alt="">
       </div>
-    </div> 
+      <div class="col-md-3">
+        <img src="../../../../assets/images/placeholder.jpg" alt="">
+      </div>
+      <div class="col-md-3">
+        <img src="../../../../assets/images/placeholder.jpg" alt="">
+      </div>
+      <div class="buttons">
+        <div class="col-md-3">
+          <button class="button-bid">
+            <a href="/detail" class="button-bid">Bied mee</a>
+          </button>
+          <button class="button-hide">
+            <a href="#" class="button-hide">Verberg</a>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </div>
