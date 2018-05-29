@@ -15,7 +15,6 @@ import { RegisterPageComponent } from './profile/pages/register-page/register-pa
 import { ProfilePageComponent } from './profile/pages/profile-page/profile-page.component';
 import { EditProfilePageComponent } from './profile/pages/edit-profile-page/edit-profile-page.component';
 import { OwnAuctionsPageComponent } from './profile/pages/own-auctions-page/own-auctions-page.component';
-import { ProfileDeleteModalComponent } from './profile/components/profile-delete-modal/profile-delete-modal.component';
 
 const routes: Routes = [
  {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -33,8 +32,6 @@ const routes: Routes = [
  {path: 'edit-profile', component: EditProfilePageComponent},
  {path: 'own-auctions', component: OwnAuctionsPageComponent},
  {path: '**', redirectTo: '/404'},
-
- {path: 'modal', component: ProfileDeleteModalComponent }, // Test for now so I can see it
 ];
 
 @NgModule({

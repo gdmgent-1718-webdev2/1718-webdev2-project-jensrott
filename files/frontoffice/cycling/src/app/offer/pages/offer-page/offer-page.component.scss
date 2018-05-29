@@ -1,1 +1,11 @@
-@import 'abstracts/mixins'
+@import 'abstracts/variables';
+
+input, textarea {
+    
+        color: $base-color;
+        font-size: $base-font-size;
+        font-family: $base-font-family;
+    
+    border-radius: $input-border-radius;
+    border: $input-border-color;
+}

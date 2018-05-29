@@ -1,9 +1,27 @@
 @import 'abstracts/variables';
 
-.center-text {
+
+.landing {
+    position: relative;
+    background: url('../../../../assets/images/lucien_tour.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    .landing-inner {
+        .dark-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.center-items {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
     margin-bottom: 20px;
 
     .main-text {
@@ -13,10 +31,16 @@
     }
     
     
-    .main-title {
+    .main-title-text {
         display: inline-block;
         margin: 0;
-    
+        margin-top: 25px;
+    }
+
+    .main-title {
+        color: #fff;
+        font-weight: bold;
+        font-size: 55px;
     }
 }
 
@@ -35,15 +59,16 @@
 .bottom-icon {
     display: flex;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 561px;
+    z-index: 9000;
     
 
     &__custom-icon {
-        color: map-get($mainswatch , color-2);
+        color: map-get($mainswatch , color-1);
         font-size: 100px;
         
         &:hover {
-            color: map-get($mainswatch , color-1);
+            color: map-get($mainswatch , color-2);
           }
     }
     

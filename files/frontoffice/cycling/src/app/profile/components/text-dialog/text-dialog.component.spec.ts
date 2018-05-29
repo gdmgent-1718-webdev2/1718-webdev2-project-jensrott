@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfileDeleteModalComponent } from './profile-delete-modal.component';
+import { TextDialogComponent } from './text-dialog.component';
 
-describe('ProfileDeleteModalComponent', () => {
-  let component: ProfileDeleteModalComponent;
-  let fixture: ComponentFixture<ProfileDeleteModalComponent>;
+describe('TextDialogComponent', () => {
+  let component: TextDialogComponent;
+  let fixture: ComponentFixture<TextDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileDeleteModalComponent ]
+      declarations: [ TextDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfileDeleteModalComponent);
+    fixture = TestBed.createComponent(TextDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

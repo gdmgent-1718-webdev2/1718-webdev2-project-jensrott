@@ -31,6 +31,10 @@ $change-button-border: 0.5px solid map-get($mainswatch, color-2);
     margin-bottom: 50px;
 }
 
+.center-text {
+    text-align: center;
+}
+
 /* NOTE: this is for a normal card so not a card for a product, card for product is in the specific card component */
 .card {
     background-color: $card-background-color;

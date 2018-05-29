@@ -38,6 +38,6 @@ import { UserService } from './core/services/user.service';
     HttpClientModule,
   ],
   providers: [UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

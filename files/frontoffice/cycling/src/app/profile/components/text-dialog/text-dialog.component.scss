@@ -1,0 +1,6 @@
+@import 'abstracts/variables';
+
+.dialog-title {
+    font-size: 29px;
+    color: map-get($mainswatch , color-4);
+}
