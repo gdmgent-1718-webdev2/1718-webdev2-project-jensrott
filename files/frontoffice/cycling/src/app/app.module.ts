@@ -33,7 +33,7 @@ import { AuthenticationService } from './core/services/authentication.service';
     MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HomeModule,  
+    HomeModule,
     AuctionModule,
     ProfileModule,
     ContactModule,
