@@ -1,0 +1,63 @@
+/* added all */ 
+
+@import 'abstracts/variables';
+.container {
+
+    .card {
+        .info-header {
+            display: flex;
+            margin-top: 0;
+
+            .action-id {
+                flex: 1;
+            }
+        }
+
+        .action-category {
+            margin: 0;
+        }
+
+        
+
+
+
+        .bid-information {
+            p {
+                margin-right: 30px;
+                margin-bottom: 10px;
+            }
+
+        }
+
+        .bid-actions {
+
+        
+        }
+
+        input,textarea {
+            color: $base-color;
+            font-size: $base-font-size;
+            font-family: $base-font-family;
+            border-radius: $input-border-radius;
+            border: $input-border-color;
+            box-sizing: border-box; 
+            width: 80%;
+            padding: $input-padding;
+        }
+
+        .auction-texarea {
+            resize: vertical;
+        }
+
+        .auction-image-main {
+            width: 200px;
+            height: auto;
+        }
+
+        .auction-image {
+            width: 100px;
+            height: auto;
+        }
+    }
+    
+}

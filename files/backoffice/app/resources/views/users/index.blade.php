@@ -37,7 +37,7 @@
                         </div>
                         <div>
                             <form action={{route('users.trash')}}>
-                                <button class="btn btn-primary">Restore {{$title}}</button>
+                                <button class="btn btn-primary mr-3">Restore Softdeleted {{$title}}</button>
                             </form>
                         </div>
                     </div>
@@ -62,9 +62,10 @@
                                             <a class="btn btn-secondary" href="{{route('users.show', $user->id)}}">Detail</a>
                                         </td>
                                         <td>
-                                            <form action="{{ route('users.hardDelete', $user->id) }}">
+                                            <form action="{{ action('UsersController@hardDelete', $user->id) }}" method="POST" >
+                                                @method('DELETE')
                                                 {{csrf_field()}}
-                                                <button class="btn btn-danger" type="submit">Delete Forever</button> <!-- Permanent delete, doesn't work yet  -->
+                                                <button class="btn btn-danger">Delete Forever</button> 
                                             </form>
                                         </td>
                                 </tr>

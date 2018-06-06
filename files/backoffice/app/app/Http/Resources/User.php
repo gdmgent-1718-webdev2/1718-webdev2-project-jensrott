@@ -12,7 +12,7 @@ class User extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    protected $table = 'users';
+    // protected $table = 'users';
 
     public function toArray($request)
     {

@@ -2,19 +2,26 @@
 
 namespace App;
 
-//use Illuminate\Notifications\Notifiable;
+use Illuminate\Notifications\Notifiable;
 
-use Illuminate\Database\Eloquent\Model;
-//use Illuminate\Foundation\Auth\User as Authenticatable;
+//use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+//use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Product as Product;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
 
-class User extends Model
+class User extends Authenticatable implements JWTSubject
 {
-    //use Notifiable;
+    //Add HasApiTokens to your User model (to use with eg passport, token-based authorization)
+    // use HasApiTokens,Notifiable;
+    use Notifiable;
     use SoftDeletes;
+    protected $guard='api';
 
+
+    // protected $guard = "api" ; (No need to add this ?)
     /**
      * The attributes that are mass assignable.
      *
@@ -38,11 +45,25 @@ class User extends Model
 
     protected $dates = ['deleted_at'];
 
+    /*
+    * Functions required for JWT token authentication
+    *
+    */
+    public function getJWTIdentifier()
+    {   return $this->getKey();
+
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
     // One User has many Products
 
     /*** Relationship Products ***/
 
-    public function product()
+    public function products()
     {
         return $this->hasMany(Product::class);
     }

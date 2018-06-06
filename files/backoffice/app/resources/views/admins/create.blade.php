@@ -2,6 +2,18 @@
 
 @section('content')
     <!-- Registreren van een admin -->
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul> 
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif 
+
+
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -9,7 +21,7 @@
                     <div class="card-header">{{ __('Create a new Admin') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action={{ route('admins.store') }}>
                             @csrf
 
                             <div class="form-group row">

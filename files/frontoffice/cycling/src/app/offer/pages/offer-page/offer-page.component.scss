@@ -1,11 +1,2 @@
-@import 'abstracts/variables';
-
-input, textarea {
-    
-        color: $base-color;
-        font-size: $base-font-size;
-        font-family: $base-font-family;
-    
-    border-radius: $input-border-radius;
-    border: $input-border-color;
-}
+/* Style is in helpers.scss because I need to use it globally through my profile */
+/* added */

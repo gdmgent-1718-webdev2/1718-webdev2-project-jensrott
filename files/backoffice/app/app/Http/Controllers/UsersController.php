@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DateTime;
 use Illuminate\Http\Request;
 use App\User;
+use App\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,10 +30,10 @@ class UsersController extends Controller
     public function index()
     {
        // $users = User::select('user_name', 'email', 'id', 'deleted_at')->withTrashed(); // Vind het niet
-        $users = DB::table('users')->whereNull('deleted_at')->orderBy('id', 'desc')->get();
+        $users = DB::table('users')->whereNull('deleted_at')->orderBy('id', 'asc')->get();
         //$trashed_users = User::onlyTrashed()->get();
         $title = $this->title;
-        return view('users.index', compact('title' ,'trashed_users' , 'users'));
+        return view('users.index', compact('title'  , 'users'));
     }
 
     /**
@@ -67,13 +68,13 @@ class UsersController extends Controller
 
            // 'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
-            /*
+            
             'address_street' => 'required|string|max:95',
-            'address_number' => 'required|integer|max:16',
-            'address_postcode' => 'required|integer|max:16',
+            'address_number' => 'required|integer|max:999',
+            'address_postcode' => 'required|integer|max:9999',
             'address_location' => 'required|string|max:95',
             'address_country' => 'required|string|max:95'
-            */
+            
         ]);
 
         /*
@@ -114,17 +115,18 @@ class UsersController extends Controller
 
            // 'cover_image' => $fileNameToStore,
 
-            /* In comments voor eenvoudigheid
+            
             'address_street' => $request->input('address_street'),
             'address_number' => $request->input('address_number'),
             'address_postcode' => $request->input('address_postcode'),
             'address_location' => $request->input('address_location'),
             'address_country' => $request->input('address_country'),
-            */
+            
 
             //'status' => 'Active',
         ]);
 
+    
 
         compact('user');
         $request->session()->flash('alert-dark', 'User was successful added!');
@@ -142,7 +144,12 @@ class UsersController extends Controller
     public function show($id)
     {
         $title = $this->title;
-        $user = User::find($id);
+
+        $user = User::withTrashed()
+                    ->find($id);
+                 // search needs to include the list of softdeleted models
+        
+         //$user = User::find($id); //Original statement (did not include the softdeleted records)
         return view('users.show', compact('user', 'title'));
     }
 
@@ -167,36 +174,17 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*
-        $user = User::findOrFail($id);
-
-        if ($user) {
-            $user->user_name = $request->input('user_name');
-            $user->first_name = $request->input('first_name');
-            $user->last_name = $request->input('last_name');
-            $user->email = $request->input('email');
-
-            /*
-            $user->address_street = $request->input('address_street');
-            $user->address_number = $request->input('address_number');
-            $user->address_postcode = $request->input('address_postcode');
-            $user->address_location = $request->input('address_location');
-            $user->address_country = $request->input('address_country');
-
-        }
-
-        $user->save();
-        */
+        
 
         $user = User::find($id);
-        $validator =  Validator::make($request->all(), $rules);
-        //$user->fill($request->all());
-
+        
+        
         $rules = [
             'user_name' => 'required|string|max:20|unique:users',
             'first_name' => 'required|string|regex:/^([^0-9]*)$/|max:50',
             'last_name' => 'required|string|regex:/^([^0-9]*)$/|max:50',
             'email' => 'required|string|email|max:60',
+            'address_number' => 'required|integer|max:16',
             'password' => 'required|string|min:6|confirmed',
         ];
 
@@ -207,113 +195,106 @@ class UsersController extends Controller
             'first_name' => $user->first_name = $request->input('first_name'),
             'last_name' => $user->last_name = $request->input('last_name'),
             'email' => $user->email = $request->input('email'),
+            'address_street' => $user->email = $request->input('address_street'),
+            'address_number' => $user->email = $request->input('address_number'),
+            'address_postcode' => $user->email = $request->input('address_postcode'),
+            'address_location' => $user->email = $request->input('address_location'),
+            'address_country' => $user->email = $request->input('address_country'),
+
+
+
         ];
+        $validator =  Validator::make($request->all(), $rules);
 
         $user->update($data, $rules);
-
+        //$user->update($data);
 
         compact('user');
         $request->session()->flash('alert-dark', 'User was successful updated!');
         return redirect('/users');
     }
 
-
-
-
-
-    // Doesn't work yet
-    // Because he looks for the id in users.show and that isn't there anymore for some strange reason
-    // restore works
-    /*
-        public function hardDelete($id)
-        {
-
-            $user = User::withTrashed()->where($id)->get();
-            if ($user) {
-                $user->forceDelete(); // Hard delete forever
-            }
-
-            //$user = User::find($id)->withTrashed()->history()->forceDelete();
-            compact('user');
-            return redirect('/users');
-        }
-
-
-        // Show soft deleted users
-        public function showTrash() {
-            $title = $this->title;
-            //$users = DB::table('users')->whereNotNull('deleted_at')->orderBy('id', 'asc')->get();
-            $users = User::onlyTrashed()->get();
-           // $trashedUsers = User::onlyTrashed()->get();
-            return view('users.trash', compact('users', 'title'));
-        }
-
-        public function softDelete($id) {
-            User::find($id)->delete();
-            return redirect('/users');
-
-        }
-    */
-
+    
+        
         /**
-         * Remove the specified resource from storage.
+         * Remove the specified resource from storage (hard and soft versions)
          *
          * @param  int  $id
          * @return \Illuminate\Http\Response
          *
          */
-        // Error hij zoekt altijd naar destroy method no matter what.
-        public function destroy($id, Request $request) {
-           // $user = User::withTrashed()->where($id)->get();
-            $user = User::find($id);
-            //dd($user);
-            if ($user) {
-                $user->delete(); // Hard delete forever
-            }
+        
+        public function hardDelete($id, Request $request)  {
 
-            //$user = User::find($id)->withTrashed()->history()->forceDelete();
-            compact('user');
-            $request->session()->flash('alert-danger', 'User was successful hard deleted!');
-            return redirect('/users');
+        $user = User::withTrashed()
+            ->find($id);
+        // search needs to include the list of softdeleted models
+        //$user = User::withTrashed()->where($id)->get();      
+        // $user = User::find($id);
+    
+        if ($user) {
+            $UserName = $user->user_name;
+                        
+            $products = Product::withTrashed()->where('user_id',$id)->get();
+            foreach ($products as $product) {   
+                $product->forceDelete();              // Related products are also deleted to guarantee integrity of the database
+            }
+            $user->forceDelete(); // Hard delete forever
+            $request->session()->flash('alert-danger', $UserName. ' was successfully hard deleted!');
+        } else {
+            $request->session()->flash('alert-danger', 'Something went wrong!');
+        }
+       
+        return redirect('/users');
         }
 
-        public function hardDelete($id) {
 
-       // $user = User::withTrashed()->where($id)->get();
-        $user = User::find($id)->forceDelete();
+        public function softDelete($id, Request $request) {
+            
+           // $user = User::withTrashed()->where($id)->get();
+               
+            $user = User::find($id);
+    
 
-        //$user = User::find($id)->withTrashed()->history()->forceDelete();
-        compact('user');
+        if ($user) {
+            $UserName = User::find($id)->user_name;
+            $products = User::find($id)->products;        // Use the one2many relation between user and products
+            foreach ($products as $product) {
+                  
+                $product->delete();              // Related products are also deleted to guarantee integrity of the database
+            }
+            $user->delete(); // Soft delete
+            $request->session()->flash('alert-danger', $UserName. ' and related products were successfully soft deleted!');
+        } else {
+            $request->session()->flash('alert-danger', 'Something went wrong!');
+        }
         return redirect('/users');
-    }
-
-    public function softDelete($id, Request $request) {
-        User::find($id)->delete();
-        $request->session()->flash('alert-danger', 'User was successful soft Deleted!');
-        return redirect('/users');
-
-    }
+        }
 
     // Show soft deleted users
-    public function showTrash() {
-        $title = 'Users';
-        //$users = DB::table('users')->whereNotNull('deleted_at')->orderBy('id', 'asc')->get();
-        $users = User::onlyTrashed()->get();
-        // $trashedUsers = User::onlyTrashed()->get();
+        public function showTrash() {
+            $title = 'Users';
+            //$users = DB::table('users')->whereNotNull('deleted_at')->orderBy('id', 'asc')->get();
+            $users = User::onlyTrashed()->get();
+            // $trashedUsers = User::onlyTrashed()->get();
         return view('users.trash', compact('users', 'title'));
     }
 
 
-        // Restore a user
+        // Restore a user and related products
         public function restore($id, Request $request) {
 
             $user = User::onlyTrashed()->findOrFail($id);
+            $products = Product::onlyTrashed()->where('user_id',$id)->get();
+            foreach ($products as $product) {   
+                $product->restore();              // Related products are also restored to guarantee integrity of the database
+            }
             $user->restore();
                // compact('user');
-            $request->session()->flash('alert-dark', 'User was successful restored!');
+            $request->session()->flash('alert-danger', 'User and related products were successfully restored!');
             return redirect('/users');
 
-                // Message erbij van succesful
+                // Adding message the record is successfully restored
 
         }
 }

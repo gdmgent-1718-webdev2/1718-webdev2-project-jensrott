@@ -1,4 +1,4 @@
-import { Address } from './address';
+// import { Address } from './address';
 
 export class User {
     id: string;
@@ -6,6 +6,13 @@ export class User {
     first_name: string;
     last_name: string;
     email: string;
-    password: any;
+    password: string;
+    address_street: string;
+    address_number: number;
+    address_postcode: number;
+    address_location: string;
+    address_country: string;
+    // created_at: Date;
+    // updated_at: Date;
     // address: Address;
 }

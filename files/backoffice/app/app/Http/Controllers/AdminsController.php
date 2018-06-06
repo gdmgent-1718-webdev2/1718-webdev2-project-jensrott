@@ -34,7 +34,7 @@ class AdminsController extends Controller
             'last_name' => 'required|string|max:50',
             'email' => 'required|string|email|max:60|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'role' => 'required|string|10',
+            'role' => 'required|string|max:10',
         ]);
 
         $admin = Admin::create([
@@ -69,8 +69,8 @@ class AdminsController extends Controller
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
             'email' => 'required|string|email|max:60|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'role' => 'required|string|10',
+            //'password' => 'required|string|min:6|confirmed', // Not enabled in edit form
+            'role' => 'required|string|max:11',
         ]);
 
         $admin = Admin::find($id);

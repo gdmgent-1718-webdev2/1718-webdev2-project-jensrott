@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -42,12 +43,62 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|regex:/^([^0-9]*)$/|string|max:50',
-            'description' => 'required|regex:/^([^0-9]*)$/|string|max:50',
-            'picture' => 'required|string|max:50',
+           'name' => 'required|string|max:50',
+            'description' => 'required|string|max:50',
+            //'picture' => 'required|string|max:50',
+            //'picture' => 'required|mimes:jpg|max:8000',
         ]);
 
-        $category = Category::create($request->all());
+/*
+        if ($request->hasFile('picture')) {
+            $image = $request->file('picture');
+            $name = time().'.'.$image->getClientOriginalExtension(); // Welke naam we het gaan opslaan ?full path ?
+            $destinationPath = $image->storeAs('public/category_images', $name);
+            $image->move($destinationPath, $name);
+        }
+        */
+        
+        if($request->hasFile('picture')) {
+            $fileNameWithExt = $request->file('picture')->getClientOriginalName(); // Dit zet de exacte file naam in een var
+
+            // Get just filename
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME); // Standaard php geen Laravel
+
+            // Get just extension
+            $extension = $request->file('picture')->getClientOriginalExtension();
+
+            // Filename to store, alles samengevoegd in 1 var
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+
+            // Upload the image
+            $path = $request->file('picture')->storeAs('images/', $fileNameToStore); // Saven in /storage/app/public/images
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+        
+
+
+       
+        $category = Category::create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'picture' => "/storage/images/". $fileNameToStore, // href in view is /public/storage/images , which points to /storage/app/public/images
+
+            
+            
+            
+
+            
+        ]);
+        
+
+
+
+
+
+
+
+        //$category = Category::create($request->all());
         //$product->save();
         compact('category');
         $request->session()->flash('alert-dark', 'Category was successful added!');
@@ -88,15 +139,42 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+
+        $this->validate($request, [
+            'name' => 'required|string|max:50',
+            'description' => 'required|string|max:50',
+            //'picture' => 'required|string|max:50'
+        ]);
+
         $category = Category::findOrFail($id);
+        
 
         if ($category) {
-            $category->name = $request->input('name');
-            $category->description = $request->input('description');
-            $category->picture = $request->input('picture');
+            
+                if($request->hasFile('picture')) {
+                    $fileNameWithExt = $request->file('picture')->getClientOriginalName(); // Dit zet de exacte file naam in een var
+                // Get just filename
+                    $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME); // Standaard php geen Laravel
+                // Get just extension
+                    $extension = $request->file('picture')->getClientOriginalExtension();
+                // Filename to store, alles samengevoegd in 1 var
+                    $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+                // Upload the image
+                    $path = $request->file('picture')->storeAs('images/', $fileNameToStore); // Save in /storage/app/public/images
+                } else {
+                    $fileNameToStore = 'noimage.jpg';
+                }
+        
+       
+            
+                $category->name = $request->input('name');
+                $category->description = $request->input('description');
+                $category->picture = "/storage/images/". $fileNameToStore; // href in view is /public/storage/images , which points to /storage/app/public/images
+            
         }
 
-        $category->save();
+         $category->save();
 
         compact('category');
         $request->session()->flash('alert-dark', 'Category was successful updated!');
@@ -113,9 +191,19 @@ class CategoriesController extends Controller
     {
         $category = Category::find($id);
         if($category) {
-            $category->delete();
+            $categoryName = $category->name;
+            $products = Category::find($id)->products;        // Use the one2many relation between category and products
+            foreach ($products as $product) {
+                  
+                $product->delete();              // Related products are also deleted to guarantee integrity of the database
+            }
+            $category->delete(); // Hard Delete ; No SoftDelete enabled on categories ...
+            $request->session()->flash('alert-danger', ' Category ' . $categoryName . ' was successfully hard deleted!');
+        } else { 
+            $request->session()->flash('alert-danger', 'Something went wrong!');
         }
-        $request->session()->flash('alert-danger', 'Category was successful deleted!');
         return redirect('/categories');
     }
 }
+
+// Should also delete related products ?? and bids ?? 

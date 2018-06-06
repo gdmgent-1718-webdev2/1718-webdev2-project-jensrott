@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <h1>Welcome {{Auth::user()->first_name}}!</h1>
+    <h1>Welcome {{Auth::user()->user_name}} !</h1>
 
     <div class="container-fluid">
         <div class="row">

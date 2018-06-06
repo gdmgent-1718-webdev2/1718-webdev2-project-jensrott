@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Create a new Product') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ action('ProductsController@store') }}">
+                        <form method="POST" action="{{ action('ProductsController@store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -40,10 +40,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Picture') }}</label>
+                                <label for="picture" class="col-md-4 col-form-label text-md-right">{{ __('Picture') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="picture" type="text" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" value="{{ old('picture') }}" required autofocus>
+                                    <input id="picture" type="file" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" ><br />
 
                                     @if ($errors->has('picture'))
                                         <span class="invalid-feedback">
@@ -54,14 +54,14 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="offered_by" class="col-md-4 col-form-label text-md-right">{{ __('Offered by') }}</label>
+                                <label for="user_id" class="col-md-4 col-form-label text-md-right">{{ __('Offered by') }}</label>
 
                                 <div class="col-md-6">
 
-                                    <select id="offered_by" class="form-control {{ $errors->has('offered_by') ? ' is-invalid' : '' }}" name="offered_by" required>
-                                        @foreach($products as $product)
-                                            <option value="{{$product->user->id}}">
-                                                {{$product->user->user_name}}
+                                    <select id="user_id" class="form-control {{ $errors->has('user_id') ? ' is-invalid' : '' }}" name="user_id" required>
+                                        @foreach($users as $user)
+                                            <option value="{{$user->id}}">
+                                                {{$user->user_name}}
                                             </option>
                                         @endforeach
                                     </select>
@@ -69,7 +69,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Start Bid Period') }}</label>
+                                <label for="start_of_bid_period" class="col-md-4 col-form-label text-md-right">{{ __('Start Bid Period') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="start_of_bid_period" type="date" class="form-control{{ $errors->has('start_of_bid_period') ? ' is-invalid' : '' }}" name="start_of_bid_period" value="{{ old('start_of_bid_period') }}" required>
@@ -97,16 +97,17 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="category_name" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
+                                <label for="category_id" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                                 <div class="col-md-6">
+                                    
 
-                                    <select id="category_name" class="form-control{{ $errors->has('category_name') ? ' is-invalid' : '' }}" name="category_name" required>
-                                        @foreach($categories as $category)
-                                            <option value="{{$category->id}}">
-                                                {{$category->name}}
-                                            </option>
-                                        @endforeach
+                                    <select id="category_id" class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" required>
+                                    @foreach($categories as $category)
+                                         <option value="{{$category->id}}">
+                                              {{$category->name}}
+                                          </option>
+                                     @endforeach
                                     </select>
                                 </div>
                             </div>

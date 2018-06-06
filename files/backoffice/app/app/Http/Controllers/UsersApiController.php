@@ -32,32 +32,32 @@ class UsersApiController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * // Will in principle never be done with this function (handled with AuthController register function)
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-            $user = $request->isMethod('put') ? // We checken is het een PUT request? Dan zoeken we de id
-                                                        // zoniet maken we een nieuwe aan dus een POST request.
-            User::findOrFail($request->id) : new User();
+        $user = User::create([
+            'user_name' => $request->input('user_name'),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
 
-            $user->id = $request->input('user_id');
-            $user->user_name = $request->input('user_name');
-            $user->first_name = $request->input('first_name');
-            $user->last_name = $request->input('last_name');
-            $user->email = $request->input('email');
-            $user->password = Hash::make($request->input('password'));
+           // 'cover_image' => $fileNameToStore,
 
-            $user->address_street = $request->input('address_street');
-            $user->address_number = $request->input('address_number');
-            $user->address_postcode = $request->input('address_postcode');
-            $user->address_location = $request->input('address_location');
-            $user->address_country = $request->input('address_country');
+            
+            'address_street' => $request->input('address_street'),
+            'address_number' => $request->input('address_number'),
+            'address_postcode' => $request->input('address_postcode'),
+            'address_location' => $request->input('address_location'),
+            'address_country' => $request->input('address_country'),
+            
 
-            if($user->save()) {
-                return new UserResource($user);
-            }
+            //'status' => 'Active',
+        ]);   
+        return new UserResource($user);       
     }
 
     /**

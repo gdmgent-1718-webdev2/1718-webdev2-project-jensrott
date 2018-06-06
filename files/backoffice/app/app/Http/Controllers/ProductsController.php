@@ -21,7 +21,7 @@ class ProductsController extends Controller
     public function index()
     {
         $title = $this->title;
-        $products = Product::all()->sortByDesc('id');
+        $products = Product::all()->sortByDesc('name');
         return view('products.index', compact('title', 'products'));
     }
 
@@ -32,11 +32,10 @@ class ProductsController extends Controller
      */
     public function create()
     {
-       // $users = User::all();
-        $categories = Category::all(); // Can be cleaner with $product->category->name
-        $products = Product::all()->sortByDesc('id');
+        $users = User::all();
+        $categories = Category::all();
         $title = $this->title;
-        return view('products.create', compact('title', 'products', 'categories'));
+        return view('products.create', compact('title', 'categories', 'users'));
     }
 
     /**
@@ -50,17 +49,47 @@ class ProductsController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'picture' => 'required|string|max:50',
+            //'picture' => 'required|string|max:50',
             'start_of_bid_period' => 'required|date',
             'end_of_bid_period' => 'required|date',
-            'used_id' => 'required|string',
+            'user_id' => 'required|string',
             'category_id' => 'required|string',
         ]);
 
-        $product = Product::create($request->all());
+
+        if($request->hasFile('picture')) {
+            $fileNameWithExt = $request->file('picture')->getClientOriginalName(); // Dit zet de exacte file naam in een var
+
+            // Get just filename
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME); // Standaard php geen Laravel
+
+            // Get just extension
+            $extension = $request->file('picture')->getClientOriginalExtension();
+
+            // Filename to store, alles samengevoegd in 1 var
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+
+            // Upload the image
+            $path = $request->file('picture')->storeAs('images/', $fileNameToStore); // Saven in /storage/app/public/images
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+
+        //$product = Product::create($request->all());
+        $product = Product::create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+           // 'picture' => $request->input('picture'),
+           'picture' => "/storage/images/". $fileNameToStore, // href in view is /public/storage/images , which points to /storage/app/public/images
+            'start_of_bid_period' => $request->input('start_of_bid_period'),
+            'end_of_bid_period' => $request->input('end_of_bid_period'),
+            'user_id' => $request->input('user_id'),
+            'category_id' => $request->input('category_id'),
+        ]);
         //$product->save();
         compact('product');
-        $request->session()->flash('alert-dark', 'Product was successful added!');
+        $request->session()->flash('alert-danger', 'Product was successful added!');
         return redirect('/products');
     }
 
@@ -86,8 +115,11 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
+        $users = User::all();
+        $categories = Category::all(); 
+        $title = $this->title;
 
-        return view('products.edit', compact('product'));
+        return view('products.edit', compact('product', 'users', 'categories'));
     }
 
     /**
@@ -104,19 +136,36 @@ class ProductsController extends Controller
         $product = Product::findOrFail($id);
 
         if ($product) {
+            if($request->hasFile('picture')) {
+                $fileNameWithExt = $request->file('picture')->getClientOriginalName(); // Dit zet de exacte file naam in een var
+            // Get just filename
+                $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME); // Standaard php geen Laravel
+            // Get just extension
+                $extension = $request->file('picture')->getClientOriginalExtension();
+            // Filename to store, alles samengevoegd in 1 var
+                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            // Upload the image
+                $path = $request->file('picture')->storeAs('images/', $fileNameToStore); // Save in /storage/app/public/images
+            } else {
+                $fileNameToStore = 'noimage.jpg';
+            }
+
+
+
             $product->name = $request->input('name');
             $product->description = $request->input('description');
-            $product->picture = $request->input('picture');
+            //$product->picture = $request->input('picture');
+            $product->picture = "/storage/images/". $fileNameToStore; // href in view is /public/storage/images , which points to /storage/app/public/images
             $product->start_of_bid_period = $request->input('start_of_bid_period');
             $product->end_of_bid_period = $request->input('end_of_bid_period');
-            $product->offered_by = $request->input('offered_by');
-            $product->category_name = $request->input('category_name');
+            $product->user_id = $request->input('user_id');
+            $product->category_id = $request->input('category_id');
         }
 
         $product->save();
 
         compact('product');
-        $request->session()->flash('alert-dark', 'Product was successful updated!');
+        $request->session()->flash('alert-danger', 'Product was successful updated!');
         return redirect('/products');
     }
 

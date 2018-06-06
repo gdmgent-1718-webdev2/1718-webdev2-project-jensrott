@@ -37,18 +37,27 @@ class CategoriesApiController extends Controller
      */
     public function store(Request $request)
     {
-        $category = $request->isMethod('put') ? // We checken is het een PUT request? Dan zoeken we naar de user_id
-            // zoniet maken we een nieuwe aan dus een POST request.
-            Category::findOrFail($request->user_id) : new Category();
 
-        $category->id = $request->input('id');
-        $category->name = $request->input('user_name');
-        $category->description = $request->input('first_name');
-        $category->picture = $request->input('last_name');
+        $bid = Bid::create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'picture' => $request->input('picture'),
+             ]);   
 
-        if($category->save()) {
+        /**
+         * $category = $request->isMethod('put') ? // We checken is het een PUT request? Dan zoeken we naar de user_id
+         *   // zoniet maken we een nieuwe aan dus een POST request.
+         *   Category::findOrFail($request->user_id) : new Category();
+
+        * $category->id = $request->input('id');
+        * $category->name = $request->input('user_name');
+        * $category->description = $request->input('first_name');
+        * $category->picture = $request->input('last_name');
+        */
+
+        // if($category->save()) {
             return new CategoryResource($category);
-        }
+        // }
     }
 
     /**
@@ -97,7 +106,7 @@ class CategoriesApiController extends Controller
         $category = Category::findOrFail($id);
 
         if($category->delete()) {
-            return new CategoryResource($category); // Softdelete , so not fully removed from database
+            return new CategoryResource($category); 
         }
     }
 }

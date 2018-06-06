@@ -25,15 +25,14 @@
             </div>
                 <div class="card-footer">
                     <div class="input-group">
-                        <a href="{{route('users.index', $user->id)}}" class="btn btn-primary mr-2">Close</a>
-                        <a class="btn btn-secondary mr-2" href={{route('users.edit', $user->id)}}>Edit</a>
+                        
+                        <a href="{{route('users.index')}}" class="btn btn-primary mr-2">Close</a>
+                        <a class="btn btn-secondary mr-2" href="{{route('users.edit', $user->id)}}">Edit</a>
                         <form action="{{ route('users.softDelete', $user->id) }}" method="POST">
 
                             {{csrf_field()}}
                             <button class="btn btn-danger" type="submit">Soft Delete</button>
                         </form>
-
-                        <!-- Later als het gedeleted is knop erbij restore -->
 
                     </div>
                 </div>

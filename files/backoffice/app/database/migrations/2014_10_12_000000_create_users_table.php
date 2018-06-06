@@ -26,13 +26,13 @@ class CreateUsersTable extends Migration
             $table->string('email');
            // $table->string('cover_image');
 
-            /* In comments gezet voor de eenvoudigheid
+            
             $table->string('address_street');
             $table->string('address_number');
             $table->string('address_postcode');
             $table->string('address_location'); // Later afleiden van u postcode.
             $table->string('address_country');
-            */
+        
            // $table->string('status'); // 2 mogelijke waardes Actief of niet actief
 
             $table->string('password');

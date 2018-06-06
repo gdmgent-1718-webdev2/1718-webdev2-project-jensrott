@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthenticationService } from '../../../core/services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -6,17 +7,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-@Output() sidebarToggle = new EventEmitter();
-
-  // Todo add logic to add the class active page to the header when clicked on page.
-  allListItems: any;
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
+    this.authenticationService.getCurrentUserId();
   }
 
-  sidebarOpen() {
-    this.sidebarToggle.emit();
+  logOut() {
+    this.authenticationService.logout();
   }
-
 }

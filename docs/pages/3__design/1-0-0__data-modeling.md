@@ -10,5 +10,6 @@ EER
 ---
 
 Tekening database model
+
 ![afbeelding](../../assets/images/data_modeling/database_model.JPG)
 {:.datamodel}

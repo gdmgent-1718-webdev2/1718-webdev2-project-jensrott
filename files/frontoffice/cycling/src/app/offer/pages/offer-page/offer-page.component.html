@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row margin-helper">
-    <div class="col-2">
+    <div class="col-4">
       <div class="card sidebar">
         <ul>
           <li>
@@ -10,70 +10,109 @@
           </li>
           <li>
             <button class="main-button">
-              <a class="main-button" href="/own-auctions">Veilingen</a>
+              <a class="main-button" href="/own-auctions">Mijn Veilingen</a>
             </button>
           </li>
           <li>
             <button class="main-button">
-              <a class="main-button" href="/offer">Maken</a>
+              <a class="main-button" href="/offer">Veiling Aanmaken</a>
             </button>
           </li>
         </ul>
       </div>
     </div>
-    <div class="col-10">
-      <div class="card main-content">
+    <div class="col-8">
+      <div class="main-content">
         <h1>Veilingen aanmaken</h1>
-        <div class="row">
-          <div class="col-md-6 ">
-            <div class="card-profile">
-              <div class="element">
-                <label>
-                  <p> Kies een naam</p>
-                </label>
-                <input type="text" name="name" />
-              </div>
-              <div class="element">
-                <label>
-                  <p>Voeg een beschrijving toe</p>
-                </label>
-                <textarea type="text" name="description"></textarea>
-              </div>
-              <div class="element">
-                <label>
-                  <p>Begin bod (€)</p>
-                </label>
-                <input type="number" name="bid" />
-              </div>
-              <div class="element">
-                <label>
-                  <p>Start Datum (€)</p>
-                </label>
-                <input type="date" name="start-bid-period" />
+        <form class="card" #offerForm="ngForm">
+          <!--
+          <form class="card" action="post" #offerForm="ngForm" (ngSubmit)="addProduct()" >
+          -->
+          <div class="row">
+            <div class="col-md-6 ">
+              <div class="card-profile">
+                <div class="element">
+                  <label>
+                    <p> Kies een naam voor jouw aanbieding</p>
+                  </label>
+                  <input type="text" id="name" required [(ngModel)]="product.name" name="name" />
+                  <!---TODO: remove this : {{product.name}} -->
+                </div>
+                <div class="element">
+                  <label>
+                    <p>Voeg een beschrijving toe</p>
+                  </label>
+                  <textarea type="text" id="description" required [(ngModel)]="product.description" name="description"></textarea>
+                </div>
+                <div class="element">
+                  <label>
+                    <p>Begin bod (€)</p>
+                  </label>
+                  <input type="number" name="bid" />
+                </div>
+                <div class="element">
+                  <label>
+                    <p>Startdatum voor de veiling</p>
+                  </label>
+                  <input type="date" id="start_of_bid_period" required [(ngModel)]="product.start_of_bid_period" name="start_of_bid_period"
+                  />
+                </div>
+                <div class="element">
+                  <label>
+                    <p>Einddatum voor de veiling</p>
+                  </label>
+                  <input type="date" id="end_of_bid_period" required [(ngModel)]="product.end_of_bid_period" name="end_of_bid_period" />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card-profile">
-                <p>Voeg een foto toe aan je product</p>
-                <form style="margin-bottom: 20px;" id="uploadForm" enctype="multipart/form-data" method="post" action="#">
-                  <input id="fileUpload" name="myFile" type="file" />
-                  <input type="submit" value="submit" id="submit" />
-                </form>
-                <p>Preview:</p>
-                <img src="../../../../assets/images/placeholder.jpg" alt="">
+            <div class="col-md-6">
+              <div class="card-profile">
+                <div class="element">
+                  <label>
+                    <p> Welke categorie ?</p>
+                  </label>
+                  <select>
+                    <option *ngFor="let category of categories" [value]="selectedCategory" name="category">{{category.name}}</option>
+                </select>
+                  
+                </div>
+                <div class="element">
+                  <p>Voeg een foto toe aan je product</p>
+                  <form style="margin-bottom: 20px;" id="uploadForm" enctype="multipart/form-data" method="post" action="#">
+                    <input id="fileUpload" name="myFile" type="file" />
+                    <input type="submit" value="submit" id="submit" />
+                  </form>
+                  <p>Preview:</p>
+                  <img src="../../../../assets/images/placeholder.jpg" alt="">
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <a href="/own-auctions" class="main-button" style="margin: 20px;">Aanmaken</a>
-        </div>
-        <div class="row delete-account-container">
-          <p class="delete-account-text"><app-delete-button></app-delete-button></p>
-        </div>
-      </div>
-    </div>
 
+            
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <!--
+              <a href="/own-auctions" class="main-button" style="margin: 20px;">Aanmaken</a>
+              -->
+              <div class="create-bid-container">
+              <button type="submit" class="main-button register-button" (click)="addProduct();">
+                <a class="main-button">Aanmaken</a>
+              </button>
+              </div>
+            </div>
+              <!-- replace by button -->
+            <div class="col-6">
+            <div class="delete-account-container">
+              <p class="delete-account-text">
+                <app-delete-button></app-delete-button>
+              </p>
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
   </div>
 </div>
-

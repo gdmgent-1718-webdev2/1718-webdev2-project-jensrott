@@ -38,24 +38,25 @@
                         <table class="table table-light table-hover">
                             <thead class="thead-dark">
                             <tr>
-                                <th class="text-center">Product-name</th>
-                                <th class="text-center">Description
-                                <th class="text-center">Highest Bid</th>
-                                <th class="text-center">Offered By</th>
-                                <th class="text-center">Detail</th>
+                                <th class="text-center">Date</th>
+                                <th class="text-center">Product</th>
+                                <th class="text-center">Bid Value</th>
+                                <th class="text-center">Bid By</th>
+                                 <th class="text-center">Detail</th>
                             </tr>
                             </thead>
                             @if(count($bids) > 0)
                                 @foreach($bids as $bid)
                                     <tbody>
                                     <tr class="text-center">
-                                        <td class="align-middle">{{$bid->product_id}}</td>
-                                        <td class="align-middle">{{$bid->description}}</td>
+                                        <td class="align-middle">{{$bid->date}}</td>
+                                        <td class="align-middle">{{$bid->product->name}}</td>
                                         <td class="align-middle">{{$bid->value}}</td>
+                                        <td class="align-middle">{{$bid->user->user_name}}</td>
 
                                         <td class="align-middle">
                                             <a class="btn btn-secondary" href="{{route('bids.show', $bid->id)}}">Detail</a>
-                                        </td>
+                                     </td>
                                     </tr>
                                     </tbody>
                                 @endforeach

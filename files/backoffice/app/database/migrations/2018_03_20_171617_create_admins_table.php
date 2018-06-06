@@ -19,7 +19,7 @@ class CreateAdminsTable extends Migration
     public function up()
     {
         Schema::create(self::TABLE, function (Blueprint $table) {
-            $table->increments(self::PK);
+            $table->increments(self::PK); // int(10) unsigned
             $table->string('user_name');
             $table->string('first_name');
             $table->string('last_name');
@@ -27,7 +27,7 @@ class CreateAdminsTable extends Migration
             $table->string('password');
             $table->string('role'); // Beheerder of hoofdbeheerder, met een dropdown
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps(); // creates created_at and updated_at field
         });
     }
 

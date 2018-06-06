@@ -26,6 +26,8 @@ h2,h3,h4,h5,h6 {
 p {
     font-size: $base-font-size;
     font-family: $base-font-family;
+    margin: 0; /* added */
+    padding: 0; /* added */
 }
 
 a {

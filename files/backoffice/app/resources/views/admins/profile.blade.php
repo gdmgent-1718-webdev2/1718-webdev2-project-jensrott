@@ -8,11 +8,11 @@
     <title>Profile page</title>
 </head>
 <body>
-    <p>{{$firstSuperAdmin->user_name}}</p>
-    <p>{{$firstSuperAdmin->first_name}}</p>
-    <p>{{$firstSuperAdmin->last_name}}</p>
-    <p>{{$firstSuperAdmin->email}}</p>
-    <p>{{$firstSuperAdmin->role}}</p>
+    <p>{{$Admin->user_name}}</p>
+    <p>{{$Admin->first_name}}</p>
+    <p>{{$Admin->last_name}}</p>
+    <p>{{$Admin->email}}</p>
+    <p>{{$Admin->role}}</p>
 </body>
 </html>
 

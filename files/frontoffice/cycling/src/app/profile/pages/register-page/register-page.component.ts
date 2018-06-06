@@ -8,45 +8,64 @@ import { UserService } from '../../../core/services/user.service';
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent implements OnInit {
-
-  public users: Array<User>;
-  // Lege user for input
-  user: User = {
+  private users: Array<User>; // array to store existing list of users -- first user is now in the heading of the form
+  private user: User = {
+    // temporarily limited to a subset of fields
     id: '',
     user_name: '',
-    first_name: '',
-    last_name: '',
+    first_name: 'TBD',
+    last_name: 'TBD',
     email: '',
     password: '',
+    address_street: 'TBD',
+    address_number: 1,
+    address_postcode: 9230,
+    address_location: 'TBD',
+    address_country: 'TBD'
     // address: '',
   };
-  public newuser: ''; // Voor input;
+  private repeat_password: string = '';
+  private ErrorMsg: string = '';
+
+  submitted = false;
+  passwordMatch = true;
+  private passwordCheckMessage = '';
+
+  onSubmit() {
+    this.submitted = true;
+  }
 
   constructor(private userService: UserService) {}
 
-
   ngOnInit() {
-    this.getUsers();
-    this.getSpecificUser();
+    //  this.getUsers();
+    //  this.getSpecificUser();
   }
 
-  getUsers() {
-    this.userService.getUsers()
-    .subscribe(user => this.users = user);
-  }
-
-  getSpecificUser() {
-   this.userService.getUsersById(1)
-   .subscribe(newuser =>
-      this.user = newuser);
+  checkPassword() {
+    this.passwordMatch = false;
+    this.passwordCheckMessage = 'Wachtwoorden zijn niet gelijk !!';
+    if (this.user.password === this.repeat_password) {
+      this.passwordMatch = true;
+      this.passwordCheckMessage = 'Wachtwoorden zijn gelijk !';
+    }
   }
 
   // Call our api through the service
 
   addUser() {
-    this.userService.addUser(this.user)
-    .subscribe(res => {
-      console.log(res);
-    });
+    this.userService
+      .addUser(this.user)
+      .first()
+      .subscribe(
+        res => {
+          console.log(res);
+          //  this.authenticationService.getCurrentUserId();
+          this.ErrorMsg = 'Registratie en Login Geslaagd ';
+        },
+        error => {
+          this.ErrorMsg = 'Registratie en Login Gefaald';
+        }
+      );
   }
 }

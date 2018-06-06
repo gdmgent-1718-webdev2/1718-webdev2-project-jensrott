@@ -28,6 +28,7 @@ class CreateProductsTable extends Migration
             $table->timestamps(); // Datum dat product is gemaakt
             $table->integer('category_id'); // Verbonden met category one to many
             // 1 category kan meerdere producten bevatten.
+            $table->softDeletes(); // Softdelete
         });
     }
 

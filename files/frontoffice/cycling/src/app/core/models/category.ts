@@ -5,4 +5,6 @@ export class Category {
     name: string;
     description: string;
     picture: Medium;
+    created_at: Date;
+    updated_at: Date;
 }

@@ -23,7 +23,7 @@
         </div>
         <div class="row">
 
-            <!-- Sidenavigation in partials -->
+            
             @include('partials.sidenav')
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
@@ -40,20 +40,22 @@
                             <tr>
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Offered By</th>
+                                <th class="text-center">Category</th>
                                 <th class="text-center">Detail</th>
                             </tr>
                             </thead>
                             @if(count($products) > 0)
-                                @foreach($products as $product)
-                                    <tbody>
-                                    <tr class="text-center">
-                                        <td class="align-middle">{{$product->name}}</td>
-                                        <td class="align-middle">{{$product->user->user_name}}</td>
-                                        <td class="align-middle">
-                                            <a class="btn btn-secondary" href="{{route('products.show', $product->id)}}">Detail</a>
-                                        </td>
-                                    </tr>
-                                    </tbody>
+                                @foreach($products as $product)                                
+                                            <tbody>
+                                            <tr class="text-center">
+                                                <td class="align-middle">{{$product->name}}</td>
+                                                <td class="align-middle">{{$product->user->user_name}}</td>
+                                                <td class="align-middle">{{$product->category->name}}</td>
+                                                <td class="align-middle">
+                                                    <a class="btn btn-secondary" href="{{route('products.show', $product->id)}}">Detail</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
                                 @endforeach
                             @else
                                 <td>No Products!</td>
@@ -65,4 +67,3 @@
         </div>
     </div>
 @endsection
-

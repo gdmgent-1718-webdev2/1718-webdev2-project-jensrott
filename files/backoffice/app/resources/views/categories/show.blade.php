@@ -11,7 +11,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Name: </span>{{$category->name}}</p></li>
                 <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Description: </span>{{$category->description}}</p></li>
-                <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Picture: </span>{{$category->picture}}</p></li>
+                <li class="list-group-item"><img src={{$category->picture}} alt="image"></li>
                 <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Date Created: </span>{{$category->created_at}}</p></li>
             </ul>
         </div>

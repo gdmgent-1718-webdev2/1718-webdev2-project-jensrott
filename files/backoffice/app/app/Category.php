@@ -20,7 +20,7 @@ class Category extends Model
      */
 
     /*** Relationship Products ***/
-    public function product() {
+    public function products() {
 
         return $this->hasMany(Product::class);
     }

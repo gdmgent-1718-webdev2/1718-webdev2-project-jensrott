@@ -8,7 +8,7 @@
       <h1 class="card-title">Categorie</h1>
       <div class="styled-select slate">
         <select>
-          <option></option>
+          <option *ngFor="let category of categories" [value]="category.id"> {{category.name}}</option>
         </select>
       </div>
       <h1 class="card-title">Maximum afstand</h1>
@@ -32,58 +32,20 @@
   </div>
   <div class="row">
     <div class="col-9">
-      <h2>Uw Resultaten</h2>
+      <h2>Uw Resultaten :</h2>
     </div>
     <div class="col-3" style="display: flex; justify-content: center; align-items: center;"  >
       <div class="button-container" >
         <button type="submit" class="main-button search-button">
-          <a class="main-button" href="/#">OVERZICHT</a>
+          <a class="main-button" href="/auction-overview">OVERZICHT</a>
         </button>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="card b-width table-card">
-      <table class="table">
-        <thead class="table-head">
-          <tr>
-            <th>
-              <h3>Locatie</h3>
-            </th>
-            <th>
-              <h3> Naam</h3>
-            </th>
-            <th>
-              <h3> Huidige Prijs</h3>
-            </th>
-          </tr>
-        </thead>
-        <tbody class="table-body">
-          <tr>
-            <td>
-              <p> 1,001</p>
-            </td>
-            <td>
-              <p>Lorem</p>
-            </td>
-            <td>
-              <p> ipsum</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p> 1,001</p>
-            </td>
-            <td>
-              <p>Lorem</p>
-            </td>
-            <td>
-              <p> ipsum</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <div>
+    <app-auctions-list [selectedCategory]="selectedCategory"></app-auctions-list>  
   </div>
+
+  
 
 </div>

@@ -1,25 +1,7 @@
 /* Helper functions we use througout the whole site */
 @import 'abstracts/variables';
 
-$border-bottom-line: 2px solid map-get($mainswatch, color-8);
-$margin-bottom: 10px;
 
-$card-background-color: map-get($mainswatch, color-7);
-$card-padding: 20px;
-$card-margin: 30px;
-$card-border-radius: 15px;
-$card-background-boxshadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-$card-text-color: map-get($mainswatch, color-2);
-
-$button-background-color: map-get($mainswatch, color-5); 
-$button-color: #fff;
-$button-border-radius: 20px;
-$button-padding: 15px;
-
-$change-button-color: map-get($mainswatch, color-4);
-$change-background-color: #ffffff; 
-$change-border-color: map-get($mainswatch, color-8);
-$change-button-border: 0.5px solid map-get($mainswatch, color-2);
 
 .border-line {
     border-bottom: $border-bottom-line;
@@ -70,7 +52,24 @@ $change-button-border: 0.5px solid map-get($mainswatch, color-2);
         transform: scale(.95);
         }
 }
-/* Profile cards helpers */
+
+/* added */
+/* Global styles for profile */
+
+input, textarea {
+    
+    color: $base-color;
+    font-size: $base-font-size;
+    font-family: $base-font-family;
+    
+    border-radius: $input-border-radius;
+    border: $input-border-color;
+    box-sizing: border-box; /* added */
+    width: 80%; /* added */
+    padding: $input-padding; /* added */
+}
+
+
 .sidebar {
     display: flex;
     justify-content: center;
@@ -127,6 +126,13 @@ $change-button-border: 0.5px solid map-get($mainswatch, color-2);
 .main-content {
     height: 100%;
     margin: 0; 
+}
+
+.create-bid-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    margin-top: 27px;
 }
 .delete-account-container {
     display: flex;

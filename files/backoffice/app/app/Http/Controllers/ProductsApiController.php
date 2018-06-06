@@ -20,7 +20,7 @@ class ProductsApiController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource // Not implemented for API route
      *
      * @return \Illuminate\Http\Response
      */
@@ -37,23 +37,36 @@ class ProductsApiController extends Controller
      */
     public function store(Request $request)
     {
-        $product = $request->isMethod('put') ? // We checken is het een PUT request? Dan updaten we gegevens
+        $product = Product::create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'picture' => $request->input('picture'),
+           // 'picture' => "/storage/images/". $fileNameToStore, // href in view is /public/storage/images , which points to /storage/app/public/images
+            'start_of_bid_period' => $request->input('start_of_bid_period'),
+            'end_of_bid_period' => $request->input('end_of_bid_period'),
+            'user_id' => $request->input('user_id'),
+            'category_id' => $request->input('category_id'),
+        ]);
+        
+        // Only creating new product is implemented ... Updating of a product will be handled later.
+        
+        //$product = $request->isMethod('put') ? // We checken is het een PUT request? Dan updaten we gegevens
             // zoniet maken we een nieuwe aan dus een POST request.
-            Product::findOrFail($request->product_id) : new Product();
+          //  Product::findOrFail($request->product_id) : new Product();
 
-        $product->id = $request->input('id');
-        $product->name = $request->input('name');
-        $product->description = $request->input('description');
-        $product->picture = $request->input('picture');
-        $product->start_of_bid_period = $request->input('start_of_bid_period');
-        $product->end_of_bid_period = $request->input('end_of_bid_period');
+        //$product->id = $request->input('id');
+        //$product->name = $request->input('name');
+        //$product->description = $request->input('description');
+        //$product->picture = $request->input('picture');
+        //$product->start_of_bid_period = $request->input('start_of_bid_period');
+        //$product->end_of_bid_period = $request->input('end_of_bid_period');
 
-        $product->user_id = $request->input('user_id');
-        $product->category_id = $request->input('category_id');
+        //$product->user_id = $request->input('user_id');
+        //$product->category_id = $request->input('category_id');
 
-        if($product->save()) {
-            return new ProductResource($product);
-        }
+        //if($product->save()) {
+        return new ProductResource($product); // returns a new Product resource to the client 
+        //}
     }
 
     /**

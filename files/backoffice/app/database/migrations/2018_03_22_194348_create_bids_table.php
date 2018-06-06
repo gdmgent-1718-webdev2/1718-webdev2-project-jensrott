@@ -24,8 +24,9 @@ class CreateBidsTable extends Migration
             $table->date('date'); // Updates every time someone makes a new bid
             $table->integer('user_id'); // We see which user made a bid
             $table->integer('product_id'); // We see for everyone product
-            $table->integer('value'); // Value of the item, updated every time
-            $table->string('status'); // Accepted, Pending, Declined
+            $table->integer('value'); // Value of the last bid, updated every time
+            $table->string('status'); // Accepted, Pending, Declined ; reflects if the auction is still running or if the product is finally sold
+            
         });
     }
 

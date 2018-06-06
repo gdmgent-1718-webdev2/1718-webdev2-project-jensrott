@@ -42,8 +42,8 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
-            'provider' => 'admins',
+            'driver' => 'jwt',
+            'provider' => 'users',
         ],
     ],
 
@@ -65,22 +65,14 @@ return [
     */
 
     'providers' => [
-        /*
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
-        */
-        // Now the login works with the admins table instead of users
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,  // for users, which are authenticated via API, direct access via database table (could as well be Eloquent model ?)
+         ],
     ],
 
     /*
@@ -101,6 +93,11 @@ return [
     'passwords' => [
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'users' => [
+            'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
         ],

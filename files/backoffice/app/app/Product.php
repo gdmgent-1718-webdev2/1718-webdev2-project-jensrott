@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use App\User as User;
 use App\Category as Category;
 use App\Bid as Bid;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    use SoftDeletes;
     protected $table = 'products';
 
     protected $fillable = [
-        'name',
         'name',
         'picture',
         'description',
@@ -21,6 +22,8 @@ class Product extends Model
         'start_of_bid_period',
         'end_of_bid_period',
     ];
+
+    protected $dates = ['deleted_at'];
 
     /**
      * Get the category that belong to the product.
@@ -41,7 +44,7 @@ class Product extends Model
     /*** Relationship Users ***/
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
     /**
@@ -62,7 +65,7 @@ class Product extends Model
      */
 
     /*** Relationship Bids ***/
-    public function bid() {
+    public function bids() {
         return $this->hasMany(Bid::class);
     }
 }

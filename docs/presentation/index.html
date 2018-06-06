@@ -29,10 +29,19 @@
             color: goldenrod;
         }
 
-        img {
-            width: 100px;
+        .sitemap_backoffice {
+            width: 1000px;
             height: auto;
+        }
 
+        img {
+            width: 400px;
+            height: auto;
+        }
+
+        .db-model {
+            width: 850px;
+            height: auto;
         }
     </style>
 </head>
@@ -54,12 +63,8 @@
             </section>
 
             <section data-markdown>
-                #### Ebay : 
-                [Ebay](https://www.benl.ebay.be/) is één van de meest bekend voorbeelden van een veilingsplatform Op ebay kan
-                je ook oud koersmateriaal kopen. 
-
-                Cycling vintage clothes: 
-                ![afbeelding](../assets/images/analyse/ebay1.JPG)
+                #### Ebay : [Ebay](https://www.benl.ebay.be/) is één van de meest bekend voorbeelden van een veilingsplatform Op ebay kan
+                je ook oud koersmateriaal kopen. Cycling vintage clothes: ![afbeelding](../assets/images/analyse/ebay1.JPG)
                 ![afbeelding](../assets/images/analyse/ebay2.JPG)
             </section>
 
@@ -93,31 +98,28 @@
                 <div class="title">Functionele specificaties Backoffice</div>
                 <ul>
                     <li>Inloggen</li>
-                    <li>Verder aanvullen later de gene die ik heb</li>
+                    <li>Registreren</li>
+                    <li>Uitloggen</li>
+                    <li>Afgeschermd van onbevoegden</li>
+                    <li>Gebruikers toevoegen die kunnen inloggen in de frontoffice</li>
+                    <li>User softdeleten, harddeleten, editen, aanmaken</li>
+                    <li>Products, Admins, Bids, Categories aanmaken, editen, verwijderen</li>
+                    <li>Overzichten van gegevens</li>
                 </ul>
 
             </section>
 
             <section>
                 <section>
-                    <div class="title">Visual Designs Backoffice</div>
+                    <div class="title">
+                        Sitemap Backoffice
+                    </div>
 
                 </section>
                 <section>
-                    <h1>Later meer</h1>
-                </section>
-                <section>
-                    <h1>Later meer</h1>
+                    <img class="sitemap_backoffice" src="../assets/images/sitemap/sitemap_backoffice.jpg" alt="image">
                 </section>
             </section>
-
-            <section>
-                <div class="title">
-                    Sitemap Backoffice
-                </div>
-            </section>
-
-
 
             <section>
                 <div class="title">Technische specificaties Frontoffice</div>
@@ -125,15 +127,19 @@
                     <li>Angular 5 of hoger</li>
                     <li>Node.js 8 of hoger</li>
                     <li>Yarn</li>
-
                 </ul>
             </section>
 
             <section>
                 <div class="title">Functionele specificaties Frontoffice</div>
                 <ul>
-                    <li>Inloggen</li>
-                    <li>Verder aanvullen later de gene die ik heb</li>
+                    <li>Registereren als gebruiker en inloggen</li>
+                    <li>Communiceert met de backoffice via REST API</li>
+                    <li>Authenticatie via JSON Web Tokens</li>
+                    <li>Klant kan eigen gegevens wijzigen (GUI only)</li>
+                    <li>Klant kan eigen producten en veilingen aanmaken</li>
+                    <li>Klant kan bieden op een product</li>
+                    <li>Klant kan een overzicht zien van veilingen waar hij kan op bieden</li>
                 </ul>
 
             </section>
@@ -144,49 +150,104 @@
 
                 </section>
                 <section>
-                    <h1>Later meer</h1>
+                    <div class="title">Desktop</div>
+                    <img src="../assets/images/design_frontoffice/Homepagina.jpg" alt="image">
+                    <br>
+                    <img src="../assets/images/design_frontoffice/Homepagina-1.jpg" alt="image">
+                    <br>
+
                 </section>
                 <section>
-                    <h1>Later meer</h1>
+                    <img src="../assets/images/design_frontoffice/Registreer pagina.jpg" alt="image">
+                    <br>
+                    <img src="../assets/images/design_frontoffice/Login_Pagina.jpg" alt="image">
+                    <br>
+                </section>
+                <section>
+                    <img src="../assets/images/design_frontoffice/Onze aanbiedingen.jpg" alt="image">
+                    <br>
+                    <img src="../assets/images/design_frontoffice/Profiel_persoon.jpg" alt="image">
+                    <br>
+                </section>
+                <section>
+                    <img src="../assets/images/design_frontoffice/Profiel_mijn_veilingen.jpg" alt="image">
+                    <br>
+                    <img src="../assets/images/design_frontoffice/Overzicht alle fietsen.jpg" alt="image">
+                    <br>
+                </section>
+                <section>
+                    <img src="../assets/images/design_frontoffice/detailpagina van een product.jpg" alt="image">
+                    <br>
+                </section>
+
+            </section>
+            <section>
+                <section>
+                    <div class="title">Visual Design Frontoffice</div>
+                </section>
+
+                <section>
+                    <div class="title">Mobile</div>
+                    <img src="../assets/images/design_frontoffice/Home_mobile.jpg" alt="image">
+                    <br>
+                </section>
+                <section>
+                    <img src="../assets/images/design_frontoffice/Contact_mobile.jpg" alt="image">
+                    <br>
+                </section>
+
+                <section>
+                    <img src="../assets/images/design_frontoffice/Register_mobile.jpg" alt="image">
+                    <br>
+                    <img src="../assets/images/design_frontoffice/Login_mobile.jpg" alt="image">
+                    <br>
+                </section>
+                <section>
+                    <img src="../assets/images/design_frontoffice/Profiel_mobile.jpg" alt="image">
+                    <br>
+                    <img src="../assets/images/design_frontoffice/Overzicht producten_mobile.jpg" alt="image">
+                    <br>
+                </section>
+
+                <section>
+                    <img src="../assets/images/design_frontoffice/Bieden detailpagina_mobile.jpg" alt="image">
+                    <br>
+                    <img src="../assets/images/design_frontoffice/Detailpagina van een product categorie_mobile.jpg" alt="image">
+                    <br>
+                </section>
+
+                <section>
+                    <img src="../assets/images/design_frontoffice/Maken_mobile.jpg" alt="image">
+                    <br>
+                    <img src="../assets/images/design_frontoffice/Veilingen_mobile.jpg" alt="image">
+                    <br>
+                </section>
+
+
+                <section>
+                    <img src="../assets/images/design_frontoffice/Hamburger_mobile.jpg" alt="image">
+                    <br>
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                <div class="title">
+                    Database model
+                </div>
+            </section>
+                <section>
+                    <img class="db-model" src="../assets/images/data_modeling/database_model.jpg" alt="image">
                 </section>
             </section>
 
             <section>
-                <div class="title">
-                    Wireflow Frontoffice
-                </div>
+                <div class="title">Demo van de volledige app</div>
             </section>
-
             <section>
                 <div class="title">Bedankt! Zijn er nog vragen?</div>
             </section>
-
-
-
-            <section id="themes">
-                <h2>Themes</h2>
-                <p>
-                    reveal.js comes with a few themes built in:
-                    <br>
-                    <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a>
-                    <br>
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-                </p>
-            </section>
-
-
-
-
         </div>
 
     </div>

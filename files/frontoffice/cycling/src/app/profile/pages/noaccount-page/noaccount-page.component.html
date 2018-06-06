@@ -1,52 +1,59 @@
 <!-- Later ga ik dit opdelen naar no-account-page en dan apart profile-page -->
 
 <div class="container">
-  <div class="row no-accounts-container">
-    <div class="col-6">
+    
+    
+  <h1>{{ErrorMsg}}</h1>
 
-      <form class="card login-form-card" action="post">
+<div class="row no-accounts-container">
+ <div class="col-6">
+     
 
-        <div class="border-line">
-          <h1 class="main-title center-text">Login</h1>
-        </div>
 
-        <h2>Email</h2>
-        <input class="form-input" type="email" name="email" id="email">
+   <form class="card login-form-card" action="post">
 
-        <h2>Wachtwoord</h2>
-        <input class="form-input" type="password" name="password" id="password">
+     <div class="border-line">
+       <h1 class="main-title center-text">Login</h1>
+     </div>
 
-        <div class="button-container">
-          <button type="submit" class="main-button login-button">
-            <a class="main-button" href="/login">Login</a>
-          </button>
-        </div>
-      </form>
-    </div>
-    <div class="col-6">
-      <div class="card no-account-card">
-        <div class="border-line">
-          <h1 class="main-title center-text">Nog geen account?</h1>
-        </div>
-        <div class="border-line">
-          <ul class="features-list">
-            <li>
-              <p> Bied unieke items aan</p>
-            </li>
-            <li>
-              <p> Kies zelf wat u wilt kopen of verkopen</p>
-            </li>
-            <li>
-              <p> Keuze uit honderden zoekertjes</p>
-            </li>
-          </ul>
-        </div>
-        <div class="button-container">
-          <button type="submit" class="main-button login-button">
-            <a class="main-button" href="/register">Maak een account</a>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+     <h2>Email</h2>
+     <input [(ngModel)]='user.email' class="form-input" type="email" name="email" id="email">
+
+     <h2>Wachtwoord</h2>
+     <input [(ngModel)]="user.password" class="form-input" type="password" name="password" id="password">
+
+     <div class="button-container">
+       <button (click)="login()" type="submit" class="main-button login-button">
+           <a class="main-button" >Login</a>
+       </button>
+     </div>
+   </form>
+   <span>{{errorMsg}}</span>
+ </div>
+ <div class="col-6">
+   <div class="card no-account-card">
+     <div class="border-line">
+       <h1 class="main-title center-text">Nog geen account?</h1>
+     </div>
+     <div class="border-line">
+       <ul class="features-list">
+         <li>
+           <p> Bied unieke items aan</p>
+         </li>
+         <li>
+           <p> Kies zelf wat u wilt kopen of verkopen</p>
+         </li>
+         <li>
+           <p> Keuze uit honderden zoekertjes</p>
+         </li>
+       </ul>
+     </div>
+     <div class="button-container">
+       <button type="submit" class="main-button login-button">
+         <a class="main-button" href="/register">Maak een account</a>
+       </button>
+     </div>
+   </div>
+ </div>
+</div>
 </div>

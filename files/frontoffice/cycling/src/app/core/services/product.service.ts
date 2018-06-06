@@ -15,28 +15,54 @@ export class ProductService {
   private _apiEndPointGetSpecific = environment.CyclingAPI.url + environment.CyclingAPI.productsEndPoints.getspecific;
   private _apiEndPointPost = environment.CyclingAPI.url + environment.CyclingAPI.productsEndPoints.post;
 
-  httpOptions = {
+/** End Points for oauth-based authorization */
+ private oauthUrl = environment.Cycling.url +  '/oauth/token' ;
+/** private usersUrl = environment.CyclingAPI.url + environment.CyclingAPI ; */
+
+  httpOptionsProduct = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'enctype': 'multipart/form-data',
-      'X-Requested-With': 'XMLHttpRequest'
+      'X-Requested-With': 'XMLHttpRequest',
+      /**'Accept': 'application/json'  /** from authorization tutorial */
     })
   };
 
+
+
   constructor(private _httpClient: HttpClient) { }
 
-    getProducts(): Observable<Array<Product>> {
-    return this._httpClient.get<Array<Product>>(this._apiEndPointGet);
-    }
+  getAccessToken() {
+    let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    });
 
-    getProductsById(id: number): Observable<Product> {
+    let postData = {
+        grant_type: 'password',
+        client_id: 2,
+        client_secret: 'xjlfjd',
+        username: 'password',
+        scope: ''
+    };
+    return this._httpClient.post(this.oauthUrl, JSON.stringify(postData), {
+        headers: headers
+    });
+
+  }
+
+  getProducts(): Observable<Array<Product>> {
+    return this._httpClient.get<Array<Product>>(this._apiEndPointGet);
+  }
+
+  getProductsById(id: number): Observable<Product> {
       const url = `${this._apiEndPointGetSpecific}${id}`;
       return this._httpClient.get<Product>(`${ url }`);
-    }
+  }
 
-    addProduct(product: Product) {
-      console.log(product);
-      return this._httpClient.post<Product>(this._apiEndPointPost, product, this.httpOptions);
-    }
+  addProduct(product: Product) {
+      /** console.log(product); */
+      return this._httpClient.post<Product>(this._apiEndPointPost, product, this.httpOptionsProduct);
+  }
 
 }

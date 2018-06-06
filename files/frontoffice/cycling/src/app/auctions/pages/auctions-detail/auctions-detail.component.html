@@ -1,3 +1,88 @@
-<p>
-  auctions-detail works!
-</p>
+<div class="container">
+  <div>
+    <h1 class="main-title">Bied op uw favoriet product !</h1>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <div class="card">
+        <div class="info-header">
+          <p class="action-id">{{selectedAuction.id}}</p>
+          <h2 class="action-category">{{selectedAuction.categoryName}}</h2>
+        </div>
+        <h1 class="card-header">{{selectedAuction.productName}}</h1>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6">
+              <img src="../../../../assets/images/freddy.jpg" class="auction-image-main" alt="auction-image">
+            </div>
+            <div class="col-6">
+              <h3>Omschrijving</h3>
+              <textarea class="auction-texarea" name="" id="" rows="5">{{selectedAuction.productDescription}}</textarea>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="card-images">
+          <div class="row">
+            <div class="col-4">
+              <img src="../../../../assets/images/eddy_roger.jpg" class="auction-image" alt="auction-image">
+            </div>
+            <div class="col-4">
+              <img src="../../../../assets/images/gino_coppi.jpg" class="auction-image" alt="auction-image">
+            </div>
+            <div class="col-4">
+              <img src="../../../../assets/images/lucien_tour.jpg" class="auction-image" alt="auction-image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="bid-information">
+          <div class="current-bid">
+            <p>Huidig bod (Euro) :
+              <b>{{selectedAuction.latestBid}}</b>
+            </p>
+          </div>
+          <div class="minimum-bid">
+            <p>Minimum bod (Euro) :
+              <b>110 </b>
+            </p>
+          </div>
+          <div class="end-in-bid">
+            <p> Einde van het aanbod :
+              <b>{{selectedAuction.end_of_bid_period}}</b>
+            </p>
+          </div>
+        </div>
+        <div class="bid-actions">
+          <div class="fast-bid">
+            <!--
+              <button class="main-button">120 €</button>
+               <button class="main-button">120 €</button>  
+            
+            <h3>Snel bieden</h3>
+            -->
+            <div class="buttons-container">
+              <button class="main-button"(click)="submitOrder()" >Order Plaatsen </button>
+               
+            </div>
+            <div class="own-bid">
+                <h3>Eigen bedrag (Euro)</h3>
+                
+                
+                <input type="text" required [(ngModel)]="currentBid" />
+            
+            
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

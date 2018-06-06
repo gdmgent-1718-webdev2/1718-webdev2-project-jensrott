@@ -11,7 +11,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Product Name: </span>{{$product->name}}</p></li>
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Description: </span>{{$product->description}}</p></li>
-                    <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Picture: </span>{{$product->picture}}</p></li>
+                    <li class="list-group-item"><img src={{$product->picture}} alt="image"></li>
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">Start Bid Period: </span>{{$product->start_of_bid_period}}</p></li>
                     <li class="list-group-item"><p class="card-text"><span class="font-weight-bold">End Bid Period: </span>{{$product->end_of_bid_period}}</p></li>
 

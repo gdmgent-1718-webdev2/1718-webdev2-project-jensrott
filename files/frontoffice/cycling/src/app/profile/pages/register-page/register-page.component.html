@@ -2,29 +2,38 @@
   <div class="row">
     <div class="col-12">
       <form class="card register-form" action="post" (ngSubmit)="addUser()">
-        <div class="border-line" *ngIf="users && users.length">
-          <h1 class="main-title">{{users[0].user_name}}</h1>
-        </div>
+        <h3>{{ErrorMsg}}</h3>
         <div class="border-line">
-          <h1 class="main-title center-text">Register</h1>
+          <h3 class="main-title center-text">Registreer</h3>
         </div>
 
         <label for="userName">
-          <h2>User</h2>
+          <h2>Gebruiker</h2>
         </label>
         <input required maxlength="30" class="form-input" type="text" name="user_name" id="user_name" [(ngModel)]="user.user_name">
+
+        <label for="first_name">
+            <h2>Voornaam</h2>
+          </label>
+          <input required maxlength="30" class="form-input" type="text" name="first_name" id="first_name" [(ngModel)]="user.first_name">
+          
+          <label for="last_name">
+              <h2>Achternaam</h2>
+            </label>
+            <input required maxlength="30" class="form-input" type="text" name="last_name" id="last_name" [(ngModel)]="user.last_name">
 
         <h2>Email</h2>
         <input class="form-input" type="email" name="email" id="email" [(ngModel)]="user.email">
 
         <h2>Wachtwoord</h2>
-        <input class="form-input" type="password" name="password" id="password" [(ngModel)]="user.password">
+        <input class="form-input" type="password" name="password" id="password" [(ngModel)]="user.password" (ngModelChange)="checkPassword()">
 
-        <h2>Wachtwoord</h2>
-        <input class="form-input" type="password" name="repeat-password" id="repeat-password" [(ngModel)]="user.password">
+        <h2>Herhaal Wachtwoord</h2>
+        <input class="form-input" type="password" name="repeat_password" id="repeat_password" [(ngModel)]="repeat_password" (ngModelChange)="checkPassword()">
+        {{passwordCheckMessage}}
 
         <div class="button-container">
-          <button type="submit" class="main-button register-button" (click)="addUser();">
+          <button type="submit" class="main-button register-button" [disabled]="!passwordMatch" >
             <a class="main-button">Registreer</a>
           </button>
         </div>

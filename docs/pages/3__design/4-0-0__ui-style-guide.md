@@ -6,6 +6,5 @@ permalink: design/ui-style-guide/
 title: UI Style Guide
 ---
 
-<button class="button-bid">test</button>
 
-TODO
+![afbeelding](../../assets/images/ui_styleguide/ui_styleguide.JPG){: .styleguide-image }  

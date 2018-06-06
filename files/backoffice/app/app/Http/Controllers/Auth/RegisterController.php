@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\User; // Users are created and login via the front office application (API -based)
 // We need to create and Admin later as admin we can add users
 use App\Admin;
 use App\Http\Controllers\Controller;

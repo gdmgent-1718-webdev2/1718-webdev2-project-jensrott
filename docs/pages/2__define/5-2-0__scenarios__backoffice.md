@@ -7,8 +7,6 @@ title: Backoffice
 ---
 
 # Als Gast (Kan je het minste doen) # 
-Als een gast op de backoffice wil ik de producten van de winkel zien.
-Ik klik op "our products" en ik kan de producten zien zonder mij in te loggen.
 
 Als gast wil ik mij inloggen als hoofdbeheerder.
 Ik klik op de "login" knop 

@@ -5,10 +5,6 @@ permalink: define/planning/
 # ─────────────────────
 title: Planning
 ---
-
-Work Breakdown Structure
-------------------------
-
 Gantt Chart
 -----------
 

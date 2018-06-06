@@ -16,11 +16,36 @@ export const environment = {
       delete: '/user/', // Id behind it
     },
     productsEndPoints: {
-      get: '/products', // All users
+      get: '/products', // All products
       post: '/product',
       getspecific: '/product/', // Id behind it
       put: '/product',
       delete: '/product/', // Id behind it
-    }
-  }
+    },
+    bidsEndPoints: {
+      get: '/bids', // All bids
+      post: '/bid',
+      getspecific: '/bid/', // Id behind it
+      put: '/bid',
+      delete: '/bid/', // Id behind it
+    },
+    categoriesEndPoints: {
+      get: '/categories', // All categories
+      post: '/category',
+      getspecific: '/category/', // Id behind it
+      put: '/category',
+      delete: '/category/', // Id behind it
+    },
+    auctionsEndPoints: {
+      get: '/auctions', // Overview of all on-going auctions
+      },
+    authEndPoints: {
+        login: '/login', // user authentication end point
+        register: '/register' // user register end point
+        },
+  },
+  Cycling: {
+    url: 'http://127.0.0.1:8000',
+  },
+
 };

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Bid;
 use Illuminate\Support\Facades\DB;
@@ -19,8 +20,9 @@ class BidsController extends Controller
     public function index()
     {
         $title = $this->title;
-        $bids = DB::table('bids')->orderBy('id', 'desc')->get();
-        return view('bids.index', compact('title','bids'));
+        // $bids = DB::table('bids')->orderBy('id', 'desc')->get();
+        $bids = Bid::all()->sortByDesc('product_id');
+        return view('bids.index', compact('title','bids', 'users', 'products'));
 
     }
 
@@ -33,8 +35,9 @@ class BidsController extends Controller
     {
         $users = User::all();
         $bids = Bid::all();
+        $products = Product::all();
         $title = $this->title;
-        return view('bids.create', compact('title', 'bids', 'users'));
+        return view('bids.create', compact('title', 'bids', 'users', 'products'));
     }
 
     /**
@@ -50,10 +53,24 @@ class BidsController extends Controller
             'value' => 'required|integer',
             'status' => 'required|string|max:50',
             'user_id' => 'required', // Probleem net als bij products, hij corespondeerd niet meer
+            'product_id' => 'required',
         ]);
 
-        $bid = Bid::create($request->all()); // Fout user_id heeft geen default value, is voorlopig niet erg.
-        //$product->save();
+        // $bid = Bid::create($request->all()); // Fout user_id heeft geen default value, is voorlopig niet erg.
+        // $product->save();
+        $bid = Bid::create([
+            'date' => $request->input('date'),
+            'value' => $request->input('value'),
+            'status' => $request->input('status'),
+            'user_id' => $request->input('user_id'),
+            'product_id' => $request->input('product_id'),
+        ]);
+
+
+
+
+
+
         compact('bid');
         $request->session()->flash('alert-dark', 'Bid was successful added!');
         return redirect('/bids');

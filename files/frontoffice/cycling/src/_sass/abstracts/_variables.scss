@@ -35,8 +35,31 @@ $input-border-radius: 15px;
 $input-border-color: 0.5px solid #697170;
 
 
-/* Header styles */
+$input-padding: 5px; /* added */
+
+
+/* Header styles */ /* Added */
 $header-background-color: #fff;
 $header-border-bottom: 0.5px solid #697170; 
 $headings-line-height: 1.5;
+
+$border-bottom-line: 2px solid map-get($mainswatch, color-8);
+$margin-bottom: 10px;
+
+$card-background-color: map-get($mainswatch, color-7);
+$card-padding: 20px;
+$card-margin: 30px;
+$card-border-radius: 15px;
+$card-background-boxshadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$card-text-color: map-get($mainswatch, color-2);
+
+$button-background-color: map-get($mainswatch, color-5); 
+$button-color: #fff;
+$button-border-radius: 20px;
+$button-padding: 15px;
+
+$change-button-color: map-get($mainswatch, color-4);
+$change-background-color: #ffffff; 
+$change-border-color: map-get($mainswatch, color-8);
+$change-button-border: 0.5px solid map-get($mainswatch, color-2);
 

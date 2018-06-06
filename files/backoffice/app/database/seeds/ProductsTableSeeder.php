@@ -16,7 +16,7 @@ class ProductsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         $products = [];
-        for($i = 1; $i <= 5; $i++) {
+        for($i = 1; $i <= 2; $i++) {
             $name = 'Fiets' . strval($i);
             $start_bid_period = $faker->dateTimeBetween('2018-02-01', '2018-04-31');
             $date = new DateTime();
@@ -25,7 +25,7 @@ class ProductsTableSeeder extends Seeder
             $products[] = [
                 'name' => $name,
                 'description' => $name.' uit 1956',
-                'picture' => 'f',
+                'picture' => '/images/image1.jpg',
                 'start_of_bid_period' => $start_bid_period, // Nog aanpassen
                 'end_of_bid_period' => $date->modify('+1 month'), // Nog aanpassen
                 'user_id' => $user,
@@ -35,7 +35,7 @@ class ProductsTableSeeder extends Seeder
             ];
         }
 
-        for($i = 1; $i <= 5; $i++) {
+        for($i = 1; $i <= 2; $i++) {
             $name = 'Foto' . strval($i);
             $start_bid_period = $faker->dateTimeBetween('2018-02-01', '2018-04-31');
             $date = new DateTime();
@@ -44,7 +44,7 @@ class ProductsTableSeeder extends Seeder
             $products[] = [
                 'name' => $name,
                 'description' => $name.' uit 1956',
-                'picture' => 'f',
+                'picture' => '/images/image1.jpg',
                 'start_of_bid_period' => $start_bid_period, // Nog aanpassen
                 'end_of_bid_period' => $date->modify('+1 month'), // Nog aanpassen
                 'user_id' => $user,
@@ -53,7 +53,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 2,
             ];
         }
-
+/*
         for($i = 1; $i <= 5; $i++) {
             $name = 'Schoen' . strval($i);
             $start_bid_period = $faker->dateTimeBetween('2018-02-01', '2018-04-31');
@@ -63,13 +63,13 @@ class ProductsTableSeeder extends Seeder
             $products[] = [
                 'name' => $name,
                 'description' => $name.' gedragen door Eddy Merckx in Parijs-Roubaix',
-                'picture' => 'f',
+                'picture' => '/images/image1.jpg',
                 'start_of_bid_period' => $start_bid_period, // Nog aanpassen
                 'end_of_bid_period' => $date->modify('+1 month'), // Nog aanpassen
                 'user_id' => $user,
                 'created_at' => $start_bid_period,
                 'updated_at' => new DateTime(),
-                'category_id' => 1,
+                'category_id' => 3,
             ];
         }
 
@@ -82,13 +82,13 @@ class ProductsTableSeeder extends Seeder
             $products[] = [
                 'name' => $name,
                 'description' => $name.' van Roger De Vlaeminck',
-                'picture' => 'f',
+                'picture' => '/images/image1.jpg',
                 'start_of_bid_period' => $start_bid_period, // Nog aanpassen
                 'end_of_bid_period' => $date->modify('+1 month'), // Nog aanpassen
                 'user_id' => $user,
                 'created_at' => $start_bid_period,
                 'updated_at' => new DateTime(),
-                'category_id' => 1,
+                'category_id' => 4,
             ];
         }
 
@@ -101,13 +101,13 @@ class ProductsTableSeeder extends Seeder
             $products[] = [
                 'name' => $name,
                 'description' => $name.' uit 1980',
-                'picture' => 'f',
+                'picture' => '/images/image1.jpg',
                 'start_of_bid_period' => $start_bid_period, // Nog aanpassen
                 'end_of_bid_period' => $date->modify('+1 month'), // Nog aanpassen
                 'user_id' => $user,
                 'created_at' => $start_bid_period,
                 'updated_at' => new DateTime(),
-                'category_id' => 1,
+                'category_id' => 5,
             ];
         }
 
@@ -120,13 +120,13 @@ class ProductsTableSeeder extends Seeder
             $products[] = [
                 'name' => $name,
                 'description' => $name.' Van Bartoli',
-                'picture' => 'f',
+                'picture' => '/images/image1.jpg',
                 'start_of_bid_period' => $start_bid_period, // Nog aanpassen
                 'end_of_bid_period' => $date->modify('+1 month'), // Nog aanpassen
                 'user_id' => $user,
                 'created_at' => $start_bid_period,
                 'updated_at' => new DateTime(),
-                'category_id' => 1,
+                'category_id' => 6,
             ];
         }
 
@@ -139,13 +139,13 @@ class ProductsTableSeeder extends Seeder
             $products[] = [
                 'name' => $name,
                 'description' => $name.' Gedragen door Jan Raas',
-                'picture' => 'f',
+                'picture' => '/images/image1.jpg',
                 'start_of_bid_period' => $start_bid_period, // Nog aanpassen
                 'end_of_bid_period' => $date->modify('+1 month'), // Nog aanpassen
                 'user_id' => $user,
                 'created_at' => $start_bid_period,
                 'updated_at' => new DateTime(),
-                'category_id' => 1,
+                'category_id' => 7,
             ];
         }
 
@@ -158,17 +158,17 @@ class ProductsTableSeeder extends Seeder
             $products[] = [
                 'name' => $name,
                 'description' => $name.' waar Freddy Maertens nog uit dronk',
-                'picture' => 'f',
+                'picture' => '/images/image1.jpg',
                 'start_of_bid_period' => $start_bid_period, // Nog aanpassen
                 'end_of_bid_period' => $date->modify('+1 month'), // Nog aanpassen
                 'user_id' => $user,
                 'created_at' => $start_bid_period,
                 'updated_at' => new DateTime(),
-                'category_id' => 1,
+                'category_id' => 8,
             ];
         }
 
-
+*/
         DB::table(self::TABLE)->insert($products);
     }
 }

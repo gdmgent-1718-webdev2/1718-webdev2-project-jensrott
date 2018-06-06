@@ -59,7 +59,22 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="offered_by" class="col-md-4 col-form-label text-md-right">{{ __('Offered by') }}</label>
+                                <label for="offered_by" class="col-md-4 col-form-label text-md-right">{{ __('Product') }}</label>
+
+                                <div class="col-md-6">
+
+                                    <select id="product_id" class="form-control {{ $errors->has('product_id') ? ' is-invalid' : '' }}" name="product_id">
+                                        @foreach($products as $product)
+                                            <option value="{{$product->id}}">
+                                                {{$product->name}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="offered_by" class="col-md-4 col-form-label text-md-right">{{ __('Bid by') }}</label>
 
                                 <div class="col-md-6">
 
@@ -72,6 +87,8 @@
                                     </select>
                                 </div>
                             </div>
+
+
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

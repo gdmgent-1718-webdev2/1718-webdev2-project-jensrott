@@ -1,4 +1,4 @@
-    @extends('layouts.app')
+@extends('layouts.app')
     @section('content')
         <!-- Maken van een user -->
         <div class="container">
@@ -67,10 +67,77 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <label for="address_street" class="col-md-4 col-form-label text-md-right">{{ __('Street') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="address_street" type="text" class="form-control{{ $errors->has('address_street') ? ' is-invalid' : '' }}" name="address_street" value="{{ old('address_street') }}">
+
+                                        @if ($errors->has('address_street'))
+                                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('address_street') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="address_number" class="col-md-4 col-form-label text-md-right">{{ __('Number') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="address_number" type="text" class="form-control{{ $errors->has('address_number') ? ' is-invalid' : '' }}" name="address_number" value="{{ old('address_number') }}">
+
+                                        @if ($errors->has('address_number'))
+                                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('address_number') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
 
 
+                                <div class="form-group row">
+                                    <label for="address_postcode" class="col-md-4 col-form-label text-md-right">{{ __('PostCode') }}</label>
 
+                                    <div class="col-md-6">
+                                        <input id="address_postcode" type="text" class="form-control{{ $errors->has('address_postcode') ? ' is-invalid' : '' }}" name="address_postcode" value="{{ old('address_postcode') }}">
 
+                                        @if ($errors->has('address_postcode'))
+                                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('address_postcode') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="address_location" class="col-md-4 col-form-label text-md-right">{{ __('Location') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="address_location" type="text" class="form-control{{ $errors->has('address_location') ? ' is-invalid' : '' }}" name="address_location" value="{{ old('address_location') }}">
+
+                                        @if ($errors->has('address_location'))
+                                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('address_location') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="address_country" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="address_country" type="text" class="form-control{{ $errors->has('address_country') ? ' is-invalid' : '' }}" name="address_country" value="{{ old('address_country') }}">
+
+                                        @if ($errors->has('address_country'))
+                                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('address_country') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>                               
+                                
                                 <h1>Password</h1>
 
                                 <div class="form-group row">

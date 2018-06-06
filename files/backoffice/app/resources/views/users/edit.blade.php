@@ -26,7 +26,7 @@
                             <div class="form-group row">
                                 <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" type="text" name="last_name" value="{{ old('last_name', $user->first_name) }}">
+                                    <input class="form-control" type="text" name="last_name" value="{{ old('last_name', $user->last_name) }}">
                                 </div>
                             </div>
                             <div class="form-group row mb-5">
