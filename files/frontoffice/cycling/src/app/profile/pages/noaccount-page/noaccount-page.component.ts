@@ -46,9 +46,5 @@ export class NoAccountPageComponent implements OnInit {
                 });
 
     }
-  
-  
-
-  
 
 }

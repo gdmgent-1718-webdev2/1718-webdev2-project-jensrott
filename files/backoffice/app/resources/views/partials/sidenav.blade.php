@@ -9,7 +9,6 @@
         </h4>
 
         <ul class="nav flex-column">
-
             <li class="nav-item">
                 <a class="nav-link disabled" href="/home">
                     <span data-feather="home"></span>

@@ -18,7 +18,6 @@ class PagesController extends Controller
     // Eventueel later een aparte controller als mijn profiel uitgebreid word
     public function profile() {
         $this->title = 'Profile';
-        // $firstSuperAdmin = Admin::all()->firstWhere('role', '=', 'Admin'); // Cool! ;p
         $Admin = Auth::user();
         return view('admins.profile', compact('title', 'Admin'));
     }

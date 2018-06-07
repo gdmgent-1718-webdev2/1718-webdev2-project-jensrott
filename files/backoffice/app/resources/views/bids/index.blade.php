@@ -51,7 +51,7 @@
                                     <tr class="text-center">
                                         <td class="align-middle">{{$bid->date}}</td>
                                         <td class="align-middle">{{$bid->product->name}}</td>
-                                        <td class="align-middle">{{$bid->value}}</td>
+                                        <td class="align-middle">{{$bid->value}} €</td>
                                         <td class="align-middle">{{$bid->user->user_name}}</td>
 
                                         <td class="align-middle">

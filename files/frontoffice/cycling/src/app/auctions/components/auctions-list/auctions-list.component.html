@@ -5,31 +5,21 @@
 <h2>
   Selecteer het product waar u op wilt bieden !
 </h2>
-
-<!--
-  <div *ngFor="let product of products">
-    <h1>{{product.name}}</h1>
-  </div>
-  -->
-
-
-
 <div class="card b-width table-card">
-
   <table class="table">
     <thead>
       <tr>
         <th>
-          <h3>ProductNaam</h3>
+          <h3>Naam</h3>
         </th>
         <th>
-          <h3> Eigenaar</h3>
+          <h3>Eigenaar</h3>
         </th>
         <th>
           <h3> Locatie</h3>
         </th>
         <th>
-          <h3> Laatste Bod (Euro)
+          <h3> Hoogste Bod (Euro)
           </h3>
         </th>
         <th>
@@ -38,13 +28,10 @@
 
       </tr>
     </thead>
-
     <tbody>
       <!--   <div class="table" *ngIf = "selectedCategory"> -->
-
+        
       <tr *ngFor="let auction of auctions" (click)="onSelect(auction)">
-
-
         <td>
           <p> {{auction.productName}} </p>
         </td>
@@ -55,21 +42,16 @@
           <p> {{auction.productLocation}}</p>
         </td>
         <td>
-          <p>{{auction.latestBid}} </p>
+          <p>{{auction.latestBid}} € </p>
         </td>
         <td>
           <p> {{auction.end_of_bid_period}}</p>
         </td>
-
       </tr>
-      <!-- </div>  -->
     </tbody>
-
-
   </table>
 </div>
 
 <div>
   <app-auctions-detail [selectedAuction]="selectedAuction"></app-auctions-detail>
-
 </div>

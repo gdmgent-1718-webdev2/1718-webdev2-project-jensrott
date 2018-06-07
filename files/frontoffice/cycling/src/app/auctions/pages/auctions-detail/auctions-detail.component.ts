@@ -10,7 +10,9 @@ import { AuthenticationService } from '../../../core/services/authentication.ser
   styleUrls: ['./auctions-detail.component.scss']
 })
 export class AuctionsDetailComponent implements OnInit {
-  @Input() selectedAuction: Auction = null;
+  @Input()
+  selectedAuction: Auction = null;
+
   splittedDate: Array<string>;
 
   currentBid: string;
@@ -40,8 +42,8 @@ export class AuctionsDetailComponent implements OnInit {
   submitOrder() {
     console.log('currentBid');
     console.log(this.currentBid);
-    this.today = this.currentDate.toISOString();
-    this.splittedDate = this.today.split('T', 2);
+    this.today = this.currentDate.toISOString(); // ISO string is at the end with T
+    this.splittedDate = this.today.split('T', 2); // Split everything before T so that backend understands
     console.log(this.splittedDate);
     console.log(this.today);
     this.bid.user_id = this.authenticationService.getCurrentUserId();

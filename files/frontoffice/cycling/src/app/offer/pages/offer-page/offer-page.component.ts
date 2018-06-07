@@ -14,6 +14,8 @@ export class OfferPageComponent implements OnInit {
 
   public selectedCategory: string ;
   public selectedCategory_id: string;
+
+  private succesMessage: string = '';
   private product: Product   = {  // temporarily limited to a subset of the fields
    id: 1,
    name: '',
@@ -72,6 +74,7 @@ export class OfferPageComponent implements OnInit {
     .subscribe(res => {
       console.log(res);
       this.newProduct = res;
+      this.succesMessage = 'Veiling is succesvol aangemaakt!';
       console.log(this.newProduct);
     });
   }

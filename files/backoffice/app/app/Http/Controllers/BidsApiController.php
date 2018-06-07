@@ -49,7 +49,7 @@ class BidsApiController extends Controller
             //'status' => 'Active',
         ]);
         
-        return new BidResource($bid); // returns a new Product resource to the client 
+        return new BidResource($bid); // returns a new Bid resource to the client 
     }
 
     /**

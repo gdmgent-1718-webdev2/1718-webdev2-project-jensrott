@@ -42,7 +42,7 @@ class CategoriesApiController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'picture' => $request->input('picture'),
-             ]);   
+        ]);   
 
         /**
          * $category = $request->isMethod('put') ? // We checken is het een PUT request? Dan zoeken we naar de user_id

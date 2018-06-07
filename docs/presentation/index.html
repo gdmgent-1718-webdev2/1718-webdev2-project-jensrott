@@ -26,7 +26,7 @@
             font-size: 150px;
             font-weight: bold;
             margin-bottom: 80px;
-            color: goldenrod;
+            color: #daa520;
         }
 
         .sitemap_backoffice {
@@ -47,10 +47,8 @@
 </head>
 
 <body>
-
+    
     <div class="reveal">
-
-
         <div class="slides">
             <section>
                 <div class="title">Cycling Vintage Shop</div>
@@ -62,19 +60,32 @@
                 </p>
             </section>
 
-            <section data-markdown>
-                #### Ebay : [Ebay](https://www.benl.ebay.be/) is één van de meest bekend voorbeelden van een veilingsplatform Op ebay kan
-                je ook oud koersmateriaal kopen. Cycling vintage clothes: ![afbeelding](../assets/images/analyse/ebay1.JPG)
-                ![afbeelding](../assets/images/analyse/ebay2.JPG)
+            <section>
+                <div class="title">Analyse</div>
+                <div class="sub-title">Voorbeelden bekende websites:</div>
+                <ul>
+                    <li>
+                        <a href="https://www.benl.ebay.be/">Ebay</a>
+                    </li>
+                    <li>
+                        <a href="https://www.catawiki.be/">Catawiki</a>
+                    </li>
+                    <li>
+                        <a href="https://www.2dehands.be/">2dehands.be</a>
+                    </li>
+                </ul>
+                <br>
+                <img src="../assets/images/analyse/ebay1.JPG" alt="image">
+                <img src="../assets/images/analyse/ebay2.JPG" alt="image">
             </section>
 
             <section>
-                <div class="title">Concept</div>
-                <p>Ontwerp en codeer de Application Programming Interface van het thematisch veilingsplatform. De API is een
-                    onderdeel van de backend van het systeem waarmee de frontoffice (en eventueel ook de frontend van de
-                    backoffice) communiceert.
-                </p>
-
+                <div class="title">Opdracht</div>
+                <ul>
+                    <li>Backoffice: webapplicatie voor de beheerders van het platform.</li>
+                    <li>Frontoffice: webapplicatie voor de klanten van het platform.</li>
+                    <li>API: De API is een onderdeel van de backend van het systeem waarmee de frontoffice communiceert.</li>
+                </ul>
             </section>
 
             <section>
@@ -101,23 +112,22 @@
                     <li>Registreren</li>
                     <li>Uitloggen</li>
                     <li>Afgeschermd van onbevoegden</li>
+                    <li>Tymon JWT-auth</li>
                     <li>Gebruikers toevoegen die kunnen inloggen in de frontoffice</li>
                     <li>User softdeleten, harddeleten, editen, aanmaken</li>
                     <li>Products, Admins, Bids, Categories aanmaken, editen, verwijderen</li>
                     <li>Overzichten van gegevens</li>
                 </ul>
-
             </section>
 
             <section>
                 <section>
                     <div class="title">
-                        Sitemap Backoffice
+                        Database model
                     </div>
-
                 </section>
                 <section>
-                    <img class="sitemap_backoffice" src="../assets/images/sitemap/sitemap_backoffice.jpg" alt="image">
+                    <img class="db-model" src="../assets/images/data_modeling/database_model.jpg" alt="image">
                 </section>
             </section>
 
@@ -133,7 +143,7 @@
             <section>
                 <div class="title">Functionele specificaties Frontoffice</div>
                 <ul>
-                    <li>Registereren als gebruiker en inloggen</li>
+                    <li>Registreren als gebruiker en inloggen</li>
                     <li>Communiceert met de backoffice via REST API</li>
                     <li>Authenticatie via JSON Web Tokens</li>
                     <li>Klant kan eigen gegevens wijzigen (GUI only)</li>
@@ -229,17 +239,6 @@
                     <br>
                 </section>
 
-            </section>
-
-            <section>
-                <section>
-                <div class="title">
-                    Database model
-                </div>
-            </section>
-                <section>
-                    <img class="db-model" src="../assets/images/data_modeling/database_model.jpg" alt="image">
-                </section>
             </section>
 
             <section>

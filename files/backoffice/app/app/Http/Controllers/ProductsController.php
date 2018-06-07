@@ -82,6 +82,7 @@ class ProductsController extends Controller
             'description' => $request->input('description'),
            // 'picture' => $request->input('picture'),
            'picture' => "/storage/images/". $fileNameToStore, // href in view is /public/storage/images , which points to /storage/app/public/images
+            // That's why we need to put a symbolic link to it.
             'start_of_bid_period' => $request->input('start_of_bid_period'),
             'end_of_bid_period' => $request->input('end_of_bid_period'),
             'user_id' => $request->input('user_id'),

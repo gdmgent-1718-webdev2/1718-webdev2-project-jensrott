@@ -13,8 +13,8 @@ export class RegisterPageComponent implements OnInit {
     // temporarily limited to a subset of fields
     id: '',
     user_name: '',
-    first_name: 'TBD',
-    last_name: 'TBD',
+    first_name: '',
+    last_name: '',
     email: '',
     password: '',
     address_street: 'TBD',

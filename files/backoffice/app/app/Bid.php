@@ -22,8 +22,8 @@ class Bid extends Model
     /*** Relationship Products ***/
     public function product() {
 
-        //return $this->belongsTo(Product::class);
-        return $this->belongsTo('App\Product','product_id', 'id');
+        //retSurn $this->belongsTo(Product::class);
+        return $this->belongsTo('App\Product','product_id', 'id'); // Gives the same result
     }
     // Many to one, many bids belong to one user (one user can bid multiple times)
     public function user()

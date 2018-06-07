@@ -8,4 +8,4 @@ title: Planning
 Gantt Chart
 -----------
 
-Zie excel file
+![afbeelding](../../assets/images/gant_chart/gant_chart.JPG){:.gant_chart}

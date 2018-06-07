@@ -9,10 +9,13 @@ use Illuminate\Support\Facades\Hash;
 //use JWTAuth;
 //use JWTAuthException;
 
+/*
+* the Auth controller for users registering and logging in remotely
+* Tymon jwt-auth : https://github.com/tymondesigns/jwt-auth
+*/
+
 class AuthController extends Controller
 {
-    // the Auth controller for users registering and logging in remotely
-
     public function __construct()
     {
       $this->middleware('guest:api');
@@ -26,32 +29,23 @@ class AuthController extends Controller
         'last_name' => $request->input('last_name'),
         'email' => $request->input('email'),
         'password' => Hash::make($request->input('password')),
-
        // 'cover_image' => $fileNameToStore,
-
-        
         'address_street' => $request->input('address_street'),
         'address_number' => $request->input('address_number'),
         'address_postcode' => $request->input('address_postcode'),
         'address_location' => $request->input('address_location'),
         'address_country' => $request->input('address_country'),
-        
-
         //'status' => 'Active',
     ]);          
-
-
-
       $token = auth('api')->login($user);
       $user = auth('api')->user($token);
       return $this->respondWithToken(auth('api')->refresh(),$user);
 
     }
 /*
-*
+* Get a JWT via given credentials.
 *
 */
-
     public function login(Request $request)
     {
       $credentials = $request->only(['email', 'password']);
@@ -65,8 +59,8 @@ class AuthController extends Controller
 
 
 /*
-*
-* respond function provides as well token as user in a JSON format
+* Respond function provides as well token as user in a JSON format
+* 
 */
 
     protected function respondWithToken($token,$user)
@@ -75,9 +69,7 @@ class AuthController extends Controller
         'access_token' => $token,
         'token_type' => 'bearer',
         'expires_in' => auth('api')->factory()->getTTL() * 60,
-        'user' => $user
-        
-       
+        'user' => $user // Give user also back
       ]);
     }
 }
