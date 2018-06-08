@@ -22,20 +22,20 @@ Cycling vintage clothes:
 Op [2dehands.be](https://www.2dehands.be/) kan je ook retro koerskledij en koerstruitjes vinden
 Koerstruitjes:  
 
-![afbeelding](../../assets/images/analyse/2dehands1.JPG)
+![afbeelding]({{ 'assets/images/analyse/2dehands1.JPG' | relative_url }})
 {:.hands}
 
-![afbeelding](../../assets/images/analyse/2dehands2.JPG)
+![afbeelding]({{ 'assets/images/analyse/2dehands2.JPG' | relative_url }})
 {:.hands}
 
-![afbeelding](../../assets/images/analyse/2dehands3.JPG)
+![afbeelding]({{ 'assets/images/analyse/2dehands3.JPG' | relative_url }})
 {:.hands}
 
 #### catawiki.be 
 Op [catawiki](https://www.catawiki.be/) kan je ook nieuwe of oude fietsen kopen
 Wat ik goed vind aan deze website zijn de timers.
 Dit is omdat de website voor veilingen is  
-![afbeelding](../../assets/images/analyse/catawiki1.JPG)
+![afbeelding]({{ 'assets/images/analyse/catawiki1.JPG' | relative_url }})
 
 ### Websites meer specifiek voor wielerkledij: 
 
@@ -44,12 +44,12 @@ Retro cycling clothing:
 
 Bij [wieleroutfits.nl](https://www.wieleroutfits.nl/) kan je alle soorten fietskledij kopen retro of moderne kledij.
 
-![afbeelding](../../assets/images/analyse/wieleroutfits1.JPG)
+![afbeelding]({{ 'assets/images/analyse/wieleroutfits1.JPG' | relative_url }})
 
 #### Magliamo Cycling gear 
 
-![afbeelding](../../assets/images/analyse/magliamo1.JPG)
-![afbeelding](../../assets/images/analyse/magliamo2.JPG)
+![afbeelding]({{ 'assets/images/analyse/magliamo1.JPG' | relative_url }})
+![afbeelding]({{ 'assets/images/analyse/magliamo2.JPG' | relative_url }})
 
 [Magliamo](https://www.magliamo.be/nl/) is vooral gespecialiseerd in het verkopen van vintage wielrenners kledij
 Er is ook de mogelijkheid om je eigen truitjes te laten ontwerpen

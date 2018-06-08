@@ -7,4 +7,4 @@ title: UI Style Guide
 ---
 
 
-![afbeelding](../../assets/images/ui_styleguide/ui_styleguide.JPG){: .styleguide-image }  
+![afbeelding]({{ 'assets/images/ui_styleguide/ui_styleguide.JPG' | relative_url }}){: .styleguide-image }  
