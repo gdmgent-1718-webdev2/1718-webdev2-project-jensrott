@@ -28,7 +28,7 @@ title: Frontoffice
 ![afbeelding]({{ 'assets/images/design_frontoffice/Profiel_mobile.jpg' | relative_url }}) 
 ![afbeelding]({{ 'assets/images/design_frontoffice/Overzicht producten_mobile.jpg' | relative_url }}) 
 ![afbeelding]({{ 'assets/images/design_frontoffice/Bieden detailpagina_mobile.jpg' | relative_url }}) 
-![afbeelding]({{ 'assets/images/design_frontoffice/Detailpagina van een product categorie_mobile.jpg' | relative_url }}) 
+![afbeelding]({{ 'assets/images/design_frontoffice/detailpagina van een product categorie_mobile.jpg' | relative_url }}) 
 ![afbeelding]({{ 'assets/images/design_frontoffice/Maken_mobile.jpg' | relative_url }}) 
 ![afbeelding]({{ 'assets/images/design_frontoffice/Veilingen_mobile.jpg' | relative_url }}) 
 ![afbeelding]({{ 'assets/images/design_frontoffice/Hamburger_mobile.jpg' | relative_url }}) 
