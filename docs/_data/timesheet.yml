@@ -1,6 +1,7 @@
 # ╔═════════╗
 # ║ Student ║
 # ╚═════════╝
+
 -
   time: 2.00
   task: Leren van Laravel (26/02/2018)
@@ -95,9 +96,9 @@
   time: 6.00
   task: Gecodeerd aan de frontoffice (01/04/2018)
 -
- time: 2.00
- task: Gecodeerd aan de frontoffice (02/04/2018)
--  
+  time: 2.00
+  task: Gecodeerd aan de frontoffice (02/04/2018)
+-
   time: 4.00
   task: Gecodeerd aan de frontoffice (03/04/2018)
 -
@@ -193,4 +194,3 @@
 -
   time: 6.00
   task: Cleanup van alles, productiedossier volledig klaar en presentatie (06/06/2018)
--
