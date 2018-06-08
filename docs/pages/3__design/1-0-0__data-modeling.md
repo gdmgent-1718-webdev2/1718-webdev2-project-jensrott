@@ -11,4 +11,4 @@ EER
 
 Tekening database model
 
-![afbeelding]({{ 'assets/images/data_modeling/database_model.JPG' | absolute_url }}){:.datamodel}
+![afbeelding]({{ 'assets/images/data_modeling/database_model.jpg' | absolute_url }}){:.datamodel}

@@ -9,4 +9,4 @@ title: Sitemap
 Backoffice
 ----------
 
-![afbeelding]({{ 'assets/images/sitemap/sitemap_backoffice.JPG' | relative_url }})
+![afbeelding]({{ 'assets/images/sitemap/sitemap_backoffice.jpg' | relative_url }})
