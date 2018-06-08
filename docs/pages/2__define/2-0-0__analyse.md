@@ -15,8 +15,8 @@ title: Analyse
 Op ebay kan je ook oud koersmateriaal kopen.
 
 Cycling vintage clothes:  
-![afbeelding](../../assets/images/analyse/ebay1.JPG)
-![afbeelding](../../assets/images/analyse/ebay2.JPG)
+![afbeelding]({{ 'assets/images/analyse/ebay1.JPG' | relative_url }})
+![afbeelding]({{ 'assets/images/analyse/ebay2.JPG' | relative_url }})
 
 #### 2dehands.be : 
 Op [2dehands.be](https://www.2dehands.be/) kan je ook retro koerskledij en koerstruitjes vinden
