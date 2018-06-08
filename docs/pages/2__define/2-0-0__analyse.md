@@ -6,6 +6,7 @@ permalink: define/analyse/
 title: Analyse
 ---
 
+
 ## Concurrentie Analyse: 
 
 ### Zeer grootschalige websites: 
